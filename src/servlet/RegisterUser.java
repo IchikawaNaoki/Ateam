@@ -20,6 +20,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,30 +47,37 @@ import model.User;
 public class RegisterUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public List<GetDB>findAll(){
+		List<GetDB>empList = new ArrayList<>();
 
+		//データベースへ接続
 		try(Connection conn = DriverManager.getConnection(
 			       "jdbc:sqlserver://MGT2019\\SQLEXPRESS;databaseName=TeamA","TeamA","teama")){
-				//SELECT文を準備
-				String sql = "SELECT * FROM 社員個人データ表";
-				Statement pStmt = conn.createStatement();
 
-				//SELECTを実行し、結果表を取得
-				ResultSet rs = pStmt.executeQuery(sql);
+			//SELECT文を準備
+			String sql = "SELECT * FROM 社員個人データ表";
+			Statement pStmt = conn.createStatement();
 
-				//結果表に格納されたレコードの内容を
-				//Employeeインスタンスに設定し、ArrayListインスタンスに追懐
-				while(rs.next()) {
-					int id = rs.getInt("社員ID");
-					String name = rs.getString("社員名");
-					String department = rs.getString("所属");
-					GetDB employee = new GetDB(id, name, department);
-					empList.add(employee);
-				}
-			}catch(SQLException e ) {
-				e.printStackTrace();
-				return null;
-				}
+			//SELECTを実行し、結果表を取得
+			ResultSet rs = pStmt.executeQuery(sql);
+
+			//結果表に格納されたレコードの内容を
+			//Employeeインスタンスに設定し、ArrayListインスタンスに追懐
+			while(rs.next()) {
+				int id = rs.getInt("社員ID");
+				String name = rs.getString("社員名");
+				String department = rs.getString("所属");
+				GetDB employee = new GetDB(id, name, department);
+				empList.add(employee);
+			}
+		}catch(SQLException e ) {
+			e.printStackTrace();
+			return null;
+		}
+		return empList;
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//フォワード先
 		String forwardPath = null;
