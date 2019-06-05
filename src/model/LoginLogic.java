@@ -13,6 +13,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -26,22 +27,26 @@ import java.sql.SQLException;
 //-------------------------------------------------------------------------------------------------------------
 public class LoginLogic {
 	//JFrame frame = new JFrame();
-	Connection connection;
-	ResultSet rs;
 
 	public boolean execute(User user) {
-		//接続するときのタイムアウト時間を設定
+		//接続するときのタイムアウト時間を設定(5分)
 		DriverManager.setLoginTimeout(300);
 
 		//接続
-		try {
-			connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sample" , "id" , "pass");
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sample" , "id" , "pass")){
+			//SQLを準備して実行
+			String sql = "select id , pass from sample";
+			PreparedStatement pStmt = connection.prepareStatement(sql);
+			ResultSet rs = pStmt.executeQuery();
+
 			if(user.getPass().equals(rs.getString("pass")))
 					return true;
 		}
 
 		catch(SQLException e) {
-			System.out.println("エラー！データベース接続されてねーよ！");
+			System.out.println("エラーですの！おデータベースが接続されておりませんわ");
+			e.printStackTrace();
+
 			return false;
 
 			//ポップアップウィンドウ なぜか重いのでいらんかも
