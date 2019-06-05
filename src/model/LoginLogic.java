@@ -13,7 +13,12 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+//import javax.swing.JFrame;
+//import javax.swing.JOptionPane;
 
 //-------------------------------------------------------------------------------------------------------------
 //LoginLogicクラス
@@ -21,20 +26,36 @@ import java.sql.SQLException;
 //ユーザのパスワードが合っているかどうかの判定
 //-------------------------------------------------------------------------------------------------------------
 public class LoginLogic {
+	//JFrame frame = new JFrame();
+
 	public boolean execute(User user) {
-		try {
-			Connection connection = DriverManager.getConnection("jdbc:sqlserver://MGT2019\\\\SQLEXPRESS;databaseName=TeamA");
-			//connection.getWarnings();
+		//接続するときのタイムアウト時間を設定(5分)
+		DriverManager.setLoginTimeout(300);
+
+		//接続
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sample" , "id" , "pass")){
+			//SQLを準備して実行
+			String sql = "select id , pass from sample";
+			PreparedStatement pStmt = connection.prepareStatement(sql);
+			ResultSet rs = pStmt.executeQuery();
+
+			if(user.getPass().equals(rs.getString("pass")))
+					return true;
 		}
+
 		catch(SQLException e) {
+			System.out.println("エラーですの！おデータベースが接続されておりませんわ");
+			e.printStackTrace();
+
+			return false;
+
+			//ポップアップウィンドウ なぜか重いのでいらんかも
+			//JOptionPane.showMessageDialog(frame , "unko" , "unko" , JOptionPane.ERROR_MESSAGE);
 		}
 
-		finally {
-		}
 
-		if(user.getPass().equals("takahashiisgod") && user.getName().equals("takahashiisgod")) {
-			return true;
-		}
+		finally {}
+
 
 		return false;
 	}

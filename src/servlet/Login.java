@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +24,6 @@ public class Login extends HttpServlet {
 		String pass = request.getParameter("pass");
 		String post = request.getParameter("post");
 
-
 		//Userインスタンス(ユーザ情報)の生成
 		User user = new User(id , name, pass, post);
 
@@ -39,9 +37,5 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser" , user);
 		}
-
-		//　ログイン結果画面をフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
-		dispatcher.forward(request, response);
 	}
 }
