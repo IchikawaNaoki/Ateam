@@ -28,14 +28,14 @@ public class LoginLogic {
 		}
 		catch(SQLException e) {
 		}
-		
+
 		finally {
 		}
-		
+
 		if(user.getPass().equals("takahashiisgod") && user.getName().equals("takahashiisgod")) {
 			return true;
 		}
-		
+
 		return false;
 	}
 }

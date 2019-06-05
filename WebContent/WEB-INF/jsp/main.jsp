@@ -1,7 +1,11 @@
 
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="model.User" %>
+<% User loginUser = (User)session.getAttribute("loginUser"); %>
 
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="UTF-8">
 <title>在籍管理システム</title>
@@ -9,7 +13,8 @@
 <body>
 <p>
 <c:out value="${loginUser.name}" />さん、ログイン中
-<a href="aTeam">ログアウト</a>
+<a href="/aTeam/Logout">ログアウト</a>
+
 </p>
 
 <input type="button" value="東京"
