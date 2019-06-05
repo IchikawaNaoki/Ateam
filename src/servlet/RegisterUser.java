@@ -1,5 +1,19 @@
+//-------------------------------------------------------------------------------------------------------------
+//プログラム名 :	在籍管理アプリケーション
+//ファイル名 :		RegisterUser.java
+//作成者	:			システム部 髙橋晟太
+//作成日	:			2019/06/04
+//更新日	:			2019/06/05 髙橋晟太
+//-------------------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------------------
+//パッケージ
+//-------------------------------------------------------------------------------------------------------------
 package servlet;
 
+//-------------------------------------------------------------------------------------------------------------
+//インポート
+//-------------------------------------------------------------------------------------------------------------
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,12 +23,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import model.RegisterUserLogic;
 import model.User;
 
+//-------------------------------------------------------------------------------------------------------------
+//アノテーション
+//-------------------------------------------------------------------------------------------------------------
 @WebServlet("/RegisterUser")
 
+//-------------------------------------------------------------------------------------------------------------
+//RegisterUserクラス
+//-------------------------------------------------------------------------------------------------------------
 public class RegisterUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,8 +57,12 @@ public class RegisterUser extends HttpServlet {
 			User registerUser = (User)session.getAttribute("registerUser");
 
 			//登録処理の呼び出し
-			RegisterUserLogic logic = new RegisterUserLogic();
-			logic.execute(registerUser);
+			RegisterUserLogic registerUserLogic = new RegisterUserLogic();
+			boolean isRegister = registerUserLogic.execute(registerUser);
+			
+			if(!isRegister) {
+				JOptionPane.showMessageDialog(null , "登録に失敗しました。");
+			}
 
 			//不要となったセッションスコープ内のインスタンスを削除
 			session.removeAttribute("registerUser");
@@ -53,12 +78,17 @@ public class RegisterUser extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
+
+		//社員ID、名前、パスワード、部署
+		//intにgetparameteerないんでparse
+		String strId = request.getParameter("id");
+		int id = Integer.parseInt(strId);
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
+		String post = request.getParameter("post");
 
 		//登録するユーザの情報を設定
-		User registerUser = new User(0, id , name , pass);
+		User registerUser = new User(id , name , pass , post);
 
 		//セッションスコープに登録ユーザの情報を設定
 		HttpSession session = request.getSession();

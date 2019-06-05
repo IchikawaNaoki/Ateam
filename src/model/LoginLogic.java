@@ -11,9 +11,9 @@
 //-------------------------------------------------------------------------------------------------------------
 package model;
 
-//-------------------------------------------------------------------------------------------------------------
-//インポート
-//-------------------------------------------------------------------------------------------------------------
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 //-------------------------------------------------------------------------------------------------------------
 //LoginLogicクラス
@@ -22,6 +22,16 @@ package model;
 //-------------------------------------------------------------------------------------------------------------
 public class LoginLogic {
 	public boolean execute(User user) {
+		try {
+			Connection connection = DriverManager.getConnection("jdbc:sqlserver://MGT2019\\\\SQLEXPRESS;databaseName=TeamA");
+			//connection.getWarnings();
+		}
+		catch(SQLException e) {
+		}
+		
+		finally {
+		}
+		
 		if(user.getPass().equals("takahashiisgod") && user.getName().equals("takahashiisgod")) {
 			return true;
 		}
