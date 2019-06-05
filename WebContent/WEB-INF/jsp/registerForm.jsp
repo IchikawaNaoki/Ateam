@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<title>ユーザ登録</title>
 	</head>
-	
+
 	<body>
 		<form action = "/aTeam/RegisterUser" method = "post">
 		ログインID:<input type = "text" name = "id"><br>
