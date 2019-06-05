@@ -19,14 +19,14 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
+		int id = request.getIntHeader("id");
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		String post = request.getParameter("post");
-		int parseid = Integer.parseInt(id);
+
 
 		//Userインスタンス(ユーザ情報)の生成
-		User user = new User(parseid , name, pass, post);
+		User user = new User(id , name, pass, post);
 
 		//ログイン処理
 		LoginLogic loginLogic = new LoginLogic();
