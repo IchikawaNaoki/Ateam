@@ -44,8 +44,8 @@ public class Main extends HttpServlet {
 		//ログインしている場合
 		else {
 			//フォワード
-		//	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
-		//	dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
@@ -76,6 +76,11 @@ public class Main extends HttpServlet {
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
+	}
+
+	public void destroy() {
+
+		System.out.println("デストロイよばれたよお");
 	}
 
 }
