@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,11 +20,14 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		int id = request.getParameter("id");
+		int id = request.getIntHeader("id");
+		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
+		String post = request.getParameter("post");
+
 
 		//Userインスタンス(ユーザ情報)の生成
-		User user = new User(0 , name , pass);
+		User user = new User(id , name, pass, post);
 
 		//ログイン処理
 		LoginLogic loginLogic = new LoginLogic();
@@ -35,5 +39,9 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser" , user);
 		}
+
+		//　ログイン結果画面をフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+		dispatcher.forward(request, response);
 	}
 }

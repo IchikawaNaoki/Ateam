@@ -13,7 +13,7 @@
 	<p>下記のユーザを登録します。</p>
 	<p>ユーザID:<%= registerUser.getId() %></p>
 	
-	<a href = "/aTeam2/RegisterUser">戻る</a>
+	<a href = "/aTeam/RegisterUser">戻る</a>
 	<a href = "/aTeam/RegisterUser?action=done">登録</a>
 	</body>
 </html>
