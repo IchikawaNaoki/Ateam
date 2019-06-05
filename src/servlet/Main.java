@@ -44,8 +44,8 @@ public class Main extends HttpServlet {
 		//ログインしている場合
 		else {
 			//フォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
-			dispatcher.forward(request, response);
+		//	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+		//	dispatcher.forward(request, response);
 		}
 	}
 
@@ -55,7 +55,7 @@ public class Main extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//リクエストパラメータの取得
-		request.setCharacterEncoding("UTF-8");
+	//	request.setCharacterEncoding("UTF-8");
 		String text = request.getParameter("text");
 
 		//入力値チェック
@@ -73,6 +73,9 @@ public class Main extends HttpServlet {
 
 		//request.setAttribute("mutterList", mutterList);
 
+		//　メイン画面にフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }
