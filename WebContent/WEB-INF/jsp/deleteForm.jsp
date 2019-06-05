@@ -10,6 +10,6 @@
 		<form action = "/aTeam/DeleteUser" method = "post">
 		ログインID:<input type = "text" name = "id"><br>
 		パスワード:<input type = "password" name = "pass"><br>
-
+	</form>
 </body>
 </html>
