@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import model.LoginLogic;
 import model.User;
@@ -19,11 +20,13 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		int id = request.getParameter("id");
+	
+		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
+		String post = request.getParameter("post");
 
 		//Userインスタンス(ユーザ情報)の生成
-		User user = new User(0 , name , pass);
+		User user = new User(id ,name , pass , post);
 
 		//ログイン処理
 		LoginLogic loginLogic = new LoginLogic();
@@ -34,6 +37,10 @@ public class Login extends HttpServlet {
 			//ユーザ情報をセッションスコープに保存
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser" , user);
+		}
+		
+		else {
+			JOptionPane.showMessageDialog(null, "ログインに失敗しました。");
 		}
 	}
 }
