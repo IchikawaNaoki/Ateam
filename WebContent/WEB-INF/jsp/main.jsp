@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>在籍管理システム</title>
+<link rel="stylesheet" type="text/css" href="/aTeam/WEB-INF/css/main.css">
 </head>
 <body>
 <p>
