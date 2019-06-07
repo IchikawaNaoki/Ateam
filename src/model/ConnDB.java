@@ -18,6 +18,13 @@ import java.util.List;
 		public List<GetDB>findAll(){
 			List<GetDB>empList = new ArrayList<>();
 
+			try {
+				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			} catch (ClassNotFoundException e1) {
+				// TODO 自動生成された catch ブロック
+				e1.printStackTrace();
+			}
+
 			//データベースへ接続
 			try(Connection conn = DriverManager.getConnection(
 					JDBC_URL, DB_USER, DB_PASS)){
@@ -36,6 +43,8 @@ import java.util.List;
 					String name = rs.getString("社員名");
 					String department = rs.getString("所属名");
 					GetDB employee = new GetDB(id, name, department);
+
+					System.out.println(name);
 					empList.add(employee);
 				}
 			}catch(SQLException e ) {
