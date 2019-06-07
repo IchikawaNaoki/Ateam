@@ -15,7 +15,7 @@
 <p>
 <c:out value="${loginUser.name}" />さん、ログイン中
 <a href="/aTeam/Logout">ログアウト</a>
-
+<a href = "/aTeam/Main">更新</a>
 </p>
 
 <input type="button" value="東京"
