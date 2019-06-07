@@ -14,7 +14,8 @@
 		<form action="/aTeam/Login" method="post">
 			ユーザ名:<input type="text" name="name"><br>
 			パスワード:<input type="password" name="pass"><br>
-			<input type="submit" value="ログイン">
+			新規登録:<input type="new" name="new"><br>
+			アカウント削除:<input type="delete" name="delete"><br>
 		</form>
 	</body>
 </html>
