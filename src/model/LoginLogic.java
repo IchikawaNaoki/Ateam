@@ -11,11 +11,8 @@
 //-------------------------------------------------------------------------------------------------------------
 package model;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
 //import javax.swing.JFrame;
 //import javax.swing.JOptionPane;
@@ -32,6 +29,9 @@ public class LoginLogic {
 		//接続するときのタイムアウト時間を設定(5分)
 		DriverManager.setLoginTimeout(300);
 
+		ConnDB connDb = new ConnDB();
+		List<GetDB> listDb = connDb.findAll();
+/*
 		//接続
 		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sample" , "id" , "pass")){
 			//SQLを準備して実行
@@ -53,9 +53,8 @@ public class LoginLogic {
 			//JOptionPane.showMessageDialog(frame , "unko" , "unko" , JOptionPane.ERROR_MESSAGE);
 		}
 
-
 		finally {}
-
+*/
 
 		return false;
 	}

@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.ConnDB;
-import model.GetDB;
 import model.User;
 /**
  * Servlet implementation class Main
@@ -27,9 +24,7 @@ public class Main extends HttpServlet {
     public Main() {
         super();
         // TODO Auto-generated constructor stub
-        ConnDB connDb = new ConnDB();
 
-        List<GetDB> listDb = connDb.findAll();
 
     }
 

@@ -32,16 +32,18 @@ import java.util.List;
 				//結果表に格納されたレコードの内容を
 				//Employeeインスタンスに設定し、ArrayListインスタンスに追懐
 				while(rs.next()) {
-					int id = rs.getInt("社員ID");
+					int id = rs.getInt("社員");
 					String name = rs.getString("社員名");
-					String department = rs.getString("所属");
+					String department = rs.getString("所属名");
 					GetDB employee = new GetDB(id, name, department);
 					empList.add(employee);
 				}
 			}catch(SQLException e ) {
 				e.printStackTrace();
+				System.out.println("接続できませんわ");
 				return null;
 			}
+			System.out.println("接続されたお");
 			return empList;
 		}
 /*
