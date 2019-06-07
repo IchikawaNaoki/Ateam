@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import model.User;
 
-@WebServlet("/RegisterUser")
+@WebServlet("/DeleteUser")
 
 
 public class DeleteUser extends HttpServlet {
