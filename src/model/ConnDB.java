@@ -23,7 +23,7 @@ import java.util.List;
 					JDBC_URL, DB_USER, DB_PASS)){
 
 				//SELECT文を準備
-				String sql = "SELECT * FROM 社員個人データ表";
+				String sql = "SELECT * FROM BaseDate";
 				Statement pStmt = conn.createStatement();
 
 				//SELECTを実行し、結果表を取得
@@ -43,8 +43,85 @@ import java.util.List;
 				return null;
 			}
 			return empList;
-
 		}
+/*
+		//　新規追加
+		public boolean create(GetDB ｇetDb) {
+	    	//　データベース接続
+	    	try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 
+	    		// insert文の準備
+	    		String sql = "INSERT INTO 社員個人データ表(Name_,Text_) VALUES(?,?)";
+	    		PreparedStatement pStmt = conn.prepareStatement(sql);
 
+	    		// insert文中の「？」に使用する値を設定しSQLを完成
+
+	    		pStmt.setString(1, mutter.getUserName());
+	    		pStmt.setString(2, mutter.getText());
+
+	    		// insert文を実行
+	    		 pStmt.executeUpdate();
+
+	    	}
+	   	catch( SQLException e) {
+	    		e.printStackTrace();
+	    		System.out.println("create sql errorだよ");
+	    		return false;
+	    	}
+
+	    	System.out.println("create true");
+	    	return true;
+	    }
+
+		//　更新のアップデート
+	    public boolean Update(GetDB ｇetDb) {
+	    	try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+	    		// update文の準備
+	    		String sql = "UPDATE MUTTER SET Text_='aaaaa' WHERE ID=1";
+	    		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+	    //		pStmt.setString(1, mutter.getText());
+	    //		pStmt.setInt(2, mutter.getId());
+
+	    		pStmt.executeUpdate();
+
+	    	}catch(SQLException e){
+	    		e.printStackTrace();
+	    		System.out.println("update sql errorだよ");
+	    		return false;
+	    	}
+	    	System.out.println("update true");
+	    	return true;
+	    }
+
+	    //　削除のdelete
+	    public boolean Delete(GetDB ｇetDb) {
+	    	try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+	    		// update文の準備
+
+	    		String sql = "DELETE FROM MUTTER WHERE ID=5";
+	    		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+	    //		pStmt.setString(1, mutter.getText());
+	    //		pStmt.setInt(2, mutter.getId());
+
+	    		pStmt.executeUpdate();
+
+	    		 sql = "SET IDENTITY_INSERT MUTTER ON;"
+	    				+ "INSERT INTO MUTTER(ID) VALUES(5);"
+	    				+ "SET IDENTITY_INSERT MUTTER OFF;";
+	    		 pStmt = conn.prepareStatement(sql);
+	    		//pStmt.setInt(1, mutter.getId());
+
+	    		pStmt.executeUpdate();
+
+	    	}catch(SQLException e){
+	    		e.printStackTrace();
+	    		System.out.println("delete sql errorだよ");
+	    		return false;
+	    	}
+	    	System.out.println("delete true");
+	    	return true;
+	    }
+*/
 }
