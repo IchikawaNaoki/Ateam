@@ -18,6 +18,13 @@ import java.util.List;
 		public List<GetDB>findAll(){
 			List<GetDB>empList = new ArrayList<>();
 
+			try {
+				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			} catch (ClassNotFoundException e1) {
+				// TODO 自動生成された catch ブロック
+				e1.printStackTrace();
+			}
+
 			//データベースへ接続
 			try(Connection conn = DriverManager.getConnection(
 					JDBC_URL, DB_USER, DB_PASS)){
@@ -48,7 +55,7 @@ import java.util.List;
 		}
 /*
 		//　新規追加
-		public boolean create(GetDB ｇetDb) {
+		public boolean CreateDb(GetDB ｇetDb) {
 	    	//　データベース接続
 	    	try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 
@@ -58,8 +65,8 @@ import java.util.List;
 
 	    		// insert文中の「？」に使用する値を設定しSQLを完成
 
-	    		pStmt.setString(1, mutter.getUserName());
-	    		pStmt.setString(2, mutter.getText());
+	    		pStmt.setString(1, ｇetDb.getName());
+	    		pStmt.setString(2, ｇetDb.getText());
 
 	    		// insert文を実行
 	    		 pStmt.executeUpdate();
@@ -125,5 +132,5 @@ import java.util.List;
 	    	System.out.println("delete true");
 	    	return true;
 	    }
-*/
+	    */
 }

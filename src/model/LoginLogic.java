@@ -56,6 +56,6 @@ public class LoginLogic {
 		finally {}
 */
 
-		return false;
+		return true;
 	}
 }
