@@ -1,5 +1,4 @@
 package dao;
 
-public class dao {
+//コミット用のメソッド
 
-}

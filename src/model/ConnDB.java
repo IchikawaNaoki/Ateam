@@ -18,6 +18,13 @@ import java.util.List;
 		public List<GetDB>findAll(){
 			List<GetDB>empList = new ArrayList<>();
 
+			try {
+				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			} catch (ClassNotFoundException e1) {
+				// TODO 自動生成された catch ブロック
+				e1.printStackTrace();
+			}
+
 			//データベースへ接続
 			try(Connection conn = DriverManager.getConnection(
 					JDBC_URL, DB_USER, DB_PASS)){
@@ -32,21 +39,23 @@ import java.util.List;
 				//結果表に格納されたレコードの内容を
 				//Employeeインスタンスに設定し、ArrayListインスタンスに追懐
 				while(rs.next()) {
-					int id = rs.getInt("社員ID");
+					int id = rs.getInt("社員");
 					String name = rs.getString("社員名");
-					String department = rs.getString("所属");
+					String department = rs.getString("所属名");
 					GetDB employee = new GetDB(id, name, department);
 					empList.add(employee);
 				}
 			}catch(SQLException e ) {
 				e.printStackTrace();
+				System.out.println("接続できませんわ");
 				return null;
 			}
+			System.out.println("接続されたお");
 			return empList;
 		}
 /*
 		//　新規追加
-		public boolean create(GetDB ｇetDb) {
+		public boolean CreateDb(GetDB ｇetDb) {
 	    	//　データベース接続
 	    	try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 
@@ -56,8 +65,8 @@ import java.util.List;
 
 	    		// insert文中の「？」に使用する値を設定しSQLを完成
 
-	    		pStmt.setString(1, mutter.getUserName());
-	    		pStmt.setString(2, mutter.getText());
+	    		pStmt.setString(1, ｇetDb.getName());
+	    		pStmt.setString(2, ｇetDb.getText());
 
 	    		// insert文を実行
 	    		 pStmt.executeUpdate();
@@ -123,5 +132,5 @@ import java.util.List;
 	    	System.out.println("delete true");
 	    	return true;
 	    }
-*/
+	    */
 }

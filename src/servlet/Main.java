@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.ConnDB;
 import model.GetDB;
+import model.GetDbListLogic;
 import model.User;
 /**
  * Servlet implementation class Main
@@ -27,16 +27,17 @@ public class Main extends HttpServlet {
     public Main() {
         super();
         // TODO Auto-generated constructor stub
-        ConnDB connDb = new ConnDB();
-
-        List<GetDB> listDb = connDb.findAll();
-
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		//DBを取得して、リストスコープに保存
+		GetDbListLogic getDbListLogic = new GetDbListLogic();
+		List<GetDB> getDbList = getDbListLogic.execute();
+		request.setAttribute("getDbList", getDbList);
 
 		//ログインしているか確認するため
 		//セッションスコープからユーザー情報を取得
@@ -67,7 +68,6 @@ public class Main extends HttpServlet {
 
 		//入力値チェック
 		if(text != null && text.length() != 0) {
-
 			//セッションスコープに保存されたユーザー情報を取得
 			HttpSession session = request.getSession();
 			User loginUser = (User)session.getAttribute("loginUser");
@@ -77,6 +77,11 @@ public class Main extends HttpServlet {
 			//エラーメッセージをリクエストスコープに保存
 			request.setAttribute("errorMsg", "つぶやきが入力されていません");
 		}
+
+		//DBを取得して、リストスコープに保存
+		GetDbListLogic getDbListLogic = new GetDbListLogic();
+		List<GetDB> getDbList = getDbListLogic.execute();
+		request.setAttribute("getDbList", getDbList);
 
 		//request.setAttribute("mutterList", mutterList);
 

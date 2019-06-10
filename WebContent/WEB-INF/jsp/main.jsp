@@ -15,7 +15,7 @@
 <p>
 <c:out value="${loginUser.name}" />さん、ログイン中
 <a href="/aTeam/Logout">ログアウト</a>
-
+<a href = "/aTeam/Main">更新</a>
 </p>
 
 <input type="button" value="東京"
@@ -37,7 +37,14 @@ width:200px; height:30px"
 style="position: absolute; left: 25%; top: 50%,
 width:200px; height:30px"
 >
-
+<c:if test="${not empty errorMsg }">
+	<p>${errorMsg}</p>
+</c:if>
+<c:forEach var="getDb" items="${getDbList}">
+	<p><c:out value="${getDb.id}"/>:
+		<c:out value="${getDb.name}"/>:
+		<c:out value="${getDb.department }"/></p>
+</c:forEach>
 
 </body>
 

@@ -19,4 +19,6 @@ public class GetDB {
 	public int getId() {return id;}
 	public String getName() {return name;}
 	public String getDepartment() {return department;}
+
+
 }
