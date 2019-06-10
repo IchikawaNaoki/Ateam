@@ -39,6 +39,8 @@ import model.User;
 public class RegisterUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//フォワード先
@@ -80,7 +82,7 @@ public class RegisterUser extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		//社員ID、名前、パスワード、部署
-		//intにgetparameteerないんでparse
+		//intにgetparameterないんでparse
 		String strId = request.getParameter("id");
 		int id = Integer.parseInt(strId);
 		String name = request.getParameter("name");
@@ -90,7 +92,7 @@ public class RegisterUser extends HttpServlet {
 		//登録するユーザの情報を設定
 		User registerUser = new User(id , name , pass , post);
 
-		//セッションスコープに登録ユーザの情報を設定
+		//セッションスコープに登録ユーザーの情報を設定
 		HttpSession session = request.getSession();
 		session.setAttribute("registerUser" , registerUser);
 

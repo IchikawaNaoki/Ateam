@@ -6,12 +6,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>ユーザ登録確認</title>
+		<title>ユーザー登録確認</title>
 	</head>
 
 	<body>
-	<p>下記のユーザを登録します。</p>
-	<p>ユーザID:<%= registerUser.getId() %></p>
+	<p>下記のユーザーを登録します。</p>
+	<p>ユーザーID:<%= registerUser.getId() %></p>
 
 	<a href = "/aTeam/RegisterUser">戻る</a>
 	<a href = "/aTeam/RegisterUser?action=done">登録</a>
