@@ -29,33 +29,22 @@ public class LoginLogic {
 		//接続するときのタイムアウト時間を設定(5分)
 		DriverManager.setLoginTimeout(300);
 
+		//　データベースと接続
 		ConnDB connDb = new ConnDB();
 		List<GetDB> listDb = connDb.findAll();
-/*
-		//接続
-		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sample" , "id" , "pass")){
-			//SQLを準備して実行
-			String sql = "select id , pass from sample";
-			PreparedStatement pStmt = connection.prepareStatement(sql);
-			ResultSet rs = pStmt.executeQuery();
+		List<User> listUser = connDb.findUserAll();
 
-			if(user.getPass().equals(rs.getString("pass")))
-					return true;
-		}
+		//データベースから情報を取得
+		GetDB getDb = new GetDB();
 
-		catch(SQLException e) {
-			System.out.println("エラーですの！おデータベースが接続されておりませんわ");
-			e.printStackTrace();
+		//ユーザ情報を取得
+		User getUser = new User();
 
-			return false;
+		System.out.println(getDb.getId());
+		System.out.println(getUser.getPass());
+		System.out.println(listDb);
+		System.out.println(listUser);
 
-			//ポップアップウィンドウ なぜか重いのでいらんかも
-			//JOptionPane.showMessageDialog(frame , "unko" , "unko" , JOptionPane.ERROR_MESSAGE);
-		}
-
-		finally {}
-*/
-
-		return true;
+		return true;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
 	}
 }

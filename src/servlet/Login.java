@@ -23,10 +23,10 @@ public class Login extends HttpServlet {
 		int id = request.getIntHeader("id");
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
-		String post = request.getParameter("post");
+		int post = request.getIntHeader("post");
 
 		//Userインスタンス(ユーザ情報)の生成
-		User user = new User(id , name, pass, post);
+		User user = new User();
 
 		//ログイン処理
 		LoginLogic loginLogic = new LoginLogic();

@@ -83,8 +83,6 @@ public class Main extends HttpServlet {
 		List<GetDB> getDbList = getDbListLogic.execute();
 		request.setAttribute("getDbList", getDbList);
 
-		//request.setAttribute("mutterList", mutterList);
-
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
