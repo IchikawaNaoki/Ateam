@@ -30,3 +30,4 @@ public class FilterUtf8 implements Filter{
 	//フィルタのインスタンスが破棄される直前に行われる終了処理
 	public void destroy() {}
 }
+//テスト
