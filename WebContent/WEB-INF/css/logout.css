@@ -16,7 +16,7 @@ body{
 h1{
 
     color:#4169e1;                       /* /＊ログインの文字の色を水色にする＊/
-*/    font-family:serif;                    /*/＊ログインのフォントをserifにする＊/*/
+*/  font-family:serif;                    /*/＊ログインのフォントをserifにする＊/*/
     border-bottom: 1px solid #4169e1 ;    /*/＊水色の線を引く＊/*/
     display:inline-block;                /*/＊ログインの文字の下の範囲に線を書く＊/*/
 }
