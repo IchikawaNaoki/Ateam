@@ -1,20 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Mgt在席管理アプリケーション</title>
-	</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel= "stylesheet" href= "CSS/login.css">
+        <title>Mgt在席管理アプリケーションログイン画面</title>
+    </head>
 
-	<body>
-		<h1>Mgt在席管理アプリケーション</h1>
-		<h2>社員の在席/離席情報をお知らせするアプリケーションです。</h2>
+    <body>
+        <h1>ログイン画面</h1>
 
-		<form action="/aTeam/Login" method="post">
-			ユーザ名:<input type="text" name="name"><br>
-			パスワード:<input type="password" name="pass"><br>
-			<input type="submit" value="ログイン">
-		</form>
-	</body>
+
+<form action="/aTeam/Login" method="post">
+
+<p>ユーザ名</p>
+<input id="name" type="text" name="name"><br>
+<p> パスワード</p>
+    <input id="pass" type="password" name="pass"><br>
+
+ <input id="login" type="submit" value="ログイン"><br>
+
+<a id="new"  href="" id="button">新規登録</a>
+
+<a id="new"  href="#">アカウント削除</a>
+       </form>
+
+</body>
 </html>
