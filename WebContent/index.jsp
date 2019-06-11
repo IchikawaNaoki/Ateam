@@ -9,12 +9,12 @@
 	</head>
 
 <body>
-	<h1>ログイン画面</h1>
+	<h1>ログイン</h1>
 
 	<form action="/aTeam/Login" method="post">
 
 <p>ユーザ名</p>
-<input id="name" type="text" name="name"><br>
+<input id="name" type="text" name="id"><br>
 <p> パスワード</p>
     <input id="pass" type="password" name="pass"><br>
 
