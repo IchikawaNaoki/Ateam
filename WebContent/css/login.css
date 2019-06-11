@@ -1,20 +1,16 @@
 @charset "UTF-8";
 
-/*左右真ん中に表示*/
-*{
-	 text-align: center;
-}
-
-/*背景の色を変更する*/
+/* body部の設定*/
 body{
-	background-color:#f5f5f5;
+	background-color:#f5f5f5;	/*背景の色を変更する*/
+	text-align:center;			/*左右真ん中に表示*/
 }
 
 /*ログインの色と書体変更*/
 h1{
 	color:#4169e1;						/*ログインの文字の色を水色にする*/
 	font-family:serif;					/*ログインのフォントをserifにする*/
-	border-bottom: 1px solid #4169e1 ;	/*水色の線を引く*/
+	border-bottom:1px solid #4169e1 ;	/*水色の線を引く*/
 	display:inline-block;				/*ログインの文字の下の範囲に線を書く*/
 }
 
@@ -25,7 +21,7 @@ p{
 
 /*ログインボタンのサイズを変える、デザインを変える*/
 #login{
-	display: inline-block;			/*ボタンの配置を均等につける*/
+	display: inline-block;			/*ボタンの配置を均等につける
  	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
   	text-decoration: none;			/*文字の装飾*/
   	font-weight: bold;				/*文字を太文字にする*/
