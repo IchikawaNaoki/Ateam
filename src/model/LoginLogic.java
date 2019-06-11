@@ -12,8 +12,9 @@
 package model;
 
 import java.sql.DriverManager;
-//import javax.swing.JFrame;
-//import javax.swing.JOptionPane;
+import java.util.List;
+
+import dao.ConnDbDao;
 
 //-------------------------------------------------------------------------------------------------------------
 //LoginLogicクラス
@@ -28,9 +29,9 @@ public class LoginLogic {
 		DriverManager.setLoginTimeout(300);
 
 		//　データベースと接続
-		//ConnDbDao connDb = new ConnDbDao();
-		//List<GetDB> listDb = connDb.findAll();
-		//List<User> listUser = connDb.findUserAll();
+		ConnDbDao connDb = new ConnDbDao();
+		List<GetDB> listDb = connDb.findAll();
+		List<User> listUser = connDb.findUserAll();
 
 		//データベースから情報を取得
 		GetDB getDb = new GetDB();
