@@ -44,6 +44,9 @@ public class Main extends HttpServlet {
 		HttpSession session = request.getSession();
 		User loginUser = (User)session.getAttribute("loginUser");
 
+		String text = request.getParameter("tokyo");
+		System.out.println(text);
+
 		//ログインしていない場合
 		if(loginUser == null) {
 			//リダイレクト
@@ -64,7 +67,7 @@ public class Main extends HttpServlet {
 		// TODO Auto-generated method stub
 		//リクエストパラメータの取得
 	//	request.setCharacterEncoding("UTF-8");
-		String text = request.getParameter("text");
+		String text = request.getParameter("tokyo");
 
 		//入力値チェック
 		if(text != null && text.length() != 0) {
