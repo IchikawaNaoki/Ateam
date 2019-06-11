@@ -18,6 +18,8 @@
 <a href = "/aTeam/Main">更新</a>
 </p>
 
+
+
 <input type="button" value="東京"
 style="position: absolute; left: 6%; top: 50%,
 width:200px; height:30px"
