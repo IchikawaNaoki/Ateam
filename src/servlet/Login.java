@@ -46,6 +46,12 @@ public class Login extends HttpServlet {
 			//ユーザ情報をセッションスコープに保存
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser" , user);
+		}else {
+			JOptionPane.showMessageDialog(null, "処理中にエラーが発生しました");
+	    }
+	  }
+	}
+
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 			dispatcher.forward(request, response);

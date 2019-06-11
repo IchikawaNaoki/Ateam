@@ -12,7 +12,7 @@
 		<br>
 		<h1>ログアウト</h1>
 		<p>ログアウトしました。</p>
-		<a href = "/aTeam/login">ログイン画面に戻る</a>
+		<a href = "/aTeam/index.jsp">ログイン画面に戻る</a>
 	</body>
 
 </html>
