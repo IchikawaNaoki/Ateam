@@ -45,7 +45,9 @@ width:200px; height:30px"
 <c:forEach var="getDb" items="${getDbList}">
 	<p><c:out value="${getDb.id}"/>:
 		<c:out value="${getDb.name}"/>:
-		<c:out value="${getDb.department }"/></p>
+		<c:out value="${getDb.belong }"/>
+		<c:out value="${getDb.status }"/>
+		<c:out value="${getDb.comment }"/></p>
 </c:forEach>
 
 </body>
