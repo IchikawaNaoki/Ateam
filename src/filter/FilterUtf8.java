@@ -20,13 +20,14 @@ public class FilterUtf8 implements Filter{
 	//フィルタがインスタンス化された直後に行う初期化処理
 	public void init(FilterConfig fConfig) throws ServletException{}
 
-		//設定したサーブレットクラスをリクエストしたときの処理
-		public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
-			response.setCharacterEncoding("UTF-8");
-			chain.doFilter(request, response);
-			System.out.println("フィルター通ったよ(filterパッケージ FilterUtf8.java後で消す)");
-		}
+	//設定したサーブレットクラスをリクエストしたときの処理
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
+		response.setCharacterEncoding("UTF-8");
+		chain.doFilter(request, response);
+		System.out.println("フィルター通ったよ(filterパッケージ FilterUtf8.java後で消す)");
+	}
 
 	//フィルタのインスタンスが破棄される直前に行われる終了処理
 	public void destroy() {}
 }
+//テスト

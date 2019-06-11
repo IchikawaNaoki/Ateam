@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.GetDB;
+import model.GetDbListLogic;
 import model.User;
 /**
  * Servlet implementation class Main
@@ -31,6 +34,11 @@ public class Main extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//DBを取得して、リストスコープに保存
+		GetDbListLogic getDbListLogic = new GetDbListLogic();
+		List<GetDB> getDbList = getDbListLogic.execute();
+		request.setAttribute("getDbList", getDbList);
+
 		//ログインしているか確認するため
 		//セッションスコープからユーザー情報を取得
 		HttpSession session = request.getSession();
@@ -44,8 +52,8 @@ public class Main extends HttpServlet {
 		//ログインしている場合
 		else {
 			//フォワード
-		//	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
-		//	dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
@@ -60,7 +68,6 @@ public class Main extends HttpServlet {
 
 		//入力値チェック
 		if(text != null && text.length() != 0) {
-
 			//セッションスコープに保存されたユーザー情報を取得
 			HttpSession session = request.getSession();
 			User loginUser = (User)session.getAttribute("loginUser");
@@ -71,11 +78,19 @@ public class Main extends HttpServlet {
 			request.setAttribute("errorMsg", "つぶやきが入力されていません");
 		}
 
-		//request.setAttribute("mutterList", mutterList);
+		//DBを取得して、リストスコープに保存
+		GetDbListLogic getDbListLogic = new GetDbListLogic();
+		List<GetDB> getDbList = getDbListLogic.execute();
+		request.setAttribute("getDbList", getDbList);
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
+	}
+
+	public void destroy() {
+
+		System.out.println("デストロイよばれたよお");
 	}
 
 }

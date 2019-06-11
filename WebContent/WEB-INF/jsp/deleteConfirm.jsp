@@ -11,9 +11,11 @@
 
 	<body>
 	<p>下記のユーザを削除します。</p>
-	<p>ユーザID:<%= deleteUser.getId() %></p>
+	<p>ユーザID:<%=  %></p>
 
 	<a href = "/aTeam/deleteUser">戻る</a>
+			//JSPに飛ばす(仕様書確認)
+
 	<a href = "/aTeam/Delete/User?action=done">削除</a>
 	</body>
 </html>

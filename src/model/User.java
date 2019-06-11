@@ -20,19 +20,21 @@ import java.io.Serializable;
 //Userクラス
 //-------------------------------------------------------------------------------------------------------------
 public class User implements Serializable{
+
+
 	private int id;				//社員ID
 	private String name;	//社員名
 	private String pass;	//パスワード
-	private String post;	//部署
+	private Byte nowLogin;	//ログイン状況
 
 	public User(){}
 
 	//ユーザ情報のセッター
-	public User(int id , String name , String pass , String post) {
+	public User(int id , String name , String pass , Byte nowLogin) {
 		this.id = id;
 		this.name = name;
 		this.pass = pass;
-		this.post = post;
+		this.nowLogin = nowLogin;
 	}
 
 	//社員IDのゲッター
@@ -50,8 +52,8 @@ public class User implements Serializable{
 		return pass;
 	}
 
-	//部署のゲッター
-	public String getPost() {
-		return post;
+	//ログイン状況のゲッター
+	public Byte getNowLogin() {
+		return nowLogin;
 	}
 }
