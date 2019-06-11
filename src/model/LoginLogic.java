@@ -40,15 +40,8 @@ public class LoginLogic {
 		//ユーザの入力したIDとパスワードを下に表示 いずれ消す！
 		System.out.println(getDb.getId());
 		System.out.println(getUser.getPass());
-		System.out.println(listDb);
-		System.out.println(listUser);
-		//System.out.println(getDb.toString());
-		
-		//照合
-		if(getDb.toString().("id=[0-9]{4}")) {
-			//if(getUser.toString().indexOf("pass=[]"))
-			return true;
-		}
+		//System.out.println(listDb);
+		//System.out.println(listUser);
 
 		return false;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
 	}

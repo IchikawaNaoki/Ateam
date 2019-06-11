@@ -1,1 +1,45 @@
 @charset "UTF-8";
+
+/*左右真ん中に表示*/
+*{
+	 text-align: center;
+}
+
+/*背景の色を変更する*/
+body{
+	background-color:#f5f5f5;
+}
+
+/*ログインの色と書体変更*/
+h1{
+	color:#4169e1;						/*ログインの文字の色を水色にする*/
+	font-family:serif;					/*ログインのフォントをserifにする*/
+	border-bottom: 1px solid #4169e1 ;	/*水色の線を引く*/
+	display:inline-block;				/*ログインの文字の下の範囲に線を書く*/
+}
+
+/*ユーザー名とパスワードのサイズを変える*/
+p{
+	font-size: 120%
+}
+
+/*ログインボタンのサイズを変える、デザインを変える*/
+#login{
+	display: inline-block;			/*ボタンの配置を均等につける*/
+ 	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
+  	text-decoration: none;			/*文字の装飾*/
+  	font-weight: bold;				/*文字を太文字にする*/
+  	border-radius: 4px;				/*ボタンの色を濃い灰色にして影をつける*/
+ 	color: white;														/*文字の色を白にする*/
+  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*文字に影をつける*/
+ 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*ボタンの背景色を青色にする*/
+  	box-shadow: 0px 2px 2px rgba(#050505);						/*濃い影をつける*/
+ 	border-bottom: solid 3px #5e7fca;				/*ボタンの下の部分を青色にする*/
+
+	margin: 2%;							/*上下左右の間を空ける*/
+	font-size: 130%						/*サイズを大きくする*/
+}
+
+/*新規登録とアカウント削除のデザイン*/
+#new{
+	color:#008080;			/*新規登録とアカウント削除の文字の色をエメラルド色にする*/
