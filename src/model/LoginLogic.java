@@ -15,8 +15,6 @@ import java.sql.DriverManager;
 import java.util.List;
 
 import dao.ConnDbDao;
-//import javax.swing.JFrame;
-//import javax.swing.JOptionPane;
 
 //-------------------------------------------------------------------------------------------------------------
 //LoginLogicクラス
@@ -43,8 +41,8 @@ public class LoginLogic {
 
 		System.out.println(getDb.getId());
 		System.out.println(getUser.getPass());
-		System.out.println(listDb);
-		System.out.println(listUser);
+		//System.out.println(listDb);
+		//System.out.println(listUser);
 
 		return true;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
 	}
