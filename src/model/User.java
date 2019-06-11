@@ -21,7 +21,6 @@ import java.io.Serializable;
 //-------------------------------------------------------------------------------------------------------------
 public class User implements Serializable{
 
-
 	private int id;				//社員ID
 	private String name;	//社員名
 	private String pass;	//パスワード
