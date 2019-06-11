@@ -15,8 +15,6 @@ import java.sql.DriverManager;
 import java.util.List;
 
 import dao.ConnDbDao;
-//import javax.swing.JFrame;
-//import javax.swing.JOptionPane;
 
 //-------------------------------------------------------------------------------------------------------------
 //LoginLogicクラス
@@ -24,13 +22,11 @@ import dao.ConnDbDao;
 //ユーザのパスワードが合っているかどうかの判定
 //-------------------------------------------------------------------------------------------------------------
 public class LoginLogic {
-	//JFrame frame = new JFrame();
-
 	public boolean execute(User user) {
 		//接続するときのタイムアウト時間を設定(5分)
 		DriverManager.setLoginTimeout(300);
 
-		//　データベースと接続
+		//データベースと接続
 		ConnDbDao connDb = new ConnDbDao();
 		List<GetDB> listDb = connDb.findAll();
 		List<User> listUser = connDb.findUserAll();
@@ -41,11 +37,12 @@ public class LoginLogic {
 		//ユーザ情報を取得
 		User getUser = new User();
 
+		//ユーザの入力したIDとパスワードを下に表示 いずれ消す！
 		System.out.println(getDb.getId());
 		System.out.println(getUser.getPass());
-		System.out.println(listDb);
-		System.out.println(listUser);
+		//System.out.println(listDb);
+		//System.out.println(listUser);
 
-		return true;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
+		return false;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
 	}
 }
