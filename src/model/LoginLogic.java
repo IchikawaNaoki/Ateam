@@ -41,11 +41,19 @@ public class LoginLogic {
 		//ユーザ情報を取得
 		User getUser = new User();
 
+		//ユーザの入力したIDとパスワードを下に表示 
+		System.out.println("↓後で消す↓");
 		System.out.println(getDb.getId());
 		System.out.println(getUser.getPass());
 		System.out.println(listDb);
 		System.out.println(listUser);
-
+		
+		
+		
+		//照合
+		if(getUser.getPass().equals(getDb.))
+			return true;
+		
 		return true;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
 	}
 }
