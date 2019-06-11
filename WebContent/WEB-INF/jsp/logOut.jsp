@@ -12,7 +12,7 @@
 		<br>
 		<h1>ログアウト画面</h1>
 		<p>ログアウトしました。</p>
-		<a href = "/aTeam/">トップに戻る</a>
+		<a href = "/aTeam/login">ログイン画面に戻る</a>
 	</body>
 
 </html>
