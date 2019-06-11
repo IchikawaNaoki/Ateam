@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		 <link rel="stylesheet" type="text/css" href="logout.css">
+		 <link rel="stylesheet" type="text/css" href="/css/logout.css">
 		<title>Mgt在席管理アプリケーション</title>
 	</head>
 
