@@ -21,16 +21,14 @@ import java.io.Serializable;
 //-------------------------------------------------------------------------------------------------------------
 public class User implements Serializable{
 
-
 	private int id;				//社員ID
 	private String name;	//社員名
 	private String pass;	//パスワード
-	private Byte nowLogin;	//ログイン状況
+	private byte nowLogin;	//ログイン状況
 
 	public User(){}
 
-	//ユーザ情報のセッター
-	public User(int id , String name , String pass , Byte nowLogin) {
+	public User(int id , String name , String pass , byte nowLogin) {
 		this.id = id;
 		this.name = name;
 		this.pass = pass;
