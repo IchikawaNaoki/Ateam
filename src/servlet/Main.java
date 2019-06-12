@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ConnDbDao;
 import model.GetDB;
 import model.GetDbListLogic;
 import model.User;
@@ -75,7 +76,8 @@ public class Main extends HttpServlet {
 		String miyazaki = request.getParameter("miyazaki");
 		String sapporo = request.getParameter("sapporo");
 
-	
+		List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
+		request.setAttribute("getDbList", list);
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
