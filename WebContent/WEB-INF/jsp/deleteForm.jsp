@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ユーザー削除フォーム</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/delete.css">
+		<title>ユーザー削除フォーム</title>
 </head>
 <body>
 		<h1>ユーザー削除</h1>
