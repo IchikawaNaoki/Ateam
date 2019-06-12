@@ -41,15 +41,19 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		boolean isLogin = loginLogic.execute(user);
 
+
 		//ログイン成功時の処理
 		if(isLogin) {
 			//ユーザ情報をセッションスコープに保存
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser" , user);
-			//JOptionPane.showMessageDialog(null, "処理中にエラーが発生しました");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 			dispatcher.forward(request, response);
 		}
+
+
+
+
 
 
 	}
