@@ -28,7 +28,7 @@
 	</form>
 
 	<%if (status != null){ %>
-		<script>alert("ログインIDまたはPWが間違っています");</script>
+		<script>alert("ログインIDまたはパスワードが間違っています");</script>
 		<%session.removeAttribute("status"); %>
 		<% } %>
 
