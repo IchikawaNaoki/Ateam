@@ -9,10 +9,10 @@
 
 	<body>
 		<h1>新規ユーザー登録</h1>
-		<p>使用したいユーザー名と、</p>
+		<p>登録する社員名と、</p>
 		<p>大文字から始まる、4文字以上8文字以下のパスワードを入力してください。</p>
 		<form action = "/aTeam/RegisterUser" method = "post">
-			ユーザー名:<input type="text" name="name"><br>
+			社員名:<input type="text" name="name"><br>
 			パスワード:<input type="password" name="pass"><br>
 		</form>
 	</body>
