@@ -9,7 +9,7 @@
 	</head>
 
 <body>
-	<h1>ログイン画面</h1>
+	<h1>ログイン</h1>
 
 	<form action="/aTeam/Login" method="post">
 
