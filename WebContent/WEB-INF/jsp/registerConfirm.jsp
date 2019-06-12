@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		  <link rel="stylesheet" type="text/css" href="registerConfirm.css">
+		<link rel="stylesheet" type="text/css" href="registerConfirm.css">
 		<title>ユーザー登録確認</title>
 	</head>
 
