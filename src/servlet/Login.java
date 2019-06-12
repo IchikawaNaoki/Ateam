@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.GetDB;
-import model.GetDbListLogic;
 import model.LoginLogic;
 import model.User;
 
@@ -43,18 +41,20 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		List<User> isLogin = loginLogic.execute(user);
 
-		GetDbListLogic getDbListLogic = new GetDbListLogic();
-		List<GetDB> getDbList = getDbListLogic.execute();
-		request.setAttribute("getDbList", getDbList);
-
+		HttpSession session = request.getSession();
 		//ログイン成功時の処理
 		if(isLogin != null) {
 
 			//ユーザ情報をセッションスコープに保存
-			HttpSession session = request.getSession();
 			session.setAttribute("loginUser" , isLogin.get(0));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 			dispatcher.forward(request, response);
+		}
+		else {
+			session.setAttribute("status", "ID");
+            response.sendRedirect("./");
+		}
+
 		}
 
 
@@ -63,4 +63,4 @@ public class Login extends HttpServlet {
 
 
 	}
-}
+

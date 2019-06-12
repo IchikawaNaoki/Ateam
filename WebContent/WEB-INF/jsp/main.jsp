@@ -13,7 +13,7 @@
 
 </head>
 <body>
-<c:out value="${loginUser.name}" />さん、ログイン中
+<c:out value="${loginUser.name}" />さん ログイン中
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
 <ul id="dropmenu" style="clear:both;">
 <li><a href="/">メニュー画面</a>
@@ -48,9 +48,12 @@
 	style="position: absolute; left: 10%; top: 10%,
 	width:200px; height:30px">
 
+<<<<<<< HEAD
+=======
 	<input type="submit" value="すべて" name="all"
 	style="position: absolute; left: 6%; top: 50%,
 	width:200px; height:30px">
+>>>>>>> branch 'master' of https://github.com/IchikawaNaoki/Ateam
 
 	<input type="submit" value="東京" name="tokyo"
 	style="position: absolute; left: 12%; top: 50%,
