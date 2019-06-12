@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,15 +42,24 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		boolean isLogin = loginLogic.execute(user);
 
+
 		//ログイン成功時の処理
 		if(isLogin) {
 			//ユーザ情報をセッションスコープに保存
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser" , user);
-			//JOptionPane.showMessageDialog(null, "処理中にエラーが発生しました");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 			dispatcher.forward(request, response);
 		}
+		else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>"
+					+ "alert( \"表示テスト\");"
+					+ "</script>");
+		}
+
+
 
 
 	}
