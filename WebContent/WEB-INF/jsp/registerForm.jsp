@@ -3,12 +3,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/register.css">
 		<title>ユーザー登録</title>
 	</head>
 
 	<body>
 		<form action = "/aTeam/RegisterUser" method = "post">
-		ログインID:<input type = "text" name = "id"><br>
+		ユーザーID:<input type = "text" name = "id"><br>
 		パスワード:<input type = "password" name = "pass"><br>
 		</form>
 	</body>
