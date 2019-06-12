@@ -40,30 +40,36 @@
 
 <form action="/aTeam/Main" method="post">
 
-	<input type="submit" value="Presence" name="Presence"
+	<input type="submit" value="在席" name="Presence"
 	style="position: absolute; left: 0%; top: 10%,
 	width:200px; height:30px">
 
-	<input type="submit" value="leave seat" name="leave seat"
+	<input type="submit" value="離席" name="leave seat"
 	style="position: absolute; left: 10%; top: 10%,
 	width:200px; height:30px">
 
+<<<<<<< HEAD
+=======
+	<input type="submit" value="すべて" name="all"
+	style="position: absolute; left: 6%; top: 50%,
+	width:200px; height:30px">
+>>>>>>> branch 'master' of https://github.com/IchikawaNaoki/Ateam
 
-	<input type="submit" value="tokyo" name="tokyo"
+	<input type="submit" value="東京" name="tokyo"
 	style="position: absolute; left: 12%; top: 50%,
 	width:200px; height:30px">
 
-	<input type="submit" value="development" name="development"
+	<input type="submit" value="東京(開発室)" name="development"
 	style="position: absolute; left: 17%; top: 50%,
 	width:200px; height:30px"
 	>
 
-	<input type="submit" value="miyazaki" name="miyazaki"
+	<input type="submit" value="宮崎" name="miyazaki"
 	style="position: absolute; left: 28%; top: 50%,
 	width:200px; height:30px"
 	>
 
-	<input type="submit" value="sapporo" name="sapporo"
+	<input type="submit" value="札幌" name="sapporo"
 	style="position: absolute; left: 33%; top: 50%,
 	width:200px; height:30px"
 >
