@@ -16,7 +16,6 @@
 		<br>
 		<h1>ログアウト</h1>
 		<p>ログアウトしました。</p>
-		<p><a href = "/aTeam/">トップに戻る</a></p>
 		<a href = "/aTeam/index.jsp">ログイン画面に戻る</a>
 	</body>
 

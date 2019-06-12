@@ -71,6 +71,7 @@ public class Main extends HttpServlet {
 
 		System.out.println("doPostはいったよお");
 
+		String all = request.getParameter("all");
 		 String tokyo = request.getParameter("tokyo");
 		String development = request.getParameter("development");
 		String miyazaki = request.getParameter("miyazaki");
