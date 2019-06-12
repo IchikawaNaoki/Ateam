@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
    pageEncoding="UTF-8"%>
+<% Object status = session.getAttribute("status"); %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,6 +26,12 @@
 
 <a id="new"  href="/aTeam/DeleteUser">アカウント削除</a>
 	</form>
+
+	<%if (status != null){ %>
+		<script>alert("ログインIDまたはPWが間違っています");</script>
+		<%session.removeAttribute("status"); %>
+		<% } %>
+
 
 </body>
 </html>
