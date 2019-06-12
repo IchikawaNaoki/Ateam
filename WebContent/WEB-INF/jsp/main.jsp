@@ -20,21 +20,21 @@
 
 
 <form action="/aTeam/Main" method="post">
-	<input type="submit" value="東京" name="tokyo"
+	<input type="submit" value="tokyo" name="tokyo"
 	style="position: absolute; left: 6%; top: 50%,
 	width:200px; height:30px">
 
-	<input type="submit" value="東京(開発室)" name="development"
+	<input type="submit" value="development" name="development"
 	style="position: absolute; left: 11%; top: 50%,
 	width:200px; height:30px"
 	>
 
-	<input type="submit" value="宮崎" name="miyazaki"
+	<input type="submit" value="miyazaki" name="miyazaki"
 	style="position: absolute; left: 20%; top: 50%,
 	width:200px; height:30px"
 	>
 
-	<input type="submit" value="札幌" name="sapporo"
+	<input type="submit" value="sapporo" name="sapporo"
 	style="position: absolute; left: 25%; top: 50%,
 	width:200px; height:30px"
 >

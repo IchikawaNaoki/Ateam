@@ -75,8 +75,7 @@ public class Main extends HttpServlet {
 		String miyazaki = request.getParameter("miyazaki");
 		String sapporo = request.getParameter("sapporo");
 
-		if( tokyo.equals("東京") ) {System.out.println("東京でたよ");}
-
+	
 		//DBを取得して、リストスコープに保存
 		GetDbListLogic getDbListLogic = new GetDbListLogic();
 		List<GetDB> getDbList = getDbListLogic.execute();
