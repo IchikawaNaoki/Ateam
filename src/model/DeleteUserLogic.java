@@ -2,6 +2,12 @@
 //プログラム名 :	在籍管理アプリケーション
 package model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import dao.ConnDbDao;
 
 //-------------------------------------------------------------------------------------------------------------
@@ -22,7 +28,39 @@ public class DeleteUserLogic {
 
 		//ユーザ情報を取得
 		//User getUser = new User();
+		
+		//データベースを取得
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		} catch (ClassNotFoundException e1) {
+			// TODO 自動生成された catch ブロック
+			e1.printStackTrace();
+		}
+		
+		//データベースへ接続
+				try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 
+					//SELECT文を準備
+					String sql = "select Pass "
+							+ "from PersonalList "
+							+ "where PersonalID =" +  user.getId();
+					Statement pStmt = conn.createStatement();
+
+					//SELECTを実行し、結果表を取得
+					ResultSet rs = pStmt.executeQuery(sql);
+					if(rs.next()) {
+						pass = rs.getString("Pass");
+					}
+
+					System.out.println("接続されたお");
+					return pass;
+
+				}catch(SQLException e ) {
+					e.printStackTrace();
+					System.out.println("接続できませんわ");
+					return null;
+				}
+				
 		if(user.getId() != 0 && user.getPass() != null) {
 
 			ConnDbDao conn = new ConnDbDao();
