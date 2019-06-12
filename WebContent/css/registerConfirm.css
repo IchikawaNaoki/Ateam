@@ -1,24 +1,35 @@
 @charset "UTF-8";
 
-/*/＊背景の色を変更する＊/*/
+/*左右真ん中に表示*/
 body{
-    background-color:#d3d3d3;
      text-align: center;
 }
 
-/*文字変更*/
-h1{
-    color:#4169e1; 						/* 文字の色を水色にする */
-    font-family:serif; 					/* フォントをserifにする */
-    border-bottom:1px solid #4169e1;	/* 水色の線を引く*/
-    display:inline-block;    			/*文字の下の範囲に線を書く*/
+/*背景の色の変更*/
+body{
+    background-color:#d3d3d3;
+
 }
-p{
+
+h1{
+    color:#4169e1;                       /* 文字の色を水色にする＊/
+ 	font-family:serif;                    /*フォントをserifにする*/
+    border-bottom: 1px solid #4169e1 ;    /*水色の線を引く*/
+    display:inline-block;                /*文字の下の範囲に線を書く*/
+}
+
+h1{
+	font-family:serif;                    /*フォントをserifにする*/
+}
+
+Pタグのサイズ変更
+h1{
     font-size: 120%
 }
+
 /*ログインボタンのサイズを変える、デザインを変える*/
 #delete{
-	display: inline-block;			/*ボタンの配置を均等につける
+	display: inline-block;			/*ボタンの配置を均等につける*/
  	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
   	text-decoration: none;			/*文字の装飾*/
   	font-weight: bold;				/*文字を太文字にする*/
@@ -33,6 +44,8 @@ p{
 	font-size: 130%						/*サイズを大きくする*/
 }
 
+/*ボタンを白色にする*/
 a{
 	color: white;
 }
+
