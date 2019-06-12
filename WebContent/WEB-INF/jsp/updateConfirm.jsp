@@ -6,12 +6,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>ユーザ情報更新確認</title>
+		<title>ユーザー情報更新確認</title>
 	</head>
 
 	<body>
-	<p>ユーザ情報を、以下の通りに更新します。</p>
-	<p>ユーザID:<%= updateUser.getId() %></p>
+	<p>ユーザー情報を、以下の通りに更新します。</p>
+	<p>ユーザーID:<%= updateUser.getId() %></p>
 
 	<a href = "/aTeam/UpdateUser">戻る</a>
 	<a href = "/aTeam/UpdateUser?action=done">登録</a>

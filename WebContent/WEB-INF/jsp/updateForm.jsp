@@ -3,12 +3,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>ユーザ情報更新</title>
+		<title>ユーザー情報更新</title>
 	</head>
 
 	<body>
 		<form action = "/aTeam/UpdateUser" method = "post">
-		ログインID:<input type = "text" name = "id"><br>
+		ユーザーID:<input type = "text" name = "id"><br>
 		パスワード:<input type = "password" name = "pass"><br>
 		</form>
 	</body>
