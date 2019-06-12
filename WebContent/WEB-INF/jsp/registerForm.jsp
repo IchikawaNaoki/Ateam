@@ -8,9 +8,11 @@
 	</head>
 
 	<body>
+		<h1>新規ユーザー登録</h1>
+		<p>使用したいユーザーIDとパスワードを入力してください。</p>
 		<form action = "/aTeam/RegisterUser" method = "post">
-		ユーザーID:<input type = "text" name = "id"><br>
-		パスワード:<input type = "password" name = "pass"><br>
+			ユーザーID:<input type = "text" name = "id"><br>
+			パスワード:<input type = "password" name = "pass"><br>
 		</form>
 	</body>
 </html>
