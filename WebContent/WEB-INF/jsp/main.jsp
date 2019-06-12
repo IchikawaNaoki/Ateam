@@ -20,22 +20,26 @@
 
 
 <form action="/aTeam/Main" method="post">
-	<input type="submit" value="tokyo" name="tokyo"
+	<input type="submit" value="all" name="all"
 	style="position: absolute; left: 6%; top: 50%,
 	width:200px; height:30px">
 
+	<input type="submit" value="tokyo" name="tokyo"
+	style="position: absolute; left: 12%; top: 50%,
+	width:200px; height:30px">
+
 	<input type="submit" value="development" name="development"
-	style="position: absolute; left: 11%; top: 50%,
+	style="position: absolute; left: 17%; top: 50%,
 	width:200px; height:30px"
 	>
 
 	<input type="submit" value="miyazaki" name="miyazaki"
-	style="position: absolute; left: 20%; top: 50%,
+	style="position: absolute; left: 28%; top: 50%,
 	width:200px; height:30px"
 	>
 
 	<input type="submit" value="sapporo" name="sapporo"
-	style="position: absolute; left: 25%; top: 50%,
+	style="position: absolute; left: 33%; top: 50%,
 	width:200px; height:30px"
 >
 </form>
