@@ -20,9 +20,9 @@
 
  <input id="login" type="submit" value="ログイン"><br>
 
-<a id="new"  href="" id="button">新規登録</a>
+<a id="new"  href="/aTeam/RegisterUser" id="button">新規登録</a>
 
-<a id="new"  href="#">アカウント削除</a>
+<a id="new"  href="/aTeam/DeleteUser">アカウント削除</a>
 	</form>
 
 </body>
