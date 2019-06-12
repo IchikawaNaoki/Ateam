@@ -11,7 +11,9 @@
 //-------------------------------------------------------------------------------------------------------------
 package model;
 
-import java.sql.DriverManager;
+
+
+import java.util.List;
 
 import dao.ConnDbDao;
 
@@ -21,55 +23,18 @@ import dao.ConnDbDao;
 //ユーザのパスワードが合っているかどうかの判定
 //-------------------------------------------------------------------------------------------------------------
 public class LoginLogic {
-	public boolean execute(User user) {
-
-		//接続するときのタイムアウト時間を設定(5分)
-		DriverManager.setLoginTimeout(300);
-
-		//データベースと接続
-		//ConnDbDao connDb = new ConnDbDao();
-		//List<GetDB> listDb = connDb.findAll();
-		//List<User> listUser = connDb.findUserAll();
-
-		//データベースから情報を取得
-		//GetDB getDb = new GetDB();
-
-		//ユーザ情報を取得
-		//User getUser = new User();
+	public List<User> execute(User user) {
 
 		if(user.getId() != 0 && user.getPass() != null) {
-
 			ConnDbDao conn = new ConnDbDao();
-
-
-			if(user.getPass().equals(conn.ConDbLogin(user))) {
+			List<User> listUser = conn.ConDbLogin(user);
+				if(user.getPass().equals(listUser.get(0).getPass())) {
 				System.out.println("ログイン成功");
 
-				return true;
+				return listUser;
 			}
 		}
-		//DBに保存されたユーザー文照会
-//		for(int i = 0; i < listUser.size(); i++)
-//		{
-//			Integer sample = listUser.get(i).getId();
-//			String pass =  listUser.get(i).getPass();
-//			if(listUser.get(i).getId() == user.getId() && pass.equals(user.getPass())) {
-//			if(sample.equals(user.getId()) && pass.equals(user.getPass())) {
-//				System.out.println("ログイン成功");
-//				return true;
-//			}
-//			else {
-//				System.out.println("ログイン失敗");
-//			}
-//		}
-
-
-		//ユーザの入力したIDとパスワードを下に表示 いずれ消す！
-//		System.out.println(getDb.getId());
-//		System.out.println(getUser.getPass());
-//		System.out.println(listDb);
-//		System.out.println(listUser);
-
-		return false;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
+		System.out.println("ログイン失敗");
+		return null;
 	}
 }
