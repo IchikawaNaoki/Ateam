@@ -50,8 +50,8 @@ public class Login extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else{
-			session.setAttribute("status", "Not Auth");
-            response.sendRedirect("");
+			session.setAttribute("status", "ID");
+            response.sendRedirect("./");
 		}
 
 
