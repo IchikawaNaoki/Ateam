@@ -43,8 +43,7 @@
 	<p>${errorMsg}</p>
 </c:if>
 <c:forEach var="getDb" items="${getDbList}">
-	<p><c:out value="${getDb.id}"/>:
-		<c:out value="${getDb.name}"/>:
+	<p><c:out value="${getDb.name}"/>:
 		<c:out value="${getDb.belong }"/>
 		<c:out value="${getDb.status }"/>
 		<c:out value="${getDb.comment }"/></p>

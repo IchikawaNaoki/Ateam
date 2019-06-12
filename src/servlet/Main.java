@@ -76,10 +76,6 @@ public class Main extends HttpServlet {
 		String sapporo = request.getParameter("sapporo");
 
 	
-		//DBを取得して、リストスコープに保存
-		GetDbListLogic getDbListLogic = new GetDbListLogic();
-		List<GetDB> getDbList = getDbListLogic.execute();
-		request.setAttribute("getDbList", getDbList);
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
