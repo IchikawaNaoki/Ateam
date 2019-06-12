@@ -34,6 +34,7 @@ public class Main extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		System.out.println("doGetはいったよお");
 		//DBを取得して、リストスコープに保存
 		GetDbListLogic getDbListLogic = new GetDbListLogic();
 		List<GetDB> getDbList = getDbListLogic.execute();
@@ -43,6 +44,8 @@ public class Main extends HttpServlet {
 		//セッションスコープからユーザー情報を取得
 		HttpSession session = request.getSession();
 		User loginUser = (User)session.getAttribute("loginUser");
+
+
 
 		//ログインしていない場合
 		if(loginUser == null) {
@@ -64,20 +67,15 @@ public class Main extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//リクエストパラメータの取得
-	//	request.setCharacterEncoding("UTF-8");
-		String text = request.getParameter("text");
 
-		//入力値チェック
-		if(text != null && text.length() != 0) {
-			//セッションスコープに保存されたユーザー情報を取得
-			HttpSession session = request.getSession();
-			User loginUser = (User)session.getAttribute("loginUser");
+		System.out.println("doPostはいったよお");
 
-		}
-		else {
-			//エラーメッセージをリクエストスコープに保存
-			request.setAttribute("errorMsg", "つぶやきが入力されていません");
-		}
+		String tokyo = request.getParameter("tokyo");
+		String development = request.getParameter("development");
+		String miyazaki = request.getParameter("miyazaki");
+		String sapporo = request.getParameter("sapporo");
+
+		if( tokyo.equals("東京") ) {System.out.println("東京でたよ");}
 
 		//DBを取得して、リストスコープに保存
 		GetDbListLogic getDbListLogic = new GetDbListLogic();
