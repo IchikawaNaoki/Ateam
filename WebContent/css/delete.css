@@ -2,29 +2,19 @@
 
 /*/＊左右真ん中に表示＊/*/
 body{
-     text-align: center;
-}
-
-/*/＊背景の色を変更する＊/*/
-body{
+    text-align: center;
     background-color:#d3d3d3;
-
 }
-
-
-.first{
-
-    color:#4169e1;                       /* 文字の色を水色にする＊/
-*/    font-family:serif;                    /*フォントをserifにする＊/*/
-    border-bottom: 1px solid #4169e1 ;    /*水色の線を引く＊/*/
-    display:inline-block;                /*文字の下の範囲に線を書く＊/*/
-}
-
-Pタグのサイズ変更
+/*文字変更*/
 h1{
+    color:#4169e1; 						/* 文字の色を水色にする */
+    font-family:serif; 					/* フォントをserifにする */
+    border-bottom:1px solid #4169e1;	/* 水色の線を引く*/
+    display:inline-block;    			/*文字の下の範囲に線を書く*/
+}
+p{
     font-size: 120%
 }
-
 /*ログインボタンのサイズを変える、デザインを変える*/
 #delete{
 	display: inline-block;			/*ボタンの配置を均等につける
