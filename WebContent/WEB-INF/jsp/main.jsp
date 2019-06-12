@@ -18,8 +18,16 @@
 <a href = "/aTeam/Main">更新</a>
 </p>
 
-
 <form action="/aTeam/Main" method="post">
+
+	<input type="submit" value="Presence" name="Presence"
+	style="position: absolute; left: 0%; top: 10%,
+	width:200px; height:30px">
+
+	<input type="submit" value="leave seat" name="leave seat"
+	style="position: absolute; left: 10%; top: 10%,
+	width:200px; height:30px">
+
 	<input type="submit" value="all" name="all"
 	style="position: absolute; left: 6%; top: 50%,
 	width:200px; height:30px">
