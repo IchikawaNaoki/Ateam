@@ -49,10 +49,10 @@ public class Login extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 			dispatcher.forward(request, response);
 		}
-//		else{
-//			session.setAttribute("status", "ID");
-//		    response.sendRedirect("/WEB-INF/jsp/index.jsp");
-//		}
+		else{
+			session.setAttribute("status", "Not Auth");
+            response.sendRedirect("");
+		}
 
 
 
