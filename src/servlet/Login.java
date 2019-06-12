@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.GetDB;
+import model.GetDbListLogic;
 import model.LoginLogic;
 import model.User;
 
@@ -41,6 +43,9 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		List<User> isLogin = loginLogic.execute(user);
 
+		GetDbListLogic getDbListLogic = new GetDbListLogic();
+		List<GetDB> getDbList = getDbListLogic.execute();
+		request.setAttribute("getDbList", getDbList);
 
 		//ログイン成功時の処理
 		if(isLogin != null) {
