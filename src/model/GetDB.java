@@ -7,7 +7,6 @@ public class GetDB {
 	    return "name=" + this.getName() + ", belong=" + this.getBelong()+ ", status=" + this.getStatus()+ ", comment=" + this.getComment();
 	}
 
-
 	private String name;
 	private String belong;
 	private String status;

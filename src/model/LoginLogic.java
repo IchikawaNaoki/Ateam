@@ -44,7 +44,7 @@ public class LoginLogic {
 
 			if(user.getPass().equals(conn.ConDbLogin(user))) {
 				System.out.println("ログイン成功");
-				conn.ConnDbView();
+
 				return true;
 			}
 		}

@@ -70,17 +70,12 @@ public class Main extends HttpServlet {
 
 		System.out.println("doPostはいったよお");
 
-		String tokyo = request.getParameter("tokyo");
+		 String tokyo = request.getParameter("tokyo");
 		String development = request.getParameter("development");
 		String miyazaki = request.getParameter("miyazaki");
 		String sapporo = request.getParameter("sapporo");
 
-		if( tokyo.equals("東京") ) {System.out.println("東京でたよ");}
-
-		//DBを取得して、リストスコープに保存
-		GetDbListLogic getDbListLogic = new GetDbListLogic();
-		List<GetDB> getDbList = getDbListLogic.execute();
-		request.setAttribute("getDbList", getDbList);
+	
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
