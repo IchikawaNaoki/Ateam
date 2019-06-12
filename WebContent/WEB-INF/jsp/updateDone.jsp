@@ -3,10 +3,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>ユーザー削除完了</title>
+		<title>ユーザ情報更新完了</title>
 	</head>
 	<body>
-	<p>ユーザー削除が完了しました。</p>
-	<a href = "/aTeam/DeleteUser">戻る</a>
+	<p>ユーザ情報の更新が完了しました。</p>
+	<a href = "/aTeam/UpdateUser">戻る</a>
 	</body>
 </html>

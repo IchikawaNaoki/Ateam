@@ -83,14 +83,15 @@ public class RegisterUser extends HttpServlet {
 
 		//社員ID、名前、パスワード、部署
 		//intにgetparameterないんでparse
-		String strId = request.getParameter("id");
+		String strId = request.getParameter("PersonalID");
 		int id = Integer.parseInt(strId);
-		String name = request.getParameter("name");
-		String pass = request.getParameter("pass");
-		String post = request.getParameter("post");
+		String name = request.getParameter("PersonalName");
+		String department = request.getParameter("Pass");
+		String nowLogin = request.getParameter("LoginFlag");
+		byte post = Byte.parseByte(nowLogin);
 
 		//登録するユーザの情報を設定
-		User registerUser = new User(id , name , pass , post);
+		User registerUser = new User(id , name , department , post);
 
 		//セッションスコープに登録ユーザーの情報を設定
 		HttpSession session = request.getSession();

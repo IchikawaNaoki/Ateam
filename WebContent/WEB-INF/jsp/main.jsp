@@ -19,26 +19,26 @@
 </p>
 
 
+<form action="/aTeam/Main" method="post">
+	<input type="submit" value="東京" name="tokyo"
+	style="position: absolute; left: 6%; top: 50%,
+	width:200px; height:30px">
 
-<input type="button" value="東京"
-style="position: absolute; left: 6%; top: 50%,
-width:200px; height:30px"
->
+	<input type="submit" value="東京(開発室)" name="development"
+	style="position: absolute; left: 11%; top: 50%,
+	width:200px; height:30px"
+	>
 
-<input type="button" value="東京(開発室)"
-style="position: absolute; left: 11%; top: 50%,
-width:200px; height:30px"
->
+	<input type="submit" value="宮崎" name="miyazaki"
+	style="position: absolute; left: 20%; top: 50%,
+	width:200px; height:30px"
+	>
 
-<input type="button" value="宮崎"
-style="position: absolute; left: 20%; top: 50%,
-width:200px; height:30px"
+	<input type="submit" value="札幌" name="sapporo"
+	style="position: absolute; left: 25%; top: 50%,
+	width:200px; height:30px"
 >
-
-<input type="button" value="札幌"
-style="position: absolute; left: 25%; top: 50%,
-width:200px; height:30px"
->
+</form>
 <c:if test="${not empty errorMsg }">
 	<p>${errorMsg}</p>
 </c:if>
