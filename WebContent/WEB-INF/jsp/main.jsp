@@ -9,14 +9,34 @@
 <head>
 <meta charset="UTF-8">
 <title>在籍管理システム</title>
-<link rel="stylesheet" type="text/css" href="/aTeam/WEB-INF/css/main.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
 </head>
 <body>
-<p>
 <c:out value="${loginUser.name}" />さん、ログイン中
-<a href="/aTeam/Logout">ログアウト</a>
-<a href = "/aTeam/Main">更新</a>
-</p>
+<a href="/aTeam/Logout" id="logout">ログアウト</a>
+<ul id="dropmenu" style="clear:both;">
+<li><a href="/">メニュー画面</a>
+</li>
+<li><a href="/">在席/離席 選択</a>
+<ul>
+<li><input type="radio" name="select" value="サンプル">在席</li>
+<li><input type="radio" name="select" value="サンプル">離席</li>
+</ul>
+</li>
+<li><a href="/">オフィス選択</a>
+<ul>
+<li><a href="/">東京</a></li>
+<li><a href="/">東京開発室</a></li>
+<li><a href="/">宮崎</a></li>
+<li><a href="/">札幌</a></li>
+</ul>
+</li>
+<li><a href="/">プロフィール編集</a>
+</li>
+<li><a href = "/aTeam/Main">全件表示</a>
+</li>
+</ul>
 
 
 <form action="/aTeam/Main" method="post">
