@@ -17,17 +17,6 @@
 <c:out value="${loginUser.name}" />さん ログイン中
 
 
-<form action="/aTeam/Main" method="post">
-
-	<input type="submit" value="在席" name="Presence"
-	style="position: absolute; left: 0%; top: 10%,
-	width:200px; height:30px">
-
-	<input type="submit" value="離席" name="leave seat"
-	style="position: absolute; left: 10%; top: 10%,
-	width:200px; height:30px">
-</form>
-
 
 
 
@@ -35,16 +24,20 @@
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
 
 <form action="/aTeam/Main" method="post" name="first">
+
 <ul id="dropmenu" style="clear:both;">
 <li><a href="/">メニュー画面</a>
 </li>
+
+
+<form action="/aTeam/Main" method="post">
 <li><a href="/">在席/離席 選択</a>
 <ul>
-<li><input type="radio" name="select" value="在席">在席</li>
-<li><input type="radio" name="select" value="離席">離席</li>
+<li><input type="submit" value="在席" name="Presence"></li>
+<li><input type="submit" value="離席" name="leave seat"></li>
 </ul>
 </li>
-
+</form>
 
 <li><a href="/">オフィス選択</a>
 <ul>
@@ -126,5 +119,7 @@
 </c:forEach>
 
 </body>
+
+
 
 </html>
