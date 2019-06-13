@@ -6,6 +6,8 @@
 
 <% User registerUser = (User)session.getAttribute("registerUser"); %>
 <% GetDB getDb = (GetDB)session.getAttribute("getDb"); %>
+<% User user = (User)application.getAttribute("user"); %>
+
 <!DOCTYPE html>
 <html>
 <!-- setAttributeで呼べ！！ -->
@@ -15,7 +17,7 @@
 	</head>
 
 	<body>
-	<p><c:out value="${registerUser.getId}"></c:out>さんログイン中</p>
+	<p><c:out value="${user.getId}"></c:out>さんログイン中</p>
 		<p>現在は<c:out value="${getDb.belong}" />に所属しています。</p>
 		<p>変更先の部署を選択してください。</p>
 		<form action="/aTeam/Main" method="post">
