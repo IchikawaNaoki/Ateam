@@ -84,8 +84,9 @@ public class Main extends HttpServlet {
 		ServletContext application = this.getServletContext();
 		User loginUser = (User)application.getAttribute("loginUser");
 
-		new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
-
+		if(presence != null || leaveseat != null) {
+			new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
+		}
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
