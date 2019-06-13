@@ -30,7 +30,7 @@ public class LoginLogic {
 			List<User> listUser = conn.ConDbLogin(user);
 				if(user.getPass().equals(listUser.get(0).getPass())) {
 				System.out.println("ログイン成功");
-
+				//conn.ConnDbLogin(user.getPass());	//ログインしたフラグをたてる
 				return listUser;
 			}
 		}
