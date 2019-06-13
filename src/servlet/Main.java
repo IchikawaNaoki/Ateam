@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.ConnDbDao;
 import model.GetDB;
@@ -43,10 +43,8 @@ public class Main extends HttpServlet {
 
 		//ログインしているか確認するため
 		//セッションスコープからユーザー情報を取得
-		HttpSession session = request.getSession();
-		User loginUser = (User)session.getAttribute("loginUser");
-
-
+		ServletContext application = this.getServletContext();
+		User loginUser = (User)application.getAttribute("loginUser");
 
 		//ログインしていない場合
 		if(loginUser == null) {
@@ -80,12 +78,12 @@ public class Main extends HttpServlet {
 		String miyazaki = request.getParameter("miyazaki");
 		String sapporo = request.getParameter("sapporo");
 
-
-
 		List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
 		request.setAttribute("getDbList", list);
 
-
+	//	if(presence != null) {
+	//		List<GetDB> listchange = new ConnDbDao().ConnDbStatus(1,);
+	//	}
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");

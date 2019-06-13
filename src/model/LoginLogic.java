@@ -29,9 +29,14 @@ public class LoginLogic {
 			ConnDbDao conn = new ConnDbDao();
 			List<User> listUser = conn.ConDbLogin(user);
 				if(user.getPass().equals(listUser.get(0).getPass())) {
-				System.out.println("ログイン成功");
-				conn.ConnDbLogin(user.getPass());	//ログインしたフラグをたてる
-				return listUser;
+					System.out.println("ログイン成功");
+					if( listUser.get(0).getNowLogin().equals((byte)0) ) {//ログインフラグをみる
+						conn.ConnDbLoginLogout(1 ,listUser.get(0).getPass() );
+						System.out.println(listUser.get(0).getName()+"のログインフラグたてたっぺよ");
+					}else {
+						System.out.println(listUser.get(0).getName()+"はログイン済みっぺよ"+ listUser.get(0).getNowLogin());
+					}
+					return listUser;
 			}
 		}
 		System.out.println("ログイン失敗");
