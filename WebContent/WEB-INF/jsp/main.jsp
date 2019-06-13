@@ -14,8 +14,11 @@
 
 </head>
 <body>
+
 <c:out value="${loginUser.name}" />さん ログイン中
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
+
+<form action="/aTeam/Main" method="post" name="first">
 <ul id="dropmenu" style="clear:both;">
 <li><a href="/">メニュー画面</a>
 </li>
@@ -26,19 +29,32 @@
 </ul>
 </li>
 
+
 <li><a href="/">オフィス選択</a>
 <ul>
-<li><a href="/">東京</a></li>
-<li><a href="/">東京開発室</a></li>
-<li><a href="/">宮崎</a></li>
-<li><a href="/">札幌</a></li>
+
+<li><input type="hidden" name="東京" value="tokyo">
+<a href="#" onclick="document.first.submit():return false;">東京</a></li>
+
+<li><input type=hidden name=東京(開発室) value="development">
+<a href="javascript:first.submit()">東京(開発室)</a></li>
+
+<li><input type=hidden name=宮崎 value="miyazaki">
+<a href="javascript:first.submit()">宮崎</a></li>
+
+<li><input type=hidden name=札幌 value="sapporo">
+<a href="javascript:first.submit()">札幌</a></li>
 </ul>
 </li>
-<li><a href="/aTeam/UpdateUser">プロフィール編集</a>
+
+
+<li><a href="/aTeam/UpdateUser">部署変更</a>
 </li>
 <li><a href = "/aTeam/Main">全件表示</a>
 </li>
 </ul>
+</form>
+
 <!--
 <form action="/aTeam/Main" method="post">
 
@@ -74,6 +90,8 @@
 	width:200px; height:30px"
 >
 </form> -->
+
+
 <c:if test="${not empty errorMsg }">
 	<p>${errorMsg}</p>
 </c:if>
