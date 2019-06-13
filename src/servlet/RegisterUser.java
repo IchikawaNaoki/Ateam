@@ -81,7 +81,7 @@ public class RegisterUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		//社員ID、名前、パスワード、部署
+		//社員ID、名前、パスワード、ログイン状況
 		//intにgetparameterないんでparse
 		String strId = request.getParameter("PersonalID");
 		int id = Integer.parseInt(strId);

@@ -11,7 +11,7 @@
 	</head>
 
 	<body>
-	<p>下記のユーザーを登録します。</p>
+	<h1>下記のユーザーを登録します。</h1>
 	<p>ユーザーID:<%= registerUser.getId() %></p>
 
 	<button type="button" id="delete">

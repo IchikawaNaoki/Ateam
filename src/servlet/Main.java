@@ -80,8 +80,12 @@ public class Main extends HttpServlet {
 		String miyazaki = request.getParameter("miyazaki");
 		String sapporo = request.getParameter("sapporo");
 
+
+
 		List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
 		request.setAttribute("getDbList", list);
+
+
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
