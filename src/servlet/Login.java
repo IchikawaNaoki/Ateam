@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.LoginLogic;
 import model.User;
@@ -41,17 +41,19 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		List<User> isLogin = loginLogic.execute(user);
 
-		HttpSession session = request.getSession();
+		//アプリケーションスコープの取得
+		ServletContext application = this.getServletContext();
+
 		//ログイン成功時の処理
 		if(isLogin != null) {
 
-			//ユーザ情報をセッションスコープに保存
-			session.setAttribute("loginUser" , isLogin.get(0));
+			application.setAttribute("loginUser" , isLogin.get(0));
+			//フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {
-			session.setAttribute("status", "ID");
+			application.setAttribute("status", "ID");
             response.sendRedirect("./");
 		}
 	}
