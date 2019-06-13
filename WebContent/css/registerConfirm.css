@@ -18,12 +18,8 @@ h1{
     display:inline-block;                /*文字の下の範囲に線を書く*/
 }
 
-h1{
-	font-family:serif;                    /*フォントをserifにする*/
-}
-
 Pタグのサイズ変更
-h1{
+p{
     font-size: 120%
 }
 

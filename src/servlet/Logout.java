@@ -21,6 +21,8 @@ public class Logout  extends HttpServlet{
 				session.invalidate();
 				//session.removeAttribute(name);
 
+
+
 				//ログアウト画面にフォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/logOut.jsp");
 				dispatcher.forward(request, response);

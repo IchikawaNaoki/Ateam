@@ -70,15 +70,22 @@ public class Main extends HttpServlet {
 		//リクエストパラメータの取得
 
 		System.out.println("doPostはいったよお");
-
+		//response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		String presence = request.getParameter("Presence");
+		String leaveseat = request.getParameter("leave seat");
 		String all = request.getParameter("all");
-		 String tokyo = request.getParameter("tokyo");
+		String tokyo = request.getParameter("tokyo");
 		String development = request.getParameter("development");
 		String miyazaki = request.getParameter("miyazaki");
 		String sapporo = request.getParameter("sapporo");
 
+
+
 		List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
 		request.setAttribute("getDbList", list);
+
+
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
