@@ -68,7 +68,6 @@ public class Main extends HttpServlet {
 		//リクエストパラメータの取得
 
 		System.out.println("doPostはいったよお");
-		//response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		String presence = request.getParameter("Presence");
 		String leaveseat = request.getParameter("leave seat");
@@ -81,9 +80,11 @@ public class Main extends HttpServlet {
 		List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
 		request.setAttribute("getDbList", list);
 
-	//	if(presence != null) {
-	//		List<GetDB> listchange = new ConnDbDao().ConnDbStatus(1,);
-	//	}
+		//アプリケーションからUser情報を取得
+		ServletContext application = this.getServletContext();
+		User loginUser = (User)application.getAttribute("loginUser");
+
+		new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
 
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
