@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>在籍管理システム</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="main.js"></script>
 
 </head>
 <body>
@@ -24,6 +25,7 @@
 <li><input type="radio" name="select" value="サンプル">離席</li>
 </ul>
 </li>
+
 <li><a href="/">オフィス選択</a>
 <ul>
 <li><a href="/">東京</a></li>
@@ -32,12 +34,12 @@
 <li><a href="/">札幌</a></li>
 </ul>
 </li>
-<li><a href="/">プロフィール編集</a>
+<li><a href="/aTeam/UpdateUser">プロフィール編集</a>
 </li>
 <li><a href = "/aTeam/Main">全件表示</a>
 </li>
 </ul>
-
+<!--
 <form action="/aTeam/Main" method="post">
 
 	<input type="submit" value="在席" name="Presence"
@@ -48,12 +50,10 @@
 	style="position: absolute; left: 10%; top: 10%,
 	width:200px; height:30px">
 
-<<<<<<< HEAD
-=======
 	<input type="submit" value="すべて" name="all"
 	style="position: absolute; left: 6%; top: 50%,
 	width:200px; height:30px">
->>>>>>> branch 'master' of https://github.com/IchikawaNaoki/Ateam
+
 
 	<input type="submit" value="東京" name="tokyo"
 	style="position: absolute; left: 12%; top: 50%,
@@ -73,7 +73,7 @@
 	style="position: absolute; left: 33%; top: 50%,
 	width:200px; height:30px"
 >
-</form>
+</form> -->
 <c:if test="${not empty errorMsg }">
 	<p>${errorMsg}</p>
 </c:if>
