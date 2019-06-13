@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="model.User" %>
@@ -36,16 +35,21 @@
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
 
 <form action="/aTeam/Main" method="post" name="first">
+
 <ul id="dropmenu" style="clear:both;">
 <li><a href="/">メニュー画面</a>
 </li>
+
+<!--
+<form action="/aTeam/Main" method="post">
 <li><a href="/">在席/離席 選択</a>
 <ul>
-<li><input type="radio" name="select" value="在席">在席</li>
-<li><input type="radio" name="select" value="離席">離席</li>
+<li><input type="submit" value="在席" name="Presence"></li>
+<li><input type="submit" value="離席" name="leave seat"></li>
 </ul>
 </li>
-
+</form>
+-->
 
 <li><a href="/">オフィス選択</a>
 <ul>
@@ -127,5 +131,7 @@
 </c:forEach>
 
 </body>
+
+
 
 </html>
