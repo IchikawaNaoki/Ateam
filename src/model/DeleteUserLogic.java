@@ -15,8 +15,6 @@ public class DeleteUserLogic {
 		if(user.getId() != 0 && user.getPass() != null) {
 
 			ConnDbDao conn = new ConnDbDao();
-
-
 			if(user.getPass().equals(conn.ConDbLogin(user))) {
 				System.out.println("削除成功");
 				conn.ConnDbView();

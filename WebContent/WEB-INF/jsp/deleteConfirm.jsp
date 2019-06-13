@@ -9,14 +9,12 @@
 		<link rel="stylesheet" type="text/css" href="delete.css">
 		<title>ユーザー削除確認</title>
 	</head>
-
 	<body>
 	<p>下記のユーザーを削除します。</p>
-	<p>ユーザーID:<%=  %></p>
+	<p>ユーザーID:<%= deleteUser.getId() %></p>
 
-	<a href = "/aTeam/deleteUser">戻る</a>
-			//JSPに飛ばす(仕様書確認)
+	<a href="/aTeam/DeleteUser">戻る</a>
 
-	<a href = "/aTeam/Delete/User?action=done">削除</a>
+	<a href="/aTeam/DeleteUser?action=done">削除</a>
 	</body>
 </html>
