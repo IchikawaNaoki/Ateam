@@ -74,12 +74,12 @@ public class DeleteUser extends HttpServlet {
 		String strId = request.getParameter("PersonalID");
 		int id = Integer.parseInt(strId);
 		String name = request.getParameter("PersonalName");
-		String department = request.getParameter("Pass");
+		String pass = request.getParameter("Pass");
 		String nowLogin = request.getParameter("LoginFlag");
 		byte post = Byte.parseByte(nowLogin);
 
 		//削除するユーザの情報を設定
-		User deleteUser = new User(id , name , department , post);
+		User deleteUser = new User(id , name , pass , post);
 
 		//セッションスコープに削除ユーザーの情報を設定
 		HttpSession session = request.getSession();
