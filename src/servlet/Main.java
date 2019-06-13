@@ -96,7 +96,6 @@ public class Main extends HttpServlet {
 			ServletContext application = this.getServletContext();
 			User loginUser = (User)application.getAttribute("loginUser");
 			new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
-
 			String str = (String) session.getAttribute("str");
 			if( str != null ) {
 				List<GetDB> list = new ConnDbDao().WhereView(str);
