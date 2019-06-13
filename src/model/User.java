@@ -32,6 +32,12 @@ public class User implements Serializable{
 		this.id = id;
 		this.pass = pass;
 	}
+
+	public User(String name, String pass){
+		this.name = name;
+		this.pass = pass;
+	}
+
 	public User(int id , String name , String pass , byte nowLogin) {
 		this.id = id;
 		this.name = name;

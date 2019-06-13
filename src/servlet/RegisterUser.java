@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
+import dao.ConnDbDao;
 import model.RegisterUserLogic;
 import model.User;
 
@@ -65,7 +66,11 @@ public class RegisterUser extends HttpServlet {
 			if(!isRegister) {
 				JOptionPane.showMessageDialog(null , "登録に失敗しました。");
 			}
-
+			else {
+				ConnDbDao conn= new ConnDbDao();
+				conn.RegisterDB(registerUser.getName(),registerUser.getPass());
+				
+			}
 			//不要となったセッションスコープ内のインスタンスを削除
 			session.removeAttribute("registerUser");
 
@@ -83,15 +88,12 @@ public class RegisterUser extends HttpServlet {
 
 		//社員ID、名前、パスワード、ログイン状況
 		//intにgetparameterないんでparse
-		String strId = request.getParameter("PersonalID");
-		int id = Integer.parseInt(strId);
-		String name = request.getParameter("PersonalName");
-		String department = request.getParameter("Pass");
-		String nowLogin = request.getParameter("LoginFlag");
-		byte post = Byte.parseByte(nowLogin);
+		String name = request.getParameter("name");
+		String pass = request.getParameter("pass");
+
 
 		//登録するユーザの情報を設定
-		User registerUser = new User(id , name , department , post);
+		User registerUser = new User(name , pass);
 
 		//セッションスコープに登録ユーザーの情報を設定
 		HttpSession session = request.getSession();
