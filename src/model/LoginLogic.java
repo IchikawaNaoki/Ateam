@@ -35,6 +35,8 @@ public class LoginLogic {
 						System.out.println(listUser.get(0).getName()+"のログインフラグたてたっぺよ");
 					}else {
 						System.out.println(listUser.get(0).getName()+"はログイン済みっぺよ"+ listUser.get(0).getNowLogin());
+						//System.out.println("ログインしてるよ");
+						//return null;
 					}
 					return listUser;
 			}
