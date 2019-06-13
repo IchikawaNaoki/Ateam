@@ -96,9 +96,12 @@ public class Main extends HttpServlet {
 			ServletContext application = this.getServletContext();
 			User loginUser = (User)application.getAttribute("loginUser");
 			new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
-	//		String str = (String) session.getAttribute("str");
-//			List<GetDB> list = new ConnDbDao().WhereView(str);
-//			request.setAttribute("getDbList", list);
+
+			String str = (String) session.getAttribute("str");
+			if( str != null ) {
+				List<GetDB> list = new ConnDbDao().WhereView(str);
+				request.setAttribute("getDbList", list);
+			}
 		}
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
