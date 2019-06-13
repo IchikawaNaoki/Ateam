@@ -32,18 +32,25 @@
 
 <li><a href="/">オフィス選択</a>
 <ul>
+<form action="/aTeam/Main" method="post" name="first">
+<li><input type="hidden" name="tokyo" value="東京">
+<a href="javascript:first.submit()">東京</a></li>
+</form>
 
-<li><input type="hidden" name="東京" value="tokyo">
-<a href="#" onclick="document.first.submit():return false;">東京</a></li>
+<form action="/aTeam/Main" method="post" name="second">
+<li><input type=hidden name="development" value="東京(開発室)">
+<a href="javascript:second.submit()">東京(開発室)</a></li>
+</form>
 
-<li><input type=hidden name=東京(開発室) value="development">
-<a href="javascript:first.submit()">東京(開発室)</a></li>
+<form action="/aTeam/Main" method="post" name="third">
+<li><input type=hidden name="miyazaki" value="宮崎">
+<a href="javascript:third.submit()">宮崎</a></li>
+</form>
 
-<li><input type=hidden name=宮崎 value="miyazaki">
-<a href="javascript:first.submit()">宮崎</a></li>
-
-<li><input type=hidden name=札幌 value="sapporo">
-<a href="javascript:first.submit()">札幌</a></li>
+<form action="/aTeam/Main" method="post" name="force">
+<li><input type=hidden name=sapporo value="札幌">
+<a href="javascript:force.submit()">札幌</a></li>
+</form>
 </ul>
 </li>
 
