@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ConnDbDao;
 import model.GetDB;
@@ -71,16 +73,21 @@ public class Main extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String presence = request.getParameter("Presence");
 		String leaveseat = request.getParameter("leave seat");
-		String all = request.getParameter("all");
-		String tokyo = request.getParameter("tokyo");
-		String development = request.getParameter("development");
-		String miyazaki = request.getParameter("miyazaki");
-		String sapporo = request.getParameter("sapporo");
+		//所属地ボタンを押したのを保存する
+		List<String> button = new ArrayList<String>();
+		button.add(request.getParameter("all"));
+		button.add(request.getParameter("tokyo"));
+		button.add(request.getParameter("development"));
+		button.add(request.getParameter("miyazaki"));
+		button.add(request.getParameter("sapporo"));
 
-		//所属地ボタンをおしたとき
-		if(all != null || tokyo != null || development != null || miyazaki != null || sapporo != null ) {
-			List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
-			request.setAttribute("getDbList", list);
+		HttpSession session = request.getSession();
+		for( String str : button ){
+			if(str != null) {
+				session.setAttribute("str", str);
+				List<GetDB> list = new ConnDbDao().WhereView(str);
+				request.setAttribute("getDbList", list);
+			}
 		}
 
 		//在席・離席ボタンをおしたとき
@@ -89,13 +96,12 @@ public class Main extends HttpServlet {
 			ServletContext application = this.getServletContext();
 			User loginUser = (User)application.getAttribute("loginUser");
 			new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
+			String str = (String) session.getAttribute("str");
+			if( str != null ) {
+				List<GetDB> list = new ConnDbDao().WhereView(str);
+				request.setAttribute("getDbList", list);
+			}
 		}
-
-		//DBを取得して、リストスコープに保存
-		GetDbListLogic getDbListLogic = new GetDbListLogic();
-		List<GetDB> getDbList = getDbListLogic.execute();
-		request.setAttribute("getDbList", getDbList);
-
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);

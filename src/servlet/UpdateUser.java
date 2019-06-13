@@ -9,8 +9,10 @@ package servlet;
 //インポート
 //-------------------------------------------------------------------------------------------------------------
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
+import dao.ConnDbDao;
+import model.GetDB;
 import model.UpdateUserLogic;
 import model.User;
 
@@ -43,7 +47,7 @@ public class UpdateUser extends HttpServlet {
 
 		//更新の開始をリクエストされた時の処理
 		if(action == null)
-			forwardPath = "/WEB-INF/jsp/updateForm.jsp";
+			forwardPath = "/WEB-INF/jsp/ChangeForm.jsp";
 
 		//更新確認画面から「更新実行」をリクエストされたときの処理
 		else if(action.equals("done")) {
@@ -81,9 +85,19 @@ public class UpdateUser extends HttpServlet {
 		String department = request.getParameter("Pass");
 		String nowLogin = request.getParameter("LoginFlag");
 		byte post = Byte.parseByte(nowLogin);
+		String belong = request.getParameter("Belong");
+
+
 
 		//更新するユーザの情報を設定
 		User updateUser = new User(id , name , department , post);
+
+		ServletContext application = this.getServletContext();
+		User user = (User)application.getAttribute("user");
+
+		List<GetDB> getDbList = new ConnDbDao().ConnDbUserInfo(updateUser.getId());
+		HttpSession session2 = request.getSession();
+		session2.setAttribute("getDbist" , getDbList);
 
 		//セッションスコープに登録ユーザの情報を設定
 		HttpSession session = request.getSession();
