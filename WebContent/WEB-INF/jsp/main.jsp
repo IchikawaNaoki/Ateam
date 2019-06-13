@@ -16,31 +16,41 @@
 
 <c:out value="${loginUser.name}" />さん ログイン中
 
-
-
-
-
-
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
 
-<form action="/aTeam/Main" method="post" name="first">
+
 
 <ul id="dropmenu" style="clear:both;">
-<li><a href="/">メニュー画面</a>
-</li>
+<li><a href="/">メニュー画面</a></li>
 
 
-<form action="/aTeam/Main" method="post">
 <li><a href="/">在席/離席 選択</a>
 <ul>
-<li><input type="submit" value="在席" name="Presence"></li>
-<li><input type="submit" value="離席" name="leave seat"></li>
-</ul>
+<li>
+<form action="/aTeam/Main" method="post" name="zaiseki">
+<li><input type="hidden" name="Presence" value="在席">
+<a href="javascript:zaiseki.submit()">在席</a></li>
 </li>
 </form>
 
+<li>
+<form action="/aTeam/Main" method="post" name="riseki">
+<li><input type="hidden" name="leave seat" value="離席">
+<a href="javascript:riseki.submit()">離席</a></li>
+</li>
+</form>
+</ul>
+
+
+
+
+
+
+
+
 <li><a href="/">オフィス選択</a>
 <ul>
+
 <form action="/aTeam/Main" method="post" name="first">
 <li><input type="hidden" name="tokyo" value="東京">
 <a href="javascript:first.submit()">東京</a></li>
