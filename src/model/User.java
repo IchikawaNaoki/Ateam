@@ -28,6 +28,10 @@ public class User implements Serializable{
 
 	public User(){}
 
+	public User(int id, String pass){
+		this.id = id;
+		this.pass = pass;
+	}
 	public User(int id , String name , String pass , byte nowLogin) {
 		this.id = id;
 		this.name = name;
