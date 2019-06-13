@@ -15,6 +15,9 @@
 		<form action = "/aTeam/RegisterUser" method = "post">
 			　　社員名:<input type="text" name="name"><br>
 			パスワード:<input type="password" name="pass"><br>
+
+			<a id="register" type="submit" href="/aTeam/RegisterUser">登録</a>
+			<a id="register" type="submit" href="/aTeam/RegisterUser">戻る</a>
 		</form>
 	</body>
 </html>
