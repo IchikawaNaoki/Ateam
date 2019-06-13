@@ -25,6 +25,7 @@
 <li><input type="radio" name="select" value="サンプル">離席</li>
 </ul>
 </li>
+
 <li><a href="/">オフィス選択</a>
 <ul>
 <li><a href="/">東京</a></li>
@@ -33,7 +34,7 @@
 <li><a href="/">札幌</a></li>
 </ul>
 </li>
-<li><a href="/aTeam/updateUserLogic">プロフィール編集</a>
+<li><a href="/aTeam/UpdateUser">プロフィール編集</a>
 </li>
 <li><a href = "/aTeam/Main">全件表示</a>
 </li>
