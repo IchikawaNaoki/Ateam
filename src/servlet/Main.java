@@ -77,16 +77,25 @@ public class Main extends HttpServlet {
 		String miyazaki = request.getParameter("miyazaki");
 		String sapporo = request.getParameter("sapporo");
 
-		List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
-		request.setAttribute("getDbList", list);
+		//所属地ボタンをおしたとき
+		if(all != null || tokyo != null || development != null || miyazaki != null || sapporo != null ) {
+			List<GetDB> list = new ConnDbDao().WhereDb(tokyo, development, miyazaki, sapporo);
+			request.setAttribute("getDbList", list);
+		}
 
-		//アプリケーションからUser情報を取得
-		ServletContext application = this.getServletContext();
-		User loginUser = (User)application.getAttribute("loginUser");
-
+		//在席・離席ボタンをおしたとき
 		if(presence != null || leaveseat != null) {
+			//アプリケーションからUser情報を取得
+			ServletContext application = this.getServletContext();
+			User loginUser = (User)application.getAttribute("loginUser");
 			new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
 		}
+
+		//DBを取得して、リストスコープに保存
+		GetDbListLogic getDbListLogic = new GetDbListLogic();
+		List<GetDB> getDbList = getDbListLogic.execute();
+		request.setAttribute("getDbList", getDbList);
+
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
