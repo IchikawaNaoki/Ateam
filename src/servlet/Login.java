@@ -54,13 +54,6 @@ public class Login extends HttpServlet {
 			session.setAttribute("status", "ID");
             response.sendRedirect("./");
 		}
-
-		}
-
-
-
-
-
-
 	}
+}
 
