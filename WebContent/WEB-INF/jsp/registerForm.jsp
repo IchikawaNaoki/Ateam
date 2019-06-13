@@ -16,17 +16,9 @@
 			　　社員名:<input type="text" name="name"><br>
 			パスワード:<input type="password" name="pass"><br>
 
-		<button type="submit" id="irogae">
-		<a href="/aTeam/index.jsp">戻る</a>
-		</button>
-		<button type="submit" id="delete">削除</button>
+			<button id="register" type="submit">登録</button>
+			<button id="register" type="submit"><a href="/aTeam/">戻る</a></button>
 
-		</button>
-
-<!-- 			<div id="register"> -->
-<!-- 			<button><a href="/aTeam/RegisterUser">登録</a></button> -->
-<!-- 			<button><a href="/aTeam/">戻る</a></button> -->
-<!-- 			</div> -->
 		</form>
 	</body>
 </html>

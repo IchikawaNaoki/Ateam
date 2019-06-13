@@ -17,8 +17,8 @@ p{
     font-size: 120%
 }
 /*登録・戻るボタンのサイズを変える、デザインを変える*/
-#irogae{
-	display: inline-block;			/*ボタンの配置を均等につける
+#register{
+	display: inline-block;			/*ボタンの配置を均等につける*/
  	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
   	text-decoration: none;			/*文字の装飾*/
   	font-weight: bold;				/*文字を太文字にする*/
