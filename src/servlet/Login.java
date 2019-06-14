@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ConnDbDao;
+import model.GetDB;
 import model.LoginLogic;
 import model.User;
 
@@ -46,8 +48,9 @@ public class Login extends HttpServlet {
 
 		//ログイン成功時の処理
 		if(isLogin != null) {
-
+			List<GetDB> list= new ConnDbDao().ConnDbUserInfo(isLogin.get(0).getId());
 			application.setAttribute("loginUser" , isLogin.get(0));
+
 			//フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 			dispatcher.forward(request, response);

@@ -89,13 +89,14 @@ public class Main extends HttpServlet {
 				request.setAttribute("getDbList", list);
 			}
 		}
-
+	
 		//在席・離席ボタンをおしたとき
 		if(presence != null || leaveseat != null) {
 			//アプリケーションからUser情報を取得
 			ServletContext application = this.getServletContext();
 			User loginUser = (User)application.getAttribute("loginUser");
 			new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
+			
 			String str = (String) session.getAttribute("str");
 			if( str != null ) {
 				List<GetDB> list = new ConnDbDao().WhereView(str);
@@ -105,6 +106,7 @@ public class Main extends HttpServlet {
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 	public void destroy() {
