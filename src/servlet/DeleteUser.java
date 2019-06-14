@@ -46,7 +46,7 @@ public class DeleteUser extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		//削除確認画面から「削除実行」をリクエストされたときの処理
-		else if(action.equals("done")) 
+		else if(action.equals("done"))
 		{
 			HttpSession session = request.getSession();
 			User deleteUser = (User)session.getAttribute("deleteUser");
@@ -113,6 +113,7 @@ public class DeleteUser extends HttpServlet {
 		}
 		else
 		{//IDもしくはpassが入ってないとき
+
 			System.out.println("ちゃんと入力されてなぁぁぁいぃぃぃぃ・・・");
 			//フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/deleteForm.jsp");
