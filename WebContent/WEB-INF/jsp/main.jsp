@@ -10,14 +10,16 @@
 <title>在籍管理システム</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script type="text/javascript" src="main.js"></script>
-
+<!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
 
+
 <c:out value="${loginUser.name}" />さん ログイン中
 
-<a href="/aTeam/Logout" id="logout">ログアウト</a>
 
+<a href="/aTeam/Logout" id="logout">ログアウト</a>
 
 <ul id="dropmenu" style="clear:both;">
 <li><a href="/">メニュー画面</a></li>
@@ -39,14 +41,6 @@
 </li>
 </form>
 </ul>
-
-
-
-
-
-
-
-
 <li><a href="/">オフィス選択</a>
 <ul>
 
@@ -80,43 +74,8 @@
 </ul>
 </form>
 
-<!--
-<form action="/aTeam/Main" method="post">
-
-	<input type="submit" value="在席" name="Presence"
-	style="position: absolute; left: 0%; top: 10%,
-	width:200px; height:30px">
-
-	<input type="submit" value="離席" name="leave seat"
-	style="position: absolute; left: 10%; top: 10%,
-	width:200px; height:30px">
-</form>
-	<input type="submit" value="すべて" name="all"
-	style="position: absolute; left: 6%; top: 50%,
-	width:200px; height:30px">
-
-
-	<input type="submit" value="東京" name="tokyo"
-	style="position: absolute; left: 12%; top: 50%,
-	width:200px; height:30px">
-
-	<input type="submit" value="東京(開発室)" name="development"
-	style="position: absolute; left: 17%; top: 50%,
-	width:200px; height:30px"
-	>
-
-	<input type="submit" value="宮崎" name="miyazaki"
-	style="position: absolute; left: 28%; top: 50%,
-	width:200px; height:30px"
-	>
-
-	<input type="submit" value="札幌" name="sapporo"
-	style="position: absolute; left: 33%; top: 50%,
-	width:200px; height:30px"
->
-</form> -->
-
-<div class=""></div>
+<p id="pageTop"><a href="#">↑</a></p>
+<div class="list">
 <c:if test="${not empty errorMsg }">
 	<p>${errorMsg}</p>
 </c:if>
@@ -126,6 +85,7 @@
 		<c:out value="${getDb.status }"/>
 		<c:out value="${getDb.comment }"/></p>
 </c:forEach>
+</div>
 
 </body>
 
