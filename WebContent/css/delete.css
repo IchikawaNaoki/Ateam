@@ -35,3 +35,11 @@ p{
 a{
 	color: white;
 }
+
+#megmin {
+    text-align: center;
+}
+#megmin form {
+    display: inline-block;
+    margin: 0 10px;
+}

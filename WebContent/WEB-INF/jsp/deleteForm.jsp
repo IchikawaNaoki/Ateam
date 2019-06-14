@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+    <% Object status = session.getAttribute("status"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,18 +21,24 @@
 	<form action = "/aTeam/DeleteUser" method = "post">
 		ユーザーID:<input type="text" name="PersonalID"><br>
 		パスワード:<input type="password" name="Pass"><br>
+	</form>
 
+
+<div id="megmin">
+	<form action = "/aTeam/DeleteUser" method = "post">
 		<button type="submit"  id="delete" >
 			削除
 		</button>
 	</form>
-		<!-- button type="button" onclick="history.back()"id="delete" >
-		</button>
-		<input type="button"  value="戻りゅ"onClick="/aTeam/index.jsp"id="delete"> -->
 	<form action="/aTeam/Login"method="post">
 		<button type="submit"  id="delete" >
 			戻る
 		</button>
 	</form>
+</div>
+
+
+
+
 </body>
 </html>
