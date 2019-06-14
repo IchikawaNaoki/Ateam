@@ -16,9 +16,9 @@
 	<form action="/aTeam/Login" method="post">
 
 <p>社員ID</p>
-<input id="name" type="text" name="id"><br>
+<input id="name" type="text" name="id" required="required"><br>
 <p> パスワード</p>
-    <input id="pass" type="password" name="pass"><br>
+    <input id="pass" type="password" name="pass" required="required"><br>
 
  <input id="login" type="submit" value="ログイン"><br>
 
@@ -27,11 +27,11 @@
 <a id="new"  href="/aTeam/DeleteUser">アカウント削除</a>
 	</form>
 
-	<%if (status != null){ %>
-		<script>alert("ログインIDまたはパスワードが間違っています");</script>
-		<script>location.reload();</script>
-		<%session.removeAttribute("status"); %>
-		<% } %>
+<%if (status != null){ %>
+        <script>alert("ログインIDまたはパスワードが間違っています");</script>
+        <script>location.reload();</script>
+        <%session.removeAttribute("status"); %>
+        <% } %>
 
 
 </body>
