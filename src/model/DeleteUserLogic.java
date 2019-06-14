@@ -12,16 +12,14 @@ import dao.ConnDbDao;
 public class DeleteUserLogic {
 	public boolean execute(User user) {
 
-		if(user.getId() != 0 && user.getPass() != null) {
-
+		if(user.getId() != 0 && user.getPass() != null)
+		{
+			//DBコネクトインスタンス作成
 			ConnDbDao conn = new ConnDbDao();
-			if(user.getPass().equals(conn.ConDbLogin(user))) {
-				System.out.println("削除成功");
-				conn.ConnDbView();
-				return true;
-			}
+			//削除メソッド呼び出し
+			conn.ConnDbDelete(user);
+			return true;
 		}
-
-		return false;	//パスが通らなかったらfalse を返す（パスでログインできるようになったらfalseに直して）
+		return false;
 	}
 }
