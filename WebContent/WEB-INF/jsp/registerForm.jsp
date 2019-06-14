@@ -12,9 +12,13 @@
 		<p>登録する社員名と、</p>
 		<p>大文字から始まる、4～8文字の</p>
 		<p>パスワードを半角英数字で入力してください。</p>
-		<form action = "/aTeam/RegisterUser" method = "post">
-			　　社員名:<input type="text" name="name"><br>
+		<form action="/aTeam/RegisterUser" method="post">
+			    社員名:<input type="text" name="name"><br>
 			パスワード:<input type="password" name="pass"><br>
+
+			<button id="register" type="submit">登録</button>
+			<button id="register" type="submit"><a href="/aTeam/">戻る</a></button>
+
 		</form>
 	</body>
 </html>

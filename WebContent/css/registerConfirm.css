@@ -3,12 +3,7 @@
 /*左右真ん中に表示*/
 body{
      text-align: center;
-}
-
-/*背景の色の変更*/
-body{
     background-color:#d3d3d3;
-
 }
 
 h1{
@@ -24,7 +19,7 @@ p{
 }
 
 /*ログインボタンのサイズを変える、デザインを変える*/
-#delete{
+#registerConfirm{
 	display: inline-block;			/*ボタンの配置を均等につける*/
  	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
   	text-decoration: none;			/*文字の装飾*/

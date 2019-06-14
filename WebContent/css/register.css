@@ -16,9 +16,9 @@ h1{
 p{
     font-size: 120%
 }
-/*ログインボタンのサイズを変える、デザインを変える*/
-#delete{
-	display: inline-block;			/*ボタンの配置を均等につける
+/*登録・戻るボタンのサイズを変える、デザインを変える*/
+#register{
+	display: inline-block;			/*ボタンの配置を均等につける*/
  	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
   	text-decoration: none;			/*文字の装飾*/
   	font-weight: bold;				/*文字を太文字にする*/
