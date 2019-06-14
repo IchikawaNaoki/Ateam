@@ -7,6 +7,6 @@
 	</head>
 	<body>
 	<p>ユーザー情報の更新が完了しました。</p>
-	<a href = "/aTeam/UpdateUser">戻る</a>
+	<a href = "/aTeam/Main">戻る</a>
 	</body>
 </html>
