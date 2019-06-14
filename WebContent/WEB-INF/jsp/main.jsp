@@ -19,7 +19,6 @@
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
 
 
-
 <ul id="dropmenu" style="clear:both;">
 <li><a href="/">メニュー画面</a></li>
 
