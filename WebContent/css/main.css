@@ -1,13 +1,14 @@
 head {
 	background-color: red;
 }
-
-@charset "UTF-8";
-
 body{
 	background-image: url("https://pictkan.com/uploads/converted/15/07/01/1918917909-cardboard-546867_1920-kRNJ-1280x853-MM-100.jpg");
 	background-attachment: fixed;
 }
+
+@charset "UTF-8";
+
+
 #dropmenu {
 position: sticky;
 top: 0;
