@@ -52,26 +52,7 @@ public class UpdateUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-
-		int blo = 0;
-		ServletContext application =this.getServletContext();
-		User user = (User)application.getAttribute("loginUser");
 		String blongs = request.getParameter("所属地");
-		switch( blongs ) {
-		case "東京":
-			 blo = 1;
-			break;
-		case "東京(開発室)":
-			blo = 2;
-			break;
-		case "宮崎":
-			blo = 3;
-			break;
-		case "札幌":
-			blo = 4;
-			break;
-		}
-		//new ConnDbDao().ConnDbChangeBelong(blo , user.getId()) ;
 
 		HttpSession session = request.getSession();
 		session.setAttribute("blongs", blongs);
