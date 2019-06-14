@@ -5,16 +5,16 @@ head {
 @charset "UTF-8";
 
 #dropmenu {
-position: relative;
+position: fixed;
+width: 100%;
 list-style-type: none;
-width: width: 100%;
+
 height: 30px;
 margin: 20px 0 20px 0;
 padding: 0;
 background: #fff;
 border-bottom: 1px solid #007CC3;
 border-radius: 3px 3px 0 0;
-position:fixed;
 }
 #dropmenu li {
 width: 18%;
@@ -88,11 +88,3 @@ border-radius: 0 0 3px 3px;
 
 }
 
-.site-header{
-    background: #fff;
-    display: flex;
-    padding: 60px 20px;
-    position: fixed;
-    justify-content: space-between;
-    width: 100%;
-}

@@ -11,14 +11,14 @@
 		<h1>ユーザー削除</h1>
 		<p>削除したいユーザーIDとパスワードを入力してください。</p>
 		<form action = "/aTeam/DeleteUser" method = "post">
-		ユーザーID:<input type = "text" name = "PersonalID"><br>
-		パスワード:<input type = "password" name = "Pass"><br>
+		ユーザーID:<input type="text" name="PersonalID"><br>
+		パスワード:<input type="password" name="Pass"><br>
 
-		<button type="submit" id="delete">
+		<button type="submit"  id="delete">
 		<a href="/aTeam/index.jsp">戻る</a>
 		</button>
-		<button type="submit" id="delete">削除</button>
 
+		<button type="submit" id="delete">削除</button>
 		</button>
 		</form>
 </body>
