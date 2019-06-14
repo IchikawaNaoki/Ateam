@@ -5,8 +5,8 @@
 <%@ page import = "model.GetDB" %>
 
 <% User registerUser = (User)session.getAttribute("registerUser"); %>
-<% GetDB getDb = (GetDB)session.getAttribute("getDb"); %>
-<% User user = (User)application.getAttribute("user"); %>
+<% GetDB getDbList = (GetDB)session.getAttribute("getDbList"); %>
+<% User user = (User)application.getAttribute("loginUser"); %>
 
 <!DOCTYPE html>
 <html>
@@ -17,15 +17,15 @@
 	</head>
 
 	<body>
-	<p><c:out value="${user.getId}"></c:out>さんログイン中</p>
-		<p>現在は<c:out value="${getDb.belong}" />に所属しています。</p>
+	<p><c:out value="${loginUser.name}"></c:out>さんログイン中</p>
+		<p>現在は<c:out value="${getDbList.belong}" />に所属しています。</p>
 		<p>変更先の部署を選択してください。</p>
-		<form action="/aTeam/Main" method="post">
+		<form action="/aTeam/UpdateUser" method="post">
 		<%-- 所属している部署以外を表示 --%>
 		<c:choose>
 
 		<%-- 東京 --%>
-			<c:when test="${getDb.belong == \"東京\"}">
+			<c:when test="${getDbList.belong == \"東京\"}">
 				<input type="radio" name="所属地" value="東京（開発室）">東京(開発室)
 				<input type="radio" name="所属地" value="宮崎">宮崎
 				<input type="radio" name="所属地" value="札幌">札幌
@@ -33,7 +33,7 @@
 			</c:when>
 
 			<%-- 東京(開発室) --%>
-			<c:when test="${getDb.belong == \"東京(開発室)\"}">
+			<c:when test="${getDbList.belong == \"東京(開発室)\"}">
 				<input type="radio" name="所属地" value="東京">東京
 				<input type="radio" name="所属地" value="宮崎">宮崎
 				<input type="radio" name="所属地" value="札幌">札幌
@@ -41,7 +41,7 @@
 			</c:when>
 
 			<%-- 宮崎 --%>
-			<c:when test="${getDb.belong == \"宮崎\"}">
+			<c:when test="${getDbList.belong == \"宮崎\"}">
 				<input type="radio" name="所属地" value="東京">東京
 				<input type="radio" name="所属地" value="東京(開発室)">東京(開発室)
 				<input type="radio" name="所属地" value="札幌">札幌
@@ -49,7 +49,7 @@
 			</c:when>
 
 			<%-- 札幌 --%>
-			<c:otherwise>
+			<c:otherwise >
 				<input type="radio" name="所属地" value="東京">東京
 				<input type="radio" name="所属地" value="東京(開発室)">東京(開発室)
 				<input type="radio" name="所属地" value="宮崎">宮崎
