@@ -28,6 +28,7 @@ public class LoginLogic {
 		if(user.getId() != 0 && user.getPass() != null) {
 			ConnDbDao conn = new ConnDbDao();
 			List<User> listUser = conn.ConDbLogin(user);
+			if(listUser == null) {return null;}
 				if(user.getPass().equals(listUser.get(0).getPass())) {
 					System.out.println("ログイン成功");
 					if( listUser.get(0).getNowLogin().equals((byte)0) ) {//ログインフラグをみる
