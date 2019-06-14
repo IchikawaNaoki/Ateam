@@ -17,7 +17,7 @@
 <body>
 
 
-<c:out value="${loginUser.name}" />さん ログイン中
+<c:out value="${loginUser.name}" />さん <c:out value="${loginUser.nowLogin}" />中
 
 
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
@@ -86,7 +86,7 @@
 		<td width="100"><c:out value="${getDb.name}"/></td>
 		<td width="120"><c:out value="${getDb.belong }"/></td>
 		<td width="35"><c:out value="${getDb.status }"/></td>
-		<td width="300"><c:out value="${getDb.comment }"/></td>
+		<td width="280"><c:out value="${getDb.comment }"/></td>
 	</tr>
 	</table>
 </c:forEach>
