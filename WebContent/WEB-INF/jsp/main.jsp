@@ -12,6 +12,7 @@
 <script type="text/javascript" src="main.js"></script>
 <!-- jQuery -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta name="google" content="notranslate" />
 </head>
 <body>
 
@@ -22,10 +23,10 @@
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
 
 <ul id="dropmenu" style="clear:both;">
-<li><a href="/">メニュー画面</a></li>
+<li><a href="javascript:void(0)">メニュー画面</a></li>
 
 
-<li><a href="/">在席/離席 選択</a>
+<li><a href="javascript:void(0)">在席/離席 選択</a>
 <ul>
 <li>
 <form action="/aTeam/Main" method="post" name="zaiseki">
@@ -41,7 +42,7 @@
 </li>
 </form>
 </ul>
-<li><a href="/">オフィス選択</a>
+<li><a href="javascript:void(0)">オフィス選択</a>
 <ul>
 
 <form action="/aTeam/Main" method="post" name="first">
@@ -80,12 +81,17 @@
 	<p>${errorMsg}</p>
 </c:if>
 <c:forEach var="getDb" items="${getDbList}">
-	<p><c:out value="${getDb.name}"/>:
-		<c:out value="${getDb.belong }"/>
-		<c:out value="${getDb.status }"/>
-		<c:out value="${getDb.comment }"/></p>
+	<table>
+	<tr>
+		<td width="100"><c:out value="${getDb.name}"/></td>
+		<td width="120"><c:out value="${getDb.belong }"/></td>
+		<td width="35"><c:out value="${getDb.status }"/></td>
+		<td width="300"><c:out value="${getDb.comment }"/></td>
+	</tr>
+	</table>
 </c:forEach>
 </div>
+
 
 </body>
 

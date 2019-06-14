@@ -4,6 +4,10 @@ head {
 
 @charset "UTF-8";
 
+body{
+	background-image: url("https://pictkan.com/uploads/converted/15/07/01/1918917909-cardboard-546867_1920-kRNJ-1280x853-MM-100.jpg");
+	background-attachment: fixed;
+}
 #dropmenu {
 position: sticky;
 top: 0;
@@ -90,11 +94,14 @@ border-radius: 0 0 3px 3px;
 
 #logout{
   	float: right;
+  	color: black;
 }
 
 .list{
 	potision: relative;
 	padding: 30px;
+	font-size: 5;
+
 }
 
 #pageTop {
@@ -130,5 +137,14 @@ border-radius: 0 0 3px 3px;
 #pageTop a:hover {
   text-decoration: none;
   opacity: 0.7;
+}
+
+
+table {
+	border-collapse: collapse;
+}
+td {
+	border: solid 1px;
+	padding: 0.5em;
 }
 
