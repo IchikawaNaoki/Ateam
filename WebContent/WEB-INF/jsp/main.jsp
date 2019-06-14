@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="model.User" %>
+<%@ page import="model.GetDB" %>
 <% User loginUser = (User)session.getAttribute("loginUser"); %>
+<% GetDB loginStatus = (GetDB)session.getAttribute("loginStatus"); %>
+
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +20,7 @@
 <body>
 
 
-<c:out value="${loginUser.name}" />さん <c:out value="${loginUser.nowLogin}" />中
+<c:out value="${loginUser.name}" />さん
 
 
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
