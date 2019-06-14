@@ -7,6 +7,7 @@
 	</head>
 	<body>
 	<p>ユーザー登録が完了しました。</p>
-	<a href = "/aTeam/RegisterUser">戻る</a>
+	<a href = "/aTeam/">ログイン画面に戻る</a>
+	<a href = "/aTeam/RegisterUser">ユーザー登録画面に戻る</a>
 	</body>
 </html>

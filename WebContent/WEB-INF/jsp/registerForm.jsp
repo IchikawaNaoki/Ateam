@@ -16,9 +16,14 @@
 			    社員名:<input type="text" name="name"><br>
 			パスワード:<input type="password" name="pass"><br>
 
-			<button id="register" type="submit">登録</button>
-			<button id="register" type="submit"><a href="/aTeam/">戻る</a></button>
-
+			<button id="register" type="submit">
+				登録
+			</button>
+		</form>
+		<form action="/aTeam/Login"method="post">
+			<button type="submit"  id="register" >
+				戻る
+			</button>
 		</form>
 	</body>
 </html>
