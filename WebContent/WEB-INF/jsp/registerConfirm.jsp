@@ -14,11 +14,9 @@
 	<h1>下記のユーザーを登録します。</h1>
 	<p>社員名:<%= registerUser.getName() %></p>
 
-	<button type="button" id="registerConfirm">
-	<a href = "/aTeam/RegisterUser">戻る</a>
-	</button>
-	<button type="button" id="registerConfirm">
-	<a href = "/aTeam/RegisterUser?action=done">登録</a>
-	</button>
+
+	<a href="/aTeam/RegisterUser">戻る</a>
+
+	<a href="/aTeam/RegisterUser?action=done">登録</a>
 	</body>
 </html>

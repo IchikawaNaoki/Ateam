@@ -15,7 +15,7 @@
 
 	<form action="/aTeam/Login" method="post">
 
-<p>ユーザー名</p>
+<p>社員ID</p>
 <input id="name" type="text" name="id"><br>
 <p> パスワード</p>
     <input id="pass" type="password" name="pass"><br>
