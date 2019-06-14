@@ -42,45 +42,47 @@ public class RegisterUser extends HttpServlet {
 
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//フォワード先
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		//フォワード先のパス初期化
 		String forwardPath = null;
-
 		//サーブレットクラスの動作を決定するactionの値をリクエストパラメータから取得
 		String action = request.getParameter("action");
-
 		//登録の開始をリクエストされた時の処理
 		if(action == null)
+		{//最初に画面遷移した時の処理
+			//フォワード先の設定
 			forwardPath = "/WEB-INF/jsp/registerForm.jsp";
-
+			//設定されたフォワード先にフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);
+		}
 		//登録確認画面から「登録実行」をリクエストされたときの処理
-		else if(action.equals("done")) {
+		else if(action.equals("done"))
+		{//
 			HttpSession session = request.getSession();
 			User registerUser = (User)session.getAttribute("registerUser");
-
 			//登録処理の呼び出し
 			RegisterUserLogic registerUserLogic = new RegisterUserLogic();
 			boolean isRegister = registerUserLogic.execute(registerUser);
-
 			if(!isRegister) {
 				JOptionPane.showMessageDialog(null , "登録に失敗しました。");
+				//登録失敗時のフォワード先を指定
+				forwardPath = "/WEB-INF/jsp/registerForm.jsp";
+				//設定されたフォワード先にフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+				dispatcher.forward(request, response);
 			}
-			else {
+			else
+			{
 				ConnDbDao conn= new ConnDbDao();
 				conn.RegisterDB(registerUser.getName(),registerUser.getPass());
-
+				//不要となったセッションスコープ内のインスタンスを削除
+				session.removeAttribute("registerUser");
+				//登録後のフォワード先を指定
+				forwardPath = "/WEB-INF/jsp/registerDone.jsp";
 			}
-			//不要となったセッションスコープ内のインスタンスを削除
-			session.removeAttribute("registerUser");
-
-			//登録後のフォワード先を指定
-			forwardPath = "/WEB-INF/jsp/registerDone.jsp";
 		}
-
-		//設定されたフォワード先にフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -99,8 +101,20 @@ public class RegisterUser extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("registerUser" , registerUser);
 
-		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerConfirm.jsp");
-		dispatcher.forward(request, response);
+		//社員名とパスが入力されているかの判定
+		if((!name.equals("")) && (!pass.equals("")))
+		{
+			System.out.println("我が名はめぐみん！データを入力してやります！エクスプロージョン！");
+			//フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerDone.jsp");
+			dispatcher.forward(request, response);
+		}
+		else
+		{
+			System.out.println("ちゃんと入力されてなぁぁぁいぃぃぃぃ・・・");
+			//フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 }
