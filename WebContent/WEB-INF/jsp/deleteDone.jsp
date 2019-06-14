@@ -7,6 +7,6 @@
 	</head>
 	<body>
 	<p>ユーザー削除が完了しました。</p>
-	<a href = "/aTeam/DeleteUser">戻る</a>
+	<a href = "/aTeam/">戻る</a>
 	</body>
 </html>

@@ -10,11 +10,11 @@
 		<title>ユーザー削除確認</title>
 	</head>
 	<body>
-	<p>下記のユーザーを削除します。</p>
-	<p>ユーザーID:<%= deleteUser.getId() %></p>
+		<p>下記のユーザーを削除します。</p>
+		<p>ユーザーID:<%= deleteUser.getId() %></p>
+		
+	 <a href="/aTeam/DeleteUser?action=done">削除</a>
+	<a href="/aTeam/DeleteUser">戻る</a>  
 
-	<a href="/aTeam/DeleteUser">戻る</a>
-
-	<a href="/aTeam/DeleteUser?action=done">削除</a>
 	</body>
 </html>
