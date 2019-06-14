@@ -69,7 +69,7 @@ public class RegisterUser extends HttpServlet {
 			else {
 				ConnDbDao conn= new ConnDbDao();
 				conn.RegisterDB(registerUser.getName(),registerUser.getPass());
-				
+
 			}
 			//不要となったセッションスコープ内のインスタンスを削除
 			session.removeAttribute("registerUser");
