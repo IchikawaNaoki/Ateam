@@ -39,10 +39,15 @@ public class DeleteUser extends HttpServlet {
 
 		//削除の開始をリクエストされた時の処理
 		if(action == null)
+		{
 			forwardPath = "/WEB-INF/jsp/deleteForm.jsp";
-
+			//設定されたフォワード先にフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);
+		}
 		//削除確認画面から「削除実行」をリクエストされたときの処理
-		else if(action.equals("done")) {
+		else if(action.equals("done")) 
+		{
 			HttpSession session = request.getSession();
 			User deleteUser = (User)session.getAttribute("deleteUser");
 
@@ -52,27 +57,42 @@ public class DeleteUser extends HttpServlet {
 
 			if(!isDelete) {
 				JOptionPane.showMessageDialog(null , "ユーザーIDとパスワードが一致しません");
+				//削除失敗のフォワード先を指定
+				forwardPath = "/WEB-INF/jsp/deleteForm.jsp";
+				//設定されたフォワード先にフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+				dispatcher.forward(request, response);
 			}
-
+			else
+			{
 			//不要となったセッションスコープ内のインスタンスを削除
 			session.removeAttribute("deleteUser");
-
 			//削除後のフォワード先を指定
 			forwardPath = "/WEB-INF/jsp/deleteDone.jsp";
+			//設定されたフォワード先にフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);
+			}
 		}
-
-		//設定されたフォワード先にフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-		dispatcher.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		request.setCharacterEncoding("UTF-8");
 
-		//社員ID、名前、パスワード、ログイン状況
-		//intにgetparameterないんでparse
+		//社員ID、パスワード
+		//intがgetparameterできないのでparseする
 		String strId = request.getParameter("PersonalID");
-		int id = Integer.parseInt(strId);
+		int id =0;
+		try
+		{
+			id = Integer.parseInt(strId);
+		}
+		catch(NumberFormatException e)
+		{
+			id = 0;
+		}
+
 		String pass = request.getParameter("Pass");
 
 		//削除するユーザの情報を設定
@@ -82,8 +102,21 @@ public class DeleteUser extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("deleteUser" , deleteUser);
 
-		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/deleteConfirm.jsp");
-		dispatcher.forward(request, response);
+		//IDとpassが入力されてるか判定
+		if((id != 0) && (!pass.equals("")))
+		{//IDとpassが入力されているとき
+			System.out.println("我が名はめぐみん！データを削除してやりますです！エクスプロージョン！");
+			//フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/deleteConfirm.jsp");
+			dispatcher.forward(request, response);
+
+		}
+		else
+		{//IDもしくはpassが入ってないとき
+			System.out.println("ちゃんと入力されてなぁぁぁいぃぃぃぃ・・・");
+			//フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/deleteForm.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 }
