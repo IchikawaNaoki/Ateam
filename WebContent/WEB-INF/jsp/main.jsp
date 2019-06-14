@@ -19,7 +19,6 @@
 <a href="/aTeam/Logout" id="logout">ログアウト</a>
 
 
-
 <ul id="dropmenu" style="clear:both;">
 <li><a href="/">メニュー画面</a></li>
 
@@ -117,7 +116,7 @@
 >
 </form> -->
 
-
+<div class=""></div>
 <c:if test="${not empty errorMsg }">
 	<p>${errorMsg}</p>
 </c:if>
