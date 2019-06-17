@@ -13,8 +13,8 @@
 </head>
 <body>
 	<h1>コメント入力</h1>
-	<p>伝えたいことがある場合<br>
-	下の入力フォームに記入して下さい</p>
+	<p>伝えたいことがある場合、<br>
+	下の入力フォームに記入して下さい。</p>
 	<!-- コメント記述 -->
 	<form action = "/aTeam/CommentInput" method = "post">
 		コメント:<input type="text" name="Comment">
