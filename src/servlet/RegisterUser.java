@@ -75,12 +75,12 @@ public class RegisterUser extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("registerUser" , registerUser);
 
+		RegisterUserLogic registerUserLogic = new RegisterUserLogic();
 		//社員名とパスが入力されているかの判定
 		if((!name.equals("")) && (!pass.equals("")))
 		{
 			System.out.println("我が名はめぐみん！データを入力のための照合チェックします");
 			//登録処理の呼び出し
-			RegisterUserLogic registerUserLogic = new RegisterUserLogic();
 			boolean isRegister = registerUserLogic.execute(registerUser);
 			if(!isRegister)
 			{
@@ -98,13 +98,14 @@ public class RegisterUser extends HttpServlet {
 			{
 				System.out.println("我が名はめぐみん！データを登録します");
 				ConnDbDao conn= new ConnDbDao();
-				if(conn.ConnDbCollation(registerUser))
+				if(!conn.ConnDbCollation(registerUser))
 				{
-					conn.RegisterDB(registerUser.getName(),registerUser.getPass());
-					//不要となったセッションスコープ内のインスタンスを削除
-					session.removeAttribute("registerUser");
+					conn.RegisterDB(registerUser);
+					registerUser.setId(conn.ConnDbRegisterId(registerUser));
 					//登録後のフォワード先を指定
 					forwardPath = "/WEB-INF/jsp/registerDone.jsp";
+
+					session.setAttribute("registerId" , registerUser.getId());
 					//設定されたフォワード先にフォワード
 					RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 					dispatcher.forward(request, response);
@@ -127,5 +128,8 @@ public class RegisterUser extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
 			dispatcher.forward(request, response);
 		}
+		//不要となったセッションスコープ内のインスタンスを削除
+//		session.removeAttribute("registerUser");
+
 	}
 }
