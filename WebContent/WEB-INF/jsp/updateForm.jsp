@@ -10,6 +10,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>ユーザー情報更新</title>
+		<link rel="stylesheet" href="css/upDate.css">
 	</head>
 
 	<body>
