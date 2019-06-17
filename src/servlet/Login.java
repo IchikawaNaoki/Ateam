@@ -44,8 +44,6 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		List<User> isLogin = loginLogic.execute(user);
 
-
-
 		//アプリケーションスコープの取得
 		ServletContext application = this.getServletContext();
 		HttpSession session = request.getSession();
@@ -60,7 +58,9 @@ public class Login extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else {
-			session.setAttribute("status", id);
+			if(isLogin == null && id !=0) {
+				session.setAttribute("status", id);
+			}
             response.sendRedirect("./");
 		}
 	}
