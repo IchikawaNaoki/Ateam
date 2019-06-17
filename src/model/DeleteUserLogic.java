@@ -9,9 +9,10 @@ import dao.ConnDbDao;
 //メソッド:execute boolean型
 //ユーザのパスワードが合っているかどうかの判定
 //-------------------------------------------------------------------------------------------------------------
-public class DeleteUserLogic {
-	public boolean execute(User user) {
-
+public class DeleteUserLogic
+{
+	public boolean execute(User user)
+	{
 		if(user.getId() != 0 && user.getPass() != null)
 		{
 			//DBコネクトインスタンス作成
@@ -21,5 +22,13 @@ public class DeleteUserLogic {
 			return true;
 		}
 		return false;
+	}
+	public void deleteDone(User user)
+	{
+		//DBコネクトインスタンス作成
+		ConnDbDao conn = new ConnDbDao();
+		//削除メソッド呼び出し
+		conn.ConnDbDelete(user);
+
 	}
 }
