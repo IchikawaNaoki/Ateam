@@ -18,7 +18,7 @@ public class DeleteUserLogic
 			//DBコネクトインスタンス作成
 			ConnDbDao conn = new ConnDbDao();
 			//削除メソッド呼び出し
-			conn.ConnDbDelete(user);
+			conn.ConnDbCollation(user);
 			return true;
 		}
 		return false;
