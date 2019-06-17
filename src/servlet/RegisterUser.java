@@ -98,14 +98,26 @@ public class RegisterUser extends HttpServlet {
 			{
 				System.out.println("我が名はめぐみん！データを登録します");
 				ConnDbDao conn= new ConnDbDao();
-				conn.RegisterDB(registerUser.getName(),registerUser.getPass());
-				//不要となったセッションスコープ内のインスタンスを削除
-				session.removeAttribute("registerUser");
-				//登録後のフォワード先を指定
-				forwardPath = "/WEB-INF/jsp/registerDone.jsp";
-				//設定されたフォワード先にフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-				dispatcher.forward(request, response);
+				if(conn.ConnDbCollation(registerUser))
+				{
+					conn.RegisterDB(registerUser.getName(),registerUser.getPass());
+					//不要となったセッションスコープ内のインスタンスを削除
+					session.removeAttribute("registerUser");
+					//登録後のフォワード先を指定
+					forwardPath = "/WEB-INF/jsp/registerDone.jsp";
+					//設定されたフォワード先にフォワード
+					RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+					dispatcher.forward(request, response);
+				}
+				else
+				{
+					System.out.println("我が名はめぐみん！多重ログイン情報は爆裂魔法で吹き飛ばします！");
+					//登録後のフォワード先を指定
+					forwardPath = "/WEB-INF/jsp/registerForm.jsp";
+					//設定されたフォワード先にフォワード
+					RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+					dispatcher.forward(request, response);
+				}
 			}
 		}
 		else
