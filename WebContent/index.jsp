@@ -32,7 +32,5 @@
         <script>location.reload();</script>
         <%session.removeAttribute("status"); %>
         <% } %>
-
-
 </body>
 </html>
