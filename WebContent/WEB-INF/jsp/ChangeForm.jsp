@@ -26,7 +26,7 @@
 
 		<%-- 東京 --%>
 			<c:when test="${getDbList.belong == \"東京\"}">
-				<input type="radio" name="所属地" value="東京（開発室）">東京開発室
+				<input type="radio" name="所属地" value="東京開発室">東京開発室
 				<input type="radio" name="所属地" value="宮崎">宮崎
 				<input type="radio" name="所属地" value="札幌">札幌
 				<input type="submit" value="送信">
