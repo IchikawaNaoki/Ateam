@@ -29,7 +29,7 @@ public class UpdateDone extends HttpServlet {
 		case "東京":
 			 blo = 1;
 			break;
-		case "東京（開発室）":
+		case "東京開発室":
 			blo = 2;
 			break;
 		case "宮崎":
