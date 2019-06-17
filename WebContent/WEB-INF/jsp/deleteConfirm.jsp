@@ -12,9 +12,21 @@
 	<body>
 		<p>下記のユーザーを削除します。</p>
 		<p>ユーザーID:<%= deleteUser.getId() %></p>
-		
-	 <a href="/aTeam/DeleteUser?action=done">削除</a>
-	<a href="/aTeam/DeleteUser">戻る</a>  
 
+		<form action="/aTeam/DeleteUser?action=done" value="done"method="get">
+			<button id="delete" type="submit">
+				削除
+			</button>
+		</form>
+
+		<form action="/aTeam/DeleteUser?action=null"method="get">
+			<button type="submit"  id="delete" >
+				戻る
+			</button>
+		</form>
+	<!--
+	<a href="/aTeam/DeleteUser?action=done">削除</a>
+	<a href="/aTeam/DeleteUser">戻る</a>
+	-->
 	</body>
 </html>
