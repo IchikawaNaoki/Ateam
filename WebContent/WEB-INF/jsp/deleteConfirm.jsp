@@ -13,7 +13,7 @@
 		<p>下記のユーザーを削除します。</p>
 		<p>ユーザーID:<%= deleteUser.getId() %></p>
 
-		<form action="/aTeam/DeleteUser?action=done" value="done"method="get">
+		<form action="/aTeam/DeleteUser?action=done" method="get">
 			<button id="delete" type="submit">
 				削除
 			</button>
