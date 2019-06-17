@@ -80,7 +80,7 @@
 </li>
 </ul>
 </form>
-<p id="pageTop"><a href="#">↑</a></p>
+
 
 <c:if test="${not empty errorMsg }">
 	<p>${errorMsg}</p>
