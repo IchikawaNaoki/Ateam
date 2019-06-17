@@ -53,7 +53,7 @@ public class DeleteUser extends HttpServlet {
 //			DeleteUserLogic deleteUserLogic = new DeleteUserLogic();
 //			boolean isDelete = deleteUserLogic.execute(deleteUser);
 //
-//			if(!isDelete) 
+//			if(!isDelete)
 //			{
 ////				JOptionPane.showMessageDialog(null , "ユーザーIDとパスワードが一致しません");
 //				System.out.println("ユーザー削除むぅぅぅりぃぃぃぃぃ・・・");
@@ -101,7 +101,7 @@ public class DeleteUser extends HttpServlet {
 		//セッションスコープに削除ユーザーの情報を設定
 		HttpSession session = request.getSession();
 		session.setAttribute("deleteUser" , deleteUser);
-		
+
 		//IDとpassが入力されてるか判定
 		if((id != 0) && (!pass.equals("")))
 		{//IDとpassが入力されているとき
@@ -109,21 +109,32 @@ public class DeleteUser extends HttpServlet {
 			//削除処理の呼び出し
 			DeleteUserLogic deleteUserLogic = new DeleteUserLogic();
 			boolean isDelete = deleteUserLogic.execute(deleteUser);
-
-			System.out.println("我が名はめぐみん！データを削除してやりますです！エクスプロージョン！");
-			
-			//フォワード先を指定
-			forwardPath = "/WEB-INF/jsp/deleteConfirm.jsp";
-			//フォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-			dispatcher.forward(request, response);
-
+			if(isDelete)
+			{
+				System.out.println("我が名はめぐみん！データを削除してやりますです！エクスプロージョン！");
+				//ユーザー削除ロジックの起動
+				deleteUserLogic.deleteDone(deleteUser);
+				//フォワード先を指定
+				forwardPath = "/WEB-INF/jsp/deleteDone.jsp";
+				//フォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+				dispatcher.forward(request, response);
+			}
+			else
+			{
+				System.out.println("データが合致しませんでした");
+				//フォワード先を指定
+				forwardPath = "/WEB-INF/jsp/deleteForm.jsp";
+				//フォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+				dispatcher.forward(request, response);
+			}
 		}
 		else
 		{//IDもしくはpassが入ってないとき
 			System.out.println("ちゃんと入力されてなぁぁぁいぃぃぃぃ・・・");
 			//フォワード先を指定
-			forwardPath = "/WEB-INF/jsp/deleteConForm.jsp";
+			forwardPath = "/WEB-INF/jsp/deleteForm.jsp";
 			//フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 			dispatcher.forward(request, response);
