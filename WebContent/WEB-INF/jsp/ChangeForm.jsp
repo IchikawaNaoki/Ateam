@@ -26,37 +26,45 @@
 
 		<%-- 東京 --%>
 			<c:when test="${getDbList.belong == \"東京\"}">
-				<input type="radio" name="所属地" value="東京（開発室）">東京(開発室)
-				<input type="radio" name="所属地" value="宮崎">宮崎
-				<input type="radio" name="所属地" value="札幌">札幌
+				<input type="radio" name="所属地" value="東京開発室"required="required">東京開発室
+				<input type="radio" name="所属地" value="宮崎"required="required">宮崎
+				<input type="radio" name="所属地" value="札幌"required="required">札幌
 				<input type="submit" value="送信">
 			</c:when>
 
 			<%-- 東京(開発室) --%>
-			<c:when test="${getDbList.belong == \"東京(開発室)\"}">
-				<input type="radio" name="所属地" value="東京">東京
-				<input type="radio" name="所属地" value="宮崎">宮崎
-				<input type="radio" name="所属地" value="札幌">札幌
+
+			<c:when test="${getDbList.belong == \"東京開発室\"}">
+
+				<input type="radio" name="所属地" value="東京"required="required">東京
+				<input type="radio" name="所属地" value="宮崎"required="required">宮崎
+				<input type="radio" name="所属地" value="札幌"required="required">札幌
 				<input type="submit" value="送信">
 			</c:when>
 
 			<%-- 宮崎 --%>
 			<c:when test="${getDbList.belong == \"宮崎\"}">
-				<input type="radio" name="所属地" value="東京">東京
-				<input type="radio" name="所属地" value="東京(開発室)">東京(開発室)
-				<input type="radio" name="所属地" value="札幌">札幌
+				<input type="radio" name="所属地" value="東京"required="required">東京
+				<input type="radio" name="所属地" value="東京開発室"required="required">東京開発室
+				<input type="radio" name="所属地" value="札幌"required="required">札幌
 				<input type="submit" value="送信">
 			</c:when>
 
 			<%-- 札幌 --%>
 			<c:otherwise >
-				<input type="radio" name="所属地" value="東京">東京
-				<input type="radio" name="所属地" value="東京(開発室)">東京(開発室)
-				<input type="radio" name="所属地" value="宮崎">宮崎
+				<input type="radio" name="所属地" value="東京"required="required">東京
+				<input type="radio" name="所属地" value="東京開発室"required="required">東京開発室
+				<input type="radio" name="所属地" value="宮崎"required="required">宮崎
 				<input type="submit" value="送信">
 			</c:otherwise>
 		</c:choose>
 		</form>
+
+		<%-- <%if (status != null){ %>
+        <script>alert("ログインIDまたはパスワードが間違っています");</script>
+        <script>location.reload();</script>
+        <%session.removeAttribute("status"); %>
+        <% } %> --%>
 
 		<%-- メイン画面に戻る --%>
 		<a href = "/aTeam/Main">戻る</a>

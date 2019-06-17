@@ -18,24 +18,21 @@
 	<p>
 		削除したいユーザーIDとパスワードを入力してください。
 	</p>
-	<form action = "/aTeam/DeleteUser" method = "post">
-		ユーザーID:<input type="text" name="PersonalID"><br>
-		パスワード:<input type="password" name="Pass"><br>
-	</form>
+	<form action="/aTeam/DeleteUser" method="post">
+		ユーザーID:<input type="text" name="PersonalID" required="required"><br>
+		パスワード:<input type="password" name="Pass" required="required"><br>
 
-
-<div id="megmin">
-	<form action = "/aTeam/DeleteUser" method = "post">
-		<button type="submit"  id="delete" >
-			削除
-		</button>
+<!-- <div id="megmin"> -->
+	<button  id="delete"type="submit"  >
+		削除
+	</button>
 	</form>
 	<form action="/aTeam/Login"method="post">
 		<button type="submit"  id="delete" >
 			戻る
 		</button>
 	</form>
-</div>
+<!--  </div> -->
 
 
 
