@@ -14,7 +14,8 @@ package model;
 //-------------------------------------------------------------------------------------------------------------
 //RegisterUserLogicクラス
 //-------------------------------------------------------------------------------------------------------------
-public class RegisterUserLogic {
+public class RegisterUserLogic
+{
 	public boolean execute(User user)
 	{
 		//パスワードが規則(4～8文字、大文字で始まる)に従っているか判定
@@ -23,4 +24,5 @@ public class RegisterUserLogic {
 			return false;
 		}
 		return true;
-	}}
+	}
+}
