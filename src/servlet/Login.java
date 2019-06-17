@@ -44,6 +44,8 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		List<User> isLogin = loginLogic.execute(user);
 
+
+
 		//アプリケーションスコープの取得
 		ServletContext application = this.getServletContext();
 		HttpSession session = request.getSession();

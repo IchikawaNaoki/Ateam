@@ -10,7 +10,9 @@
 <title>在籍管理システム</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script type="text/javascript" src="main.js"></script>
-
+<!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta name="google" content="notranslate" />
 </head>
 <body>
 
@@ -81,7 +83,9 @@
 </ul>
 </form>
 
+<p id="pageTop"><a href="#">↑</a></p>
 
+<div class="list">
 <c:if test="${not empty errorMsg }">
 	<p>${errorMsg}</p>
 </c:if>
