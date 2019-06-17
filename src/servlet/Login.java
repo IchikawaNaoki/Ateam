@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ConnDbDao;
 import model.GetDB;
@@ -43,8 +44,11 @@ public class Login extends HttpServlet {
 		LoginLogic loginLogic = new LoginLogic();
 		List<User> isLogin = loginLogic.execute(user);
 
+
+
 		//アプリケーションスコープの取得
 		ServletContext application = this.getServletContext();
+		HttpSession session = request.getSession();
 
 		//ログイン成功時の処理
 		if(isLogin != null) {
@@ -56,7 +60,7 @@ public class Login extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else {
-			application.setAttribute("status", "ID");
+			session.setAttribute("status", id);
             response.sendRedirect("./");
 		}
 	}

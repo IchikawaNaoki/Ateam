@@ -14,37 +14,16 @@ import javax.servlet.http.HttpSession;
 import dao.ConnDbDao;
 import model.User;
 
-@WebServlet("/UpdateDone")
-public class UpdateDone extends HttpServlet {
+
+@WebServlet("/CommentInputDone")
+public class CommentInputDone extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		int blo = 0;
-		HttpSession session = request.getSession();
-		String blongs = (String)session.getAttribute("blongs");
-		ServletContext application = this.getServletContext();
-		User user = (User)application.getAttribute("loginUser");
-		switch( blongs ) {
-		case "東京":
-			 blo = 1;
-			break;
-		case "東京開発室":
-			blo = 2;
-			break;
-		case "宮崎":
-			blo = 3;
-			break;
-		case "札幌":
-			blo = 4;
-			break;
-		}
-		new ConnDbDao().ConnDbChangeBelong(blo , user.getId()) ;
-
-		session.removeAttribute("blongs");
-
 		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/updateDone.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/commentinputDone.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -62,7 +41,8 @@ public class UpdateDone extends HttpServlet {
 		session.removeAttribute("blongs");
 
 		//フォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/updateDone.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/commentinputDone.jsp");
 		dispatcher.forward(request, response);
 	}
+
 }
