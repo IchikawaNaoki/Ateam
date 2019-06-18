@@ -67,6 +67,9 @@
 					<li>
 					<a href = "/aTeam/CommentInput">コメント</a>
 					</li>
+					<li>
+					<a href = "/aTeam/PassChangeUser">パスワード変更</a>
+					</li>
 				</ul>
 			</li>
 			<li class="menu__single">
