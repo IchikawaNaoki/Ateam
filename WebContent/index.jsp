@@ -8,7 +8,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="css/login.css">
 		<title>Mgt在席管理アプリケーションログイン画面</title>
-		<script type="text/javascript" src="music.js"></script>
+		<script type="text/javascript" src="WebContent/js/main.js"></script>
 	</head>
 
 <body>
@@ -27,7 +27,11 @@
 	<source src="music/click.mp3" type="audio/mp3">
 </audio>
 
-<a id="new"  href="/aTeam/RegisterUser" id="button">新規登録</a>
+<bgsound src="" volume="1" id="snd0">
+<a href="/aTeam/RegisterUser" id="button">新規登録</a>
+	<audio id="sound-file" onClick="sound()"load="auto">
+		<source src="WebContent/music/click.mp3" type="audio/mp3">
+	</audio>
 
 <a id="new"  href="/aTeam/DeleteUser">アカウント削除</a>
 	</form>
