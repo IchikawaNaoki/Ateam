@@ -16,6 +16,11 @@ public class Logout  extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ログインフラグを0にする
+		//ConnDbDao conn = new ConnDbDao();
+		//List<User> listUser = conn.ConDbLogin(user);
+
+		//listUser.get(0).getNowLogin().equals((byte)0);
 		//セッションスコープを破棄
 				HttpSession session = request.getSession();
 				session.invalidate();
