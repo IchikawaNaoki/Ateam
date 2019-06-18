@@ -22,7 +22,12 @@
 	</head>
 
 	<body>
-		<c:out value="${loginUser.name}" />さん ログイン中
+		<c:out value="${loginUser.name}" />さん
+				<%--ログアウトボタン --%>
+		<form name = "logout" method = "post" action = "/aTeam/Logout">
+			<input type = "hidden" name = "logout" value = "ログアウト">
+			<a href = "javascript:void(0)" onclick = "document.Logout.submit();return false;" id="logout">ログアウト</a>
+		</form>
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
@@ -35,11 +40,7 @@
 			</c:otherwise>
 		</c:choose>
 
-		<%--ログアウトボタン --%>
-		<form name = "logout" method = "post" action = "/aTeam/Logout">
-			<input type = "hidden" name = "logout" value = "ログアウト">
-			<a href = "javascript:void(0)" onclick = "document.Logout.submit();return false;">ログアウト</a>
-		</form>
+
 
 		<ul class = "dropmenu" >
 			<li>
@@ -50,7 +51,6 @@
 				<ul class = "menu__single_level" >
 					<li>
 						<form action = "/aTeam/Main"  method = "post"  name = "zaiseki">
-						<bgsound src = ""  volume = "1"  id = "snd0">
 							<input type = "hidden"  name = "Presence" value = "在席">
 							<audio id = "sound-file" preload = "auto">
 							<source src = "WebContent/music/click.mp3"  type = "audio/mp3">
