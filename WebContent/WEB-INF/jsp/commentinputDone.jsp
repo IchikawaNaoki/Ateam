@@ -13,6 +13,6 @@
 </head>
 <body>
 	<p>コメントが完了しました</p>
-	<a href = "/aTeam/Main">戻る</a>
+	<a href = "/aTeam/Main">メニュー画面へ戻る</a>
 </body>
 </html>
