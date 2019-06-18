@@ -9,7 +9,7 @@
 		<meta charset="UTF-8">
 		<title>在籍管理システム</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="WebContent/music.js"></script>
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
@@ -22,6 +22,7 @@
 		<a href="javascript:void(0)" onclick="document.logout.submit();return false;">ログアウト</a>
 
 		</form>
+
 		<ul class="dropmenu" >
 			<li>
 				<a href="javascript:void(0)">メニュー画面</a>
@@ -31,7 +32,12 @@
 				<ul class="menu__single_level" >
 					<li>
 						<form action="/aTeam/Main" method="post" name="zaiseki">
+						<bgsound src="" volume="1" id="snd0">
 							<input type="hidden" name="Presence" value="在席">
+							<audio id="sound-file" preload="auto">
+							<source src="WebContent/music/click.mp3" type="audio/mp3">
+							</audio>
+
 							<a href="javascript:zaiseki.submit()">在席</a>
 						</form>
 					</li>
