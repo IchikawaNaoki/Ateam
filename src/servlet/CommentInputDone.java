@@ -28,11 +28,11 @@ public class CommentInputDone extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
-		String comment = (String)session.getAttribute("comment");
+		String Comment = (String)session.getAttribute("Comment");
 		ServletContext application = this.getServletContext();
 		User user = (User)application.getAttribute("loginUser");
 
-		new ConnDbDao().ConnDbCommentInput(comment , user.getId()) ;
+		new ConnDbDao().ConnDbCommentInput(Comment , user.getId()) ;
 
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/commentinputDone.jsp");
@@ -43,11 +43,11 @@ public class CommentInputDone extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		HttpSession session = request.getSession();
-		String comment = (String)session.getAttribute("comment");
+		String Comment = (String)session.getAttribute("Comment");
 		ServletContext application = this.getServletContext();
 		User user = (User)application.getAttribute("loginUser");
 
-		new ConnDbDao().ConnDbCommentInput(comment , user.getId()) ;
+		new ConnDbDao().ConnDbCommentInput(Comment , user.getId()) ;
 
 		session.removeAttribute("blongs");
 
