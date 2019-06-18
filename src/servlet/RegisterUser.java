@@ -84,8 +84,8 @@ public class RegisterUser extends HttpServlet {
 			{
 				System.out.println("我が名はめぐみん！データを登録します");
 				ConnDbDao conn= new ConnDbDao();
-				conn.RegisterDB(registerUser);
 				registerUser.setId(conn.ConnDbRegisterId(registerUser));
+				conn.RegisterDB(registerUser);
 				session.setAttribute("registerId" , registerUser.getId());
 				session.setAttribute("registerName" , registerUser.getName());
 				session.setAttribute("registerPass" , registerUser.getPass());
