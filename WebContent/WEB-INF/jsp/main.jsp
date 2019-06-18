@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%--
 <%@ page import="model.User" %>
-<% User loginUser = (User)session.getAttribute("loginUser"); %>
+<%--<%@page import= "model.GetDB" %>
+
+<%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
+<%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
 <% Object status = session.getAttribute("status"); %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,10 +23,21 @@
 
 	<body>
 		<c:out value="${loginUser.name}" />さん ログイン中
-		<form name="logout" method="post" action="/aTeam/Logout">
-		<input type="hidden" name="logout" value="ログアウト">
-		<a href="javascript:void(0)" onclick="document.Logout.submit();return false;">ログアウト</a>
 
+		<%--自分の在席状況の表示 --%>
+		<c:choose>
+			<c:when test="${employee.status == \"aa\"}">
+				<p>在席中です</p>
+			</c:when>
+			<c:otherwise>
+				<p>不在です</p>
+			</c:otherwise>
+		</c:choose>
+
+		<%--ログアウトボタン --%>
+		<form name="logout" method="post" action="/aTeam/Logout">
+			<input type="hidden" name="logout" value="ログアウト">
+			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;">ログアウト</a>
 		</form>
 
 		<ul class="dropmenu" >
@@ -49,6 +66,9 @@
 					</li>
 					<li>
 					<a href = "/aTeam/CommentInput">コメント</a>
+					</li>
+					<li>
+					<a href = "/aTeam/PassChangeUser">パスワード変更</a>
 					</li>
 				</ul>
 			</li>
