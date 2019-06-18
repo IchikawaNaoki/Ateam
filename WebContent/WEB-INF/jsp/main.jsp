@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<%--
 <%@ page import="model.User" %>
-<%@page import= "model.GetDB" %>
+<%--<%@page import= "model.GetDB" %>
 
-<% User loginUser = (User)session.getAttribute("loginUser"); %>
-<% GetDB employee = (GetDB)session.getAttribute("employee") ;%>
+<%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
+<%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
 <% Object status = session.getAttribute("status"); %>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset = "UTF-8">
+		<meta charset="UTF-8">
 		<title>在籍管理システム</title>
-		<link rel = "stylesheet" type = "text/css" href = "css/main.css">
+		<link rel= "stylesheet" type="text/css" href = "css/main.css">
 		<script type = "text/javascript" src = "WebContent/music.js"></script>
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -24,10 +24,11 @@
 	<body>
 		<c:out value="${loginUser.name}" />さん
 				<%--ログアウトボタン --%>
-		<form name = "logout" method = "post" action = "/aTeam/Logout">
-			<input type = "hidden" name = "logout" value = "ログアウト">
-			<a href = "javascript:void(0)" onclick = "document.Logout.submit();return false;" id="logout">ログアウト</a>
+		<form name="logout" method="post" action="/aTeam/Logout">
+			<input type="hidden" name="logout" value="ログアウト">
+			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;" id="logout">ログアウト</a>
 		</form>
+
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
@@ -40,7 +41,11 @@
 			</c:otherwise>
 		</c:choose>
 
-
+		<%--ログアウトボタン --%>
+		<form name = "logout" method = "post" action = "/aTeam/Logout">
+			<input type = "hidden" name = "logout" value = "ログアウト">
+			<a href = "javascript:void(0)" onclick = "document.Logout.submit();return false;">ログアウト</a>
+		</form>
 
 		<ul class = "dropmenu" >
 			<li>
@@ -51,6 +56,7 @@
 				<ul class = "menu__single_level" >
 					<li>
 						<form action = "/aTeam/Main"  method = "post"  name = "zaiseki">
+						<bgsound src = ""  volume = "1"  id = "snd0">
 							<input type = "hidden"  name = "Presence" value = "在席">
 							<audio id = "sound-file" preload = "auto">
 							<source src = "WebContent/music/click.mp3"  type = "audio/mp3">
