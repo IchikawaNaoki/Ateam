@@ -8,186 +8,68 @@ body{
 
 @charset "UTF-8";
 
-.dropmenu {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    max-width: 1000px;
-    margin: 0 auto;
+/*		親の設定		*/
+.dropmenu{
+  list-style-type: none;
+  width: 100%;
+  margin: 30px auto 500px;
+  padding: 0;
+}
+.dropmenu li {
+  position: relative;
+  width: 20%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.dropmenu li a {
+  display: block;
+  margin: 0;
+  padding: 16px 0;
+  background: #fadbe0;
+  color: #554562;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
 }
 
-.dropmenu > li {
-    float: left;
-    width: 20%; /* グローバルナビ4つの場合 */
-    height: 50px;
-    line-height: 50px;
-    background: rgb(29, 33, 19);
+/*	子供の設定	*/
+.dropmenu li ul {
+  list-style: none;
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.dropmenu li ul li {
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  color: #554562;
+  transition: .2s;
+}
+.dropmenu li ul li a {
+  padding: 13px 15px;
+  background: #fadbe0;
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
 }
 
-.dropmenu > li a {
-    display: block;
-    color: #fff;
+/*		マウスがのっかかたときの親メニューの色を設定	*/
+.dropmenu > li:hover > a {  background: #ff69b4 }
+/*		子メニューのマウスがオンになったときの色を設定		*/
+.dropmenu > li:hover li:hover > a {  background: #ff69b4 }
+/*		親メニューにマウスがのっかったとき子メニューが表示		*/
+.dropmenu li:hover > ul > li {
+  overflow: visible;
+  height: 38px;
 }
-
-.dropmenu > li a:hover {
-    color: #999;
-}
-
-ul.menu__second-level {
-    visibility: hidden;
-    opacity: 0;
-    z-index: 1;
-}
-
-ul.menu__third-level {
-    visibility: hidden;
-    opacity: 0;
-}
-
-ul.menu__fourth-level {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.dropmenu > li:hover {
-    background: #072A24;
-    -webkit-transition: all .5s;
-    transition: all .5s;
-}
-
-menu__second-level li {
-    border-top: 1px solid #111;
-}
-
-.menu__third-level li {
-    border-top: 1px solid #111;
-}
-
-.menu__second-level li a:hover {
-    background: #111;
-}
-
-.menu__third-level li a:hover {
-    background: #2a1f1f;
-}
-
-.menu__fourth-level li a:hover {
-    background: #1d0f0f;
-}
-
-/* 下矢印 */
-.init-bottom:after {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    margin: 0 0 0 15px;
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-/* floatクリア */
-.dropmenu:before,
-.dropmenu:after {
-    content: " ";
-    display: table;
-}
-
-.dropmenu:after {
-    clear: both;
-}
-
-.dropmenu {
-    *zoom: 1;
-}
-/*
-#dropmenu {
-position: sticky;
-top: 0;
-z-index: 999;
-width: 100%;
-height:100px;
-list-style-type: none;
-height: 30px;
-margin: 20px 0 20px 0;
-margin-bottom: 35px;
-padding: 0;
-background: #fff;
-border-bottom: 1px solid #007CC3;
-border-radius: 3px 3px 0 0;
-}
-#dropmenu li {
-position: relative;
-width: 18%;
-float: left;
-margin: 0;
-padding: 0;
-text-align: center;
-border-right:1px #fff solid;
-}
-#dropmenu li a {
-display: block;
-margin: 0;
-padding: 10px 0 6px;
-color: #000;
-background: #ededed;
-font-size: 14px;
-line-height: 1;
-text-decoration: none;
-}
-#dropmenu li ul {
-position: absolute;
-top: 100%;
-right: 39px;
-list-style: none;
-margin: 0;
-border-radius: 0 0 3px 3px;
-}
-#dropmenu li ul li{
-overflow: hidden;
-width: 600px;
-height: 0;
-color: #000;
--moz-transition: .2s;
--webkit-transition: .2s;
--o-transition: .2s;
--ms-transition: .2s;
-transition: .2s;
-}
-#dropmenu li ul li a{
-padding: 10px 15px;
-background: #E8F6FF;
-text-align: left;
-font-size: 12px;
-font-weight: normal;
-}
-#dropmenu li:hover > a{
-background: #CFE6F7;
-color: #007CC3;
-}
-#dropmenu > li:hover > a{
-border-radius: 3px 3px 0 0;
-}
-#dropmenu li:hover ul li{
-overflow: visible;
-height: 29px;
-border-top: 1px solid #007CC3;
-
-}
-#dropmenu li:hover ul li:first-child{
-border-top: 0;
-}
-#dropmenu li:hover ul li:last-child{
-border-bottom: 0;
-}
-#dropmenu li:hover ul li:last-child a{
-border-radius: 0 0 3px 3px;
-
-}
-
 
 
 #logout{
@@ -208,35 +90,26 @@ border-radius: 0 0 3px 3px;
   right: 20px;
 }
 
-
-
 #pageTop i {
   padding-top: 6px
 }
 
-
-
 #pageTop a {
-  display: block;
-  z-index: 999;
-  padding: 8px 0 0 8px;
-  border-radius: 30px;
-  width: 35px;
-  height: 35px;
-  background-color: #9FD6D2;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
+	display: block;
+	z-index: 999;
+	border-radius: 30px;
+	width: 35px;
+	background-color: #fadbe0;
+	color: #554562;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
 }
-
-
 
 #pageTop a:hover {
-  text-decoration: none;
-  opacity: 0.7;
+	text-decoration: none;
+	background: #ff69b4
 }
-
 
 table {
 	border-collapse: collapse;
@@ -246,4 +119,3 @@ td {
 	padding: 0.5em;
 }
 
-*/
