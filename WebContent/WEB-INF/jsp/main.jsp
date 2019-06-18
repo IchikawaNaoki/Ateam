@@ -51,7 +51,9 @@
 					</form>
 				</li>
 
-
+				<li>
+					<a href = "/aTeam/CommentInput">コメント</a>
+				</li>
 			</ul>
 
 			<li>

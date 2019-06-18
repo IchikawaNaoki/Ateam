@@ -1,3 +1,8 @@
+/*	プログラム名：備考欄編集処理
+ *	編集者：平澤智彦
+ *	作成日：2019/06/17
+ *	更新日：2019/06/17	*/
+
 package servlet;
 
 import java.io.IOException;
@@ -22,6 +27,13 @@ public class CommentInputDone extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
+		HttpSession session = request.getSession();
+		String comment = (String)session.getAttribute("comment");
+		ServletContext application = this.getServletContext();
+		User user = (User)application.getAttribute("loginUser");
+
+		new ConnDbDao().ConnDbCommentInput(comment , user.getId()) ;
+
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/commentinputDone.jsp");
 		dispatcher.forward(request, response);
@@ -30,13 +42,12 @@ public class CommentInputDone extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		int blo = 0;
 		HttpSession session = request.getSession();
-		String blongs = (String)session.getAttribute("blongs");
+		String comment = (String)session.getAttribute("comment");
 		ServletContext application = this.getServletContext();
 		User user = (User)application.getAttribute("loginUser");
 
-		new ConnDbDao().ConnDbChangeBelong(blo , user.getId()) ;
+		new ConnDbDao().ConnDbCommentInput(comment , user.getId()) ;
 
 		session.removeAttribute("blongs");
 
