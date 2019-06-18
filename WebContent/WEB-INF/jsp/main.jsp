@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%--
-<%@ page import="model.User" %>
-<%--<%@page import= "model.GetDB" %>
 
-<%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
-<%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
+<%@ page import="model.User" %>
+<%@page import= "model.GetDB" %>
+
+<% User loginUser = (User)session.getAttribute("loginUser"); %>
+<% GetDB employee = (GetDB)session.getAttribute("employee") ;%>
 <% Object status = session.getAttribute("status"); %>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
-			<c:when test="${empList.status == \"在席\"}">
+			<c:when test="${employee.status == \"在席\"}">
 				<p>在席中です</p>
 			</c:when>
 
