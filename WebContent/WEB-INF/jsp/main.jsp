@@ -1,21 +1,21 @@
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%--
-<%@ page import="model.User" %>
-<%--<%@page import= "model.GetDB" %>
 
-<%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
-<%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
+<%@ page import="model.User" %>
+<%@page import= "model.GetDB" %>
+
+<% User loginUser = (User)session.getAttribute("loginUser"); %>
+<% GetDB employee = (GetDB)session.getAttribute("employee") ;%>
 <% Object status = session.getAttribute("status"); %>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset = "UTF-8">
 		<title>在籍管理システム</title>
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script type="text/javascript" src="WebContent/music.js"></script>
+		<link rel = "stylesheet" type = "text/css" href = "css/main.css">
+		<script type = "text/javascript" src = "WebContent/music.js"></script>
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
@@ -26,110 +26,112 @@
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
-			<c:when test="${employee.status == \"aa\"}">
+			<c:when test="${employee.status == \"在席\"}">
 				<p>在席中です</p>
 			</c:when>
+
 			<c:otherwise>
 				<p>不在です</p>
 			</c:otherwise>
 		</c:choose>
 
 		<%--ログアウトボタン --%>
-		<form name="logout" method="post" action="/aTeam/Logout">
-			<input type="hidden" name="logout" value="ログアウト">
-			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;">ログアウト</a>
+		<form name = "logout" method = "post" action = "/aTeam/Logout">
+			<input type = "hidden" name = "logout" value = "ログアウト">
+			<a href = "javascript:void(0)" onclick = "document.Logout.submit();return false;">ログアウト</a>
 		</form>
 
-		<ul class="dropmenu" >
+		<ul class = "dropmenu" >
 			<li>
-				<a href="javascript:void(0)">メニュー画面</a>
+				<a href = "javascript:void(0)">メニュー画面</a>
 			</li>
-			<li class="menu__single" >
-				<a href="javascript:void(0)" class = "init-bottom">在席/離席 選択</a>
-				<ul class="menu__single_level" >
+			<li class = "menu__single" >
+				<a href = "javascript:void(0)" class = "init-bottom">在席/離席 選択</a>
+				<ul class = "menu__single_level" >
 					<li>
-						<form action="/aTeam/Main" method="post" name="zaiseki">
-						<bgsound src="" volume="1" id="snd0">
-							<input type="hidden" name="Presence" value="在席">
-							<audio id="sound-file" preload="auto">
-							<source src="WebContent/music/click.mp3" type="audio/mp3">
+						<form action = "/aTeam/Main"  method = "post"  name = "zaiseki">
+						<bgsound src = ""  volume = "1"  id = "snd0">
+							<input type = "hidden"  name = "Presence" value = "在席">
+							<audio id = "sound-file" preload = "auto">
+							<source src = "WebContent/music/click.mp3"  type = "audio/mp3">
 							</audio>
 
-							<a href="javascript:zaiseki.submit()">在席</a>
+							<a href = "javascript:zaiseki.submit()">在席</a>
 						</form>
 					</li>
 					<li>
-						<form action="/aTeam/Main" method="post" name="riseki">
-							<input type="hidden" name="leave seat" value="離席">
-							<a href="javascript:riseki.submit()">離席</a>
+						<form action = "/aTeam/Main"  method = "post" name = "riseki">
+							<input type = "hidden"  name = "leave seat"  value = "離席">
+							<a href = "javascript:riseki.submit()">離席</a>
 						</form>
 					</li>
 					<li>
 					<a href = "/aTeam/CommentInput">コメント</a>
 					</li>
 					<li>
-					<a href = "/aTeam/PassChangeUser">パスワード変更</a>
+						<a href = "/aTeam/PassChangeUser">パスワード変更</a>
 					</li>
 				</ul>
 			</li>
-			<li class="menu__single">
-				<a href="javascript:void(0)">オフィス選択</a>
-				<ul class="menu__single_level">
+			<li class = "menu__single">
+				<a href = "javascript:void(0)">オフィス選択</a>
+				<ul class = "menu__single_level">
 					<li>
 					<%--東京 --%>
-						<form action="/aTeam/Main" method="post" name="first">
-							<input type="hidden" name="tokyo" value="東京">
-							<a href="javascript:first.submit()">東京</a>
+						<form action = "/aTeam/Main"  method = "post"  name = "first">
+							<input type = "hidden"  name = "tokyo"  value = "東京">
+							<a href = "javascript:first.submit()">東京</a>
 						</form>
 					</li>
 					<li>
 					<%--東京開発室 --%>
-						<form action="/aTeam/Main" method="post" name="second">
-							<input type=hidden name="development" value="東京開発室">
+						<form action = "/aTeam/Main"  method = "post"  name = "second">
+							<input type = hidden name = "development"  value = "東京開発室">
 							<a href="javascript:second.submit()">東京開発室</a>
 						</form>
 					</li>
 					<li>
 					<%--宮崎 --%>
-						<form action="/aTeam/Main" method="post" name="third">
-							<input type=hidden name="miyazaki" value="宮崎">
-							<a href="javascript:third.submit()">宮崎</a>
+						<form action = "/aTeam/Main"  method ="post" name = "third">
+							<input type = hidden name = "miyazaki"  value = "宮崎">
+							<a href = "javascript:third.submit()">宮崎</a>
 						</form>
 					</li>
 					<li>
 					<%--札幌 --%>
-						<form action="/aTeam/Main" method="post" name="force">
-							<input type=hidden name=sapporo value="札幌">
-							<a href="javascript:force.submit()">札幌</a>
+						<form action = "/aTeam/Main" method = "post" name = "force">
+							<input type = hidden name = sapporo value = "札幌">
+							<a href = "javascript:force.submit()">札幌</a>
 						</form>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="/aTeam/UpdateUser">部署変更</a>
+				<a href = "/aTeam/UpdateUser">部署変更</a>
 			</li>
 			<li>
 				<a href = "/aTeam/Main">全件表示</a>
 			</li>
 		</ul>
 
-		<p id="pageTop">
-			<a href="#">↑</a>
-		</p>
-
 		<div class="list">
 			<c:if test="${not empty errorMsg}">
 				<p>${errorMsg}</p>
 			</c:if>
 
-			<c:forEach var="getDb" items="${getDbList}">
+			<c:forEach var ="getDb" items ="${getDbList}">
 				 <p>
-		    		<c:out value="${getDb.name}"/>:
-		        	<c:out value="${getDb.belong }"/>
-		        	<c:out value="${getDb.status }"/>
-		        	<c:out value="${getDb.comment }"/>
+		    		<c:out value ="${getDb.name}"/>:
+		        	<c:out value ="${getDb.belong}"/>
+		        	<c:out value ="${getDb.status}"/>
+		        	<c:out value ="${getDb.comment}"/>
 		    	</p>
 			</c:forEach>
 		</div>
+
+		<p id = "pageTop">
+			<a href = "#">↑</a>
+		</p>
+
 	</body>
 </html>
