@@ -9,7 +9,7 @@
 		<meta charset="UTF-8">
 		<title>在籍管理システム</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="WebContent/music.js"></script>
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
@@ -35,7 +35,11 @@
 				<li>
 					<form action="/aTeam/Main" method="post" name="zaiseki">
 						<li>
-							<input type="hidden" name="Presence" value="在席">
+							<bgsound src="" volume="1" id="snd0">
+							<input onClick="sound()" type="hidden" name="Presence" value="在席">
+							<audio id="sound-file" preload="auto">
+							<source src="WebContent/music/click.mp3" type="audio/mp3">
+							</audio>
 							<a href="javascript:zaiseki.submit()">在席</a>
 						</li>
 
