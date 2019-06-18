@@ -102,10 +102,11 @@ public class RegisterUser extends HttpServlet {
 				{
 					conn.RegisterDB(registerUser);
 					registerUser.setId(conn.ConnDbRegisterId(registerUser));
+					session.setAttribute("registerId" , registerUser.getId());
+					session.setAttribute("registerName" , registerUser.getName());
+					session.setAttribute("registerPass" , registerUser.getPass());
 					//登録後のフォワード先を指定
 					forwardPath = "/WEB-INF/jsp/registerDone.jsp";
-
-					session.setAttribute("registerId" , registerUser.getId());
 					//設定されたフォワード先にフォワード
 					RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 					dispatcher.forward(request, response);
