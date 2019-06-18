@@ -12,9 +12,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset = "UTF-8">
+		<meta charset="UTF-8">
 		<title>在籍管理システム</title>
-		<link rel = "stylesheet" type = "text/css" href = "css/main.css">
+		<link rel= "stylesheet" type="text/css" href = "css/main.css">
 		<script type = "text/javascript" src = "WebContent/music.js"></script>
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -22,11 +22,17 @@
 	</head>
 
 	<body>
-		<c:out value="${loginUser.name}" />さん ログイン中
+		<c:out value="${loginUser.name}" />さん
+				<%--ログアウトボタン --%>
+		<form name="logout" method="post" action="/aTeam/Logout">
+			<input type="hidden" name="logout" value="ログアウト">
+			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;" id="logout">ログアウト</a>
+		</form>
+
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
-			<c:when test="${empList.status == \"在席\"}">
+			<c:when test="${employee.status == \"在席\"}">
 				<p>在席中です</p>
 			</c:when>
 
