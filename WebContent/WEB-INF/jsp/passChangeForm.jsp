@@ -13,8 +13,8 @@
 	下の入力フォームに記入して下さい</p>
 	<!-- コメント記述 -->
 	<form action = "/aTeam/PassChangeUser" method = "post">
-		<p>新規パスワード:<input type="text" name="pass1"></p>
-		<p>確認のためもう1度:<input type="text" name="pass2"></p>
+		<p>新規パスワード:<input type="password" name="pass1"></p>
+		<p>確認のためもう1度:<input type="password" name="pass2"></p>
 		<input type="submit"  value="送信" >
 
 		</form>
