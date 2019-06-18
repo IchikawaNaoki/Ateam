@@ -64,4 +64,10 @@ public class User implements Serializable{
 	public Byte getNowLogin() {
 		return nowLogin;
 	}
+
+	//新規ユーザーのIDセット
+	public void setId(int id)
+	{
+		this.id = id;
+	}
 }
