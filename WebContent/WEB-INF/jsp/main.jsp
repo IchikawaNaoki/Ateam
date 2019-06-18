@@ -17,9 +17,9 @@
 
 	<body>
 		<c:out value="${loginUser.name}" />さん ログイン中
-		<form name="Logout" method="post" action="/aTeam/Logout">
-		<input type=hidden name="logout" value="ログアウト">
-		<a href="javascript:void(0)" onclick="document.logout.submit();return false;">ログアウト</a>
+		<form name="logout" method="post" action="/aTeam/Logout">
+		<input type="hidden" name="logout" value="ログアウト">
+		<a href="javascript:void(0)" onclick="document.Logout.submit();return false;">ログアウト</a>
 
 		</form>
 
