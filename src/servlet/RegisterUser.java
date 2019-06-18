@@ -84,36 +84,24 @@ public class RegisterUser extends HttpServlet {
 			{
 				System.out.println("我が名はめぐみん！データを登録します");
 				ConnDbDao conn= new ConnDbDao();
-				if(!conn.ConnDbCollation(registerUser))
-				{
-					conn.RegisterDB(registerUser);
-					registerUser.setId(conn.ConnDbRegisterId(registerUser));
-					session.setAttribute("registerId" , registerUser.getId());
-					session.setAttribute("registerName" , registerUser.getName());
-					session.setAttribute("registerPass" , registerUser.getPass());
-					//登録後のフォワード先を指定
-					forwardPath = "/WEB-INF/jsp/registerDone.jsp";
-					//設定されたフォワード先にフォワード
-					RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-					dispatcher.forward(request, response);
-				}
-				else
-				{
-					System.out.println("我が名はめぐみん！多重ログイン情報は爆裂魔法で吹き飛ばします！");
-					//登録後のフォワード先を指定
-					forwardPath = "/WEB-INF/jsp/registerForm.jsp";
-					//設定されたフォワード先にフォワード
-					RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-					dispatcher.forward(request, response);
-				}
+				conn.RegisterDB(registerUser);
+				registerUser.setId(conn.ConnDbRegisterId(registerUser));
+				session.setAttribute("registerId" , registerUser.getId());
+				session.setAttribute("registerName" , registerUser.getName());
+				session.setAttribute("registerPass" , registerUser.getPass());
+				//登録後のフォワード先を指定
+				forwardPath = "/WEB-INF/jsp/registerDone.jsp";
+				//設定されたフォワード先にフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+				dispatcher.forward(request, response);
+
 			}
 			else
 			{
-
 				/*
 				 * 失敗時のエラーログ的なやつ出しといて
 				 */
-				System.out.println("だめやん！");
+				System.out.println("我が名はめぐみん！多重ログイン情報は爆裂魔法で吹き飛ばします！");
 				//登録失敗時のフォワード先を指定
 				forwardPath = "/WEB-INF/jsp/registerForm.jsp";
 				//設定されたフォワード先にフォワード
