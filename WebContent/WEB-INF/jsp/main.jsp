@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="model.User" %>
 <% User loginUser = (User)session.getAttribute("loginUser"); %>
-
+<% Object status = session.getAttribute("status"); %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,7 +17,11 @@
 
 	<body>
 		<c:out value="${loginUser.name}" />さん ログイン中
-		<a href="/aTeam/Logout" id="logout">ログアウト</a>
+		<form name="Logout" method="post" action="/aTeam/Logout">
+		<input type=hidden name="logout" value="ログアウト">
+		<a href="javascript:void(0)" onclick="document.logout.submit();return false;">ログアウト</a>
+
+		</form>
 		<ul id="dropmenu" style="clear:both;">
 
 		<li>
