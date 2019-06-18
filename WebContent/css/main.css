@@ -8,7 +8,7 @@ body{
 
 @charset "UTF-8";
 
-#dropmenu {
+.dropmenu {
     position: relative;
     width: 100%;
     height: 50px;
@@ -16,7 +16,7 @@ body{
     margin: 0 auto;
 }
 
-#dropmenu > li {
+.dropmenu > li {
     float: left;
     width: 20%; /* グローバルナビ4つの場合 */
     height: 50px;
@@ -24,12 +24,12 @@ body{
     background: rgb(29, 33, 19);
 }
 
-#dropmenu > li a {
+.dropmenu > li a {
     display: block;
     color: #fff;
 }
 
-#dropmenu > li a:hover {
+.dropmenu > li a:hover {
     color: #999;
 }
 
@@ -49,13 +49,13 @@ ul.menu__fourth-level {
     opacity: 0;
 }
 
-#dropmenu > li:hover {
+.dropmenu > li:hover {
     background: #072A24;
     -webkit-transition: all .5s;
     transition: all .5s;
 }
 
-.menu__second-level li {
+menu__second-level li {
     border-top: 1px solid #111;
 }
 
@@ -90,17 +90,17 @@ ul.menu__fourth-level {
 }
 
 /* floatクリア */
-#dropmenu:before,
-#dropmenu:after {
+.dropmenu:before,
+.dropmenu:after {
     content: " ";
     display: table;
 }
 
-#dropmenu:after {
+.dropmenu:after {
     clear: both;
 }
 
-#dropmenu {
+.dropmenu {
     *zoom: 1;
 }
 /*
