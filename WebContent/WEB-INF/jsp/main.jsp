@@ -22,7 +22,13 @@
 	</head>
 
 	<body>
-		<c:out value="${loginUser.name}" />さん ログイン中
+		<c:out value="${loginUser.name}" />さん
+				<%--ログアウトボタン --%>
+		<form name="logout" method="post" action="/aTeam/Logout">
+			<input type="hidden" name="logout" value="ログアウト">
+			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;" id="logout">ログアウト</a>
+		</form>
+
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
