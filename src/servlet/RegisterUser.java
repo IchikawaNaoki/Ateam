@@ -67,10 +67,8 @@ public class RegisterUser extends HttpServlet {
 		String pass = request.getParameter("pass");
 		//フォワード先のパス初期化
 		String forwardPath = null;
-
 		//登録するユーザの情報を設定
 		User registerUser = new User(name , pass);
-
 		//セッションスコープに登録ユーザーの情報を設定
 		HttpSession session = request.getSession();
 		session.setAttribute("registerUser" , registerUser);
@@ -81,20 +79,8 @@ public class RegisterUser extends HttpServlet {
 		{
 			System.out.println("我が名はめぐみん！データを入力のための照合チェックします");
 			//登録処理の呼び出し
-			boolean isRegister = registerUserLogic.execute(registerUser);
-			if(!isRegister)
-			{
-				/*
-				 * 失敗時のエラーログ的なやつ出しといて
-				 */
-				System.out.println("だめやん！");
-				//登録失敗時のフォワード先を指定
-				forwardPath = "/WEB-INF/jsp/registerForm.jsp";
-				//設定されたフォワード先にフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-				dispatcher.forward(request, response);
-			}
-			else
+			boolean isRegister = registerUserLogic.checkRegister(registerUser);
+			if(isRegister)
 			{
 				System.out.println("我が名はめぐみん！データを登録します");
 				ConnDbDao conn= new ConnDbDao();
@@ -120,6 +106,19 @@ public class RegisterUser extends HttpServlet {
 					RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 					dispatcher.forward(request, response);
 				}
+			}
+			else
+			{
+
+				/*
+				 * 失敗時のエラーログ的なやつ出しといて
+				 */
+				System.out.println("だめやん！");
+				//登録失敗時のフォワード先を指定
+				forwardPath = "/WEB-INF/jsp/registerForm.jsp";
+				//設定されたフォワード先にフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+				dispatcher.forward(request, response);
 			}
 		}
 		else
