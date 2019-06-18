@@ -18,7 +18,9 @@
 	<p>
 		削除したいユーザーIDとパスワードを入力してください。
 	</p>
+
 	<form action="/aTeam/DeleteUser" method="post">
+
 		ユーザーID:<input type="text" name="PersonalID" required="required"><br>
 		パスワード:<input type="password" name="Pass" required="required"><br>
 
@@ -28,9 +30,10 @@
 	</audio>
 	</form>
 
-	<form type="post" name="myForm" action="/aTeam/Login">
 
-		<button onClick="sound()" id="delete" >戻る</button>
+
+	<form action="/aTeam/Login"method="post">
+		<button onClick="sound()" id="delete" type="submit"  >戻る</button>
 		<audio id="sound-file" preload="auto">
 		<source src="music/click.mp3" type="audio/mp3">
 		</audio>
@@ -38,22 +41,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<!--  	<form action="/aTeam/Login"method="post">
-		<button onClick="sound()" type="submit"  id="delete">戻る</button>
-		<audio id="sound-file" preload="auto">
-		<source src="music/click.mp3" type="audio/mp3">
-		</audio>
-	</form>
--->
 <!--  </div> -->
 
 
