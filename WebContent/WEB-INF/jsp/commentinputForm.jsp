@@ -20,5 +20,6 @@
 		コメント:<input type="text" name="Comment">
 		<input type="submit"  value="送信" >
 	</form>
+	<a href = "/aTeam/Main">戻る</a>
 </body>
 </html>

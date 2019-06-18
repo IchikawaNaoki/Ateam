@@ -16,7 +16,7 @@
 	<h2>以下のコメントを、残しますか?</h2>
 	<p><%= Comment %></p>
 
-	<a href = "/aTeam/CommentInput">戻る</a>
 	<a href = "/aTeam/CommentInputDone?action=done">登録</a>
+	<a href = "/aTeam/CommentInput">戻る</a>
 </body>
 </html>
