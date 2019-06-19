@@ -37,7 +37,7 @@ public class LoginLogic {
 					}else {
 						System.out.println(listUser.get(0).getName()+"はログイン済みっぺよ"+ listUser.get(0).getNowLogin());
 						//System.out.println("ログインしてるよ");
-						//return null;
+						return null;
 					}
 					return listUser;
 			}

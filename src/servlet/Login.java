@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 
 		//ログイン成功時の処理
 		if(isLogin != null) {
-			List<GetDB> list= new ConnDbDao().ConnDbUserInfo(isLogin.get(0).getId());
+			List<GetDB> list = new ConnDbDao().ConnDbUserInfo(isLogin.get(0).getId());
 			application.setAttribute("loginUser" , isLogin.get(0));
 
 			//フォワード
@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else {
-			if(isLogin == null && id !=0) {
+			if(isLogin == null || id !=0) {
 				session.setAttribute("status", id);
 			}
             response.sendRedirect("./");
