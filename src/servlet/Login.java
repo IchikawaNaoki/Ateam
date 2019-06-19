@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else {
-			if(isLogin == null && id !=0) {
+			if(isLogin == null || id !=0) {
 				session.setAttribute("status", id);
 			}
             response.sendRedirect("./");
