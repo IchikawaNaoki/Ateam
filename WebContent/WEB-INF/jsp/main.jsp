@@ -19,16 +19,29 @@
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
+
+		<%-- <script type="text/javascript">
+			<% function logoutStart(){
+				var message;
+				confirm(){
+					if(messeage){
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+			}%>
+		</script>--%>
 	</head>
 
 	<body>
 		<c:out value="${loginUser.name}" />さん
 				<%--ログアウトボタン --%>
-		<form name="logout" method="post" action="/aTeam/Logout">
+		<form name="logout" method="post" action="/aTeam/Logout" onSubmit="logoutStart()">
 			<input type="hidden" name="logout" value="ログアウト">
 			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;" id="logout">ログアウト</a>
 		</form>
-
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
@@ -42,10 +55,8 @@
 		</c:choose>
 
 		<%--ログアウトボタン --%>
-		<form name = "logout" method = "post" action = "/aTeam/Logout">
-			<input type = "hidden" name = "logout" value = "ログアウト">
-			<a href = "javascript:void(0)" onclick = "document.Logout.submit();return false;">ログアウト</a>
-		</form>
+
+		<a href="/aTeam/Logout">ログアウト</a>
 
 		<ul class = "dropmenu" >
 			<li>
