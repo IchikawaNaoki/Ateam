@@ -5,9 +5,9 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ page import = "model.GetDB" %>
 <% GetDB getDbList = (GetDB)session.getAttribute("getDbList"); %>
+<% String Comment = (String) session.getAttribute("OidComment"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +20,7 @@
 	<p>現在のコメントは：<c:out value="${getDbList.comment}" />です。</p>
 	<p>伝えたいことがある場合、<br>
 	下の入力フォームに記入して下さい。</p>
+	<p>今までのコメント：<%= Comment %></p>
 	<!-- コメント記述 -->
 	<form action = "/aTeam/CommentInput" method = "post">
 		コメント:<input type="text" name="Comment">
