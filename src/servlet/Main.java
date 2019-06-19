@@ -89,14 +89,14 @@ public class Main extends HttpServlet {
 				request.setAttribute("getDbList", list);
 			}
 		}
-	
+
 		//在席・離席ボタンをおしたとき
 		if(presence != null || leaveseat != null) {
 			//アプリケーションからUser情報を取得
 			ServletContext application = this.getServletContext();
 			User loginUser = (User)application.getAttribute("loginUser");
 			new ConnDbDao().ConnDbStatus( presence, leaveseat , loginUser.getId());
-			
+
 			String str = (String) session.getAttribute("str");
 			if( str != null ) {
 				List<GetDB> list = new ConnDbDao().WhereView(str);
@@ -109,9 +109,25 @@ public class Main extends HttpServlet {
 
 	}
 
-	public void destroy() {
-
+	public void destroy()
+	{
 		System.out.println("デストロイよばれたよお");
-	}
+		//アプリケーションスコープを取得
+		ServletContext application = this.getServletContext();
+		User user = (User)application.getAttribute("loginUser");
 
+		//ログインフラグを0にする
+		ConnDbDao conn = new ConnDbDao();
+		List<User> listUser = conn.ConDbLogin(user);
+		if( listUser.get(0).getNowLogin().equals((byte)1) ) //ログインフラグをみる
+		{
+			conn.ConnDbLoginLogout(0 ,listUser.get(0).getPass());
+			System.out.println(listUser.get(0).getName()+"のログインフラグ下すっぺよ");
+		}else {
+			System.out.println(listUser.get(0).getName()+"はログインしてないっぺよ"+ listUser.get(0).getNowLogin());
+			//return null;
+		}
+
+
+	}
 }
