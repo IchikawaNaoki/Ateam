@@ -3,7 +3,7 @@
 
 <%--
 <%@ page import="model.User" %>
-<%--<%@page import= "model.GetDB" %>
+<%--<% page import= "model.GetDB" %>
 
 <%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
 <%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
@@ -19,29 +19,28 @@
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
-
-		<%-- <script type="text/javascript">
-			<% function logoutStart(){
-				var message;
-				confirm(){
-					if(messeage){
-						return true;
-					}
-					else{
-						return false;
-					}
-				}
-			}%>
-		</script>--%>
 	</head>
 
 	<body>
 		<c:out value="${loginUser.name}" />さん
-				<%--ログアウトボタン --%>
-			<a href="/aTeam/Logout" id="logout" onClick="sound()">ログアウト</a>
-			<audio id="sound-file" preload="auto">
-				<source src="music/click.mp3" type="audio/mp3">
-			</audio>
+
+		<%--ログアウトボタン --%>
+		<a href="/aTeam/Logout" id="logout" onClick="sound()">ログアウト</a>
+		<audio id="sound-file" preload="auto">
+			<source src="music/click.mp3" type="audio/mp3">
+		</audio>
+		<%--ログアウトのポップアップ --%>
+		<script type="text/javascript">
+			function logoutStart(){
+				var result = confirm('ログアウトしますか?')
+				if(result){
+					console.log('ログアウトしました');
+				}
+				else{
+					console.log('ログアウトしませんでした');
+				}
+			}
+		</script>
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
@@ -53,7 +52,6 @@
 				<p>不在です</p>
 			</c:otherwise>
 		</c:choose>
-
 
 		<ul class = "dropmenu" >
 			<li>
@@ -131,7 +129,7 @@
 
 			<c:forEach var ="getDb" items ="${getDbList}">
 				 <p>
-		    		<c:out value ="${getDb.name}"/>:
+		    		<c:out value ="${getDb.name}"/>
 		        	<c:out value ="${getDb.belong}"/>
 		        	<c:out value ="${getDb.status}"/>
 		        	<c:out value ="${getDb.comment}"/>
