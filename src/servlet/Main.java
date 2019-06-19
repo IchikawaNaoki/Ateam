@@ -108,7 +108,7 @@ public class Main extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
-
+@Override
 	public void destroy()
 	{
 		System.out.println("デストロイよばれたよお");
