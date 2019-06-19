@@ -19,16 +19,29 @@
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
+
+		<%-- <script type="text/javascript">
+			<% function logoutStart(){
+				var message;
+				confirm(){
+					if(messeage){
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+			}%>
+		</script>--%>
 	</head>
 
 	<body>
 		<c:out value="${loginUser.name}" />さん
 				<%--ログアウトボタン --%>
-		<form name="logout" method="post" action="/aTeam/Logout">
-			<input type="hidden" name="logout" value="ログアウト">
-			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;" id="logout">ログアウト</a>
-		</form>
-
+			<a href="/aTeam/Logout" id="logout" onClick="sound()">ログアウト</a>
+			<audio id="sound-file" preload="auto">
+				<source src="music/click.mp3" type="audio/mp3">
+			</audio>
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
@@ -41,11 +54,6 @@
 			</c:otherwise>
 		</c:choose>
 
-		<%--ログアウトボタン --%>
-		<form name = "logout" method = "post" action = "/aTeam/Logout">
-			<input type = "hidden" name = "logout" value = "ログアウト">
-			<a href = "javascript:void(0)" onclick = "document.Logout.submit();return false;">ログアウト</a>
-		</form>
 
 		<ul class = "dropmenu" >
 			<li>
@@ -56,11 +64,7 @@
 				<ul class = "menu__single_level" >
 					<li>
 						<form action = "/aTeam/Main"  method = "post"  name = "zaiseki">
-						<bgsound src = ""  volume = "1"  id = "snd0">
 							<input type = "hidden"  name = "Presence" value = "在席">
-							<audio id = "sound-file" preload = "auto">
-							<source src = "WebContent/music/click.mp3"  type = "audio/mp3">
-							</audio>
 
 							<a href = "javascript:zaiseki.submit()">在席</a>
 						</form>
