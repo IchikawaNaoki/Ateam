@@ -21,8 +21,8 @@
 <p> パスワード</p>
     <input id="pass" type="password" name="pass" required="required"><br>
 
-
- <input onClick="sound()" id="login" type="submit" value="ログイン" ><br>
+<!-- this.parentElementはinputの親であるフォームタグ  -->
+ <input onClick="soundplayAndSubmit(this.parentElement)" id="login" type="submit" value="ログイン" ><br>
  <audio id="sound-file" preload="auto">
 	<source src="music/click.mp3" type="audio/mp3">
 </audio>

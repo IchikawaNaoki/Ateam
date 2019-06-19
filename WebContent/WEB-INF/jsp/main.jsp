@@ -3,11 +3,12 @@
 
 <%--
 <%@ page import="model.User" %>
-<%--<% page import= "model.GetDB" %>
+<%@ page import= "model.GetDB" %>-->
 
 <%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
 <%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
 <% Object status = session.getAttribute("status"); %>
+
 
 <!DOCTYPE html>
 <html>
@@ -62,9 +63,10 @@
 				<ul class = "menu__single_level" >
 					<li>
 						<form action = "/aTeam/Main"  method = "post"  name = "zaiseki">
-							<input type = "hidden"  name = "Presence" value = "在席">
 
+							<input type = "hidden"  name = "Presence" value = "在席">
 							<a href = "javascript:zaiseki.submit()">在席</a>
+
 						</form>
 					</li>
 					<li>
@@ -128,12 +130,15 @@
 			</c:if>
 
 			<c:forEach var ="getDb" items ="${getDbList}">
-				 <p>
+
 		    		<c:out value ="${getDb.name}"/>
-		        	<c:out value ="${getDb.belong}"/>
+				<c:if test="${ getDb.belong == ''}" var="flg" />
+				<c:if test="${flg}" >
+		        	<c:out value="${getDb.belong}"/>
+				</c:if>
 		        	<c:out value ="${getDb.status}"/>
 		        	<c:out value ="${getDb.comment}"/>
-		    	</p>
+
 			</c:forEach>
 		</div>
 
