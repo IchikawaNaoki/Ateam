@@ -1,4 +1,4 @@
-function sound(form){
+function soundplayAndSubmit(form){
 
 	var	soundEle = document.getElementById( 'sound-file' );
     	soundEle.play() ;

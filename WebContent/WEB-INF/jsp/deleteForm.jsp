@@ -24,7 +24,7 @@
 		ユーザーID:<input type="text" name="PersonalID" required="required"><br>
 		パスワード:<input type="password" name="Pass" required="required"><br>
 
-	<button onClick="sound()" id="delete"type="submit">削除</button>
+	<button onClick="soundplayAndSubmit()" id="delete"type="submit">削除</button>
 	<audio id="sound-file" preload="auto">
 	<source src="music/click.mp3" type="audio/mp3">
 	</audio>
