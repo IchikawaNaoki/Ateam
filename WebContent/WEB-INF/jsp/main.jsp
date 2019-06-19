@@ -130,15 +130,15 @@
 			</c:if>
 
 			<c:forEach var ="getDb" items ="${getDbList}">
-
 		    		<c:out value ="${getDb.name}"/>
-				<c:if test="${ getDb.belong == ''}" var="flg" />
-				<c:if test="${flg}" >
-		        	<c:out value="${getDb.belong}"/>
-				</c:if>
-		        	<c:out value ="${getDb.status}"/>
-		        	<c:out value ="${getDb.comment}"/>
-
+					<c:out value ="${getDb.belong}"/>
+					<c:if test="${ getDb.status == '在席'}">
+					<font color="red"><c:out value ="${getDb.status}"/></font>
+		        	</c:if>
+		        	<c:if test="${ getDb.status == '不在'}">
+					<font color="blue"><c:out value ="${getDb.status}"/></font>
+		        	</c:if>
+		        	<c:out value ="${getDb.comment}"/><br>
 			</c:forEach>
 		</div>
 
