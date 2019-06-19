@@ -1,10 +1,10 @@
 function sound(form){
-	// [ID:sound-file]の音声ファイルを再生[play()]する
-	document.getElementById( 'sound-file' ).play() ;
 
-	var formSubmit = function(){
-		form.submit();
-	}
+	var	soundEle = document.getElementById( 'sound-file' );
+    	soundEle.play() ;
 
-	setTimeout(formSubmit,500);
+    	/* サウンドが流れ終わったらsubmitする */
+    	soundEle.addEventListener("ended", function() {
+    		form.submit();
+    		});
 }
