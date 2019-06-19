@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +27,12 @@ public class CommentInput extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		ServletContext application = getServletContext();
+		User user = (User) application.getAttribute("loginUser");
+		List <GetDB>list= new ConnDbDao().ConnDbUserInfo(user.getId());
+		String oldComment=list.get(0).getComment();
+		HttpSession session = request.getSession();
+		session.setAttribute("oldComment",oldComment);
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/commentinputForm.jsp");
 		dispatcher.forward(request, response);
@@ -34,15 +41,15 @@ public class CommentInput extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		List <GetDB>list= new ConnDbDao().ConnDbUserInfo(new User().getId());
-
-		String oldComment=list.get(0).getComment();
-
+//		List <GetDB>list= new ConnDbDao().ConnDbUserInfo(new User().getId());
+//
+//		String oldComment=list.get(0).getComment();
+//
 		String Comment = request.getParameter("Comment");
 
 		HttpSession session = request.getSession();
 		session.setAttribute("Comment", Comment);
-		session.setAttribute("OidComment",oldComment);
+
 
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/commentinputConfirm.jsp");
