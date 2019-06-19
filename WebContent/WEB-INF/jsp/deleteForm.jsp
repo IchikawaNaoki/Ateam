@@ -33,8 +33,9 @@
 
 
 	<form action="/aTeam/Login"method="post">
-		<input onClick="sound()" id="delete" type="submit" value="戻る" >
-				<audio id="sound-file" preload="auto">
+
+		<input id="delete" value="戻る" onClick="sound()"  >
+		<audio id="sound-file" preload="auto">
 		<source src="music/click.mp3" type="audio/mp3">
 		</audio>
 	</form>
