@@ -50,16 +50,15 @@
 	<% %>
 	<c:out value ="${getDbList.status}"/>
 
-		<c:out value = "${empty aaaaawaw}"/>
-				<c:choose>
-					<c:when test="${employee.status == '在席'}">
-						<p><font size="+2" color="#0000ff"><strong>在席中</strong></font>です</p>
-					</c:when>
-
-					<c:otherwise>
-						<p><font size="+2" color="#ff0000"><strong>不在</strong></font>です</p>
-					</c:otherwise>
-				</c:choose>
+	<c:choose>
+		<c:when test="${employee.status == '在席'}">
+			<p><font size="+2" color="#0000ff"><strong>在席中</strong></font>です</p>
+		</c:when>
+	
+		<c:otherwise>
+			<p><font size="+2" color="#ff0000"><strong>不在</strong></font>です</p>
+		</c:otherwise>
+	</c:choose>
 
 
 		<ul class = "dropmenu" >
