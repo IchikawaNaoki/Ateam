@@ -27,7 +27,7 @@ public class CommentInput extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		ServletContext application = getServletContext();
+		ServletContext application = this.getServletContext();
 		User user = (User) application.getAttribute("loginUser");
 		List <GetDB>list= new ConnDbDao().ConnDbUserInfo(user.getId());
 		String oldComment=list.get(0).getComment();

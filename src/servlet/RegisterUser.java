@@ -65,6 +65,23 @@ public class RegisterUser extends HttpServlet {
 		//intにgetparameterないんでparse
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
+		String belongs =request.getParameter("belongs");
+		int belongsNo = 0;
+		switch(belongs)
+		{
+		case "東京":
+			belongsNo = 1;
+			break;
+		case "東京開発室":
+			belongsNo = 2;
+			break;
+		case "宮崎":
+			belongsNo = 3;
+			break;
+		case "札幌":
+			belongsNo = 4;
+			break;
+		}
 		//フォワード先のパス初期化
 		String forwardPath = null;
 		//登録するユーザの情報を設定
@@ -75,50 +92,38 @@ public class RegisterUser extends HttpServlet {
 
 		RegisterUserLogic registerUserLogic = new RegisterUserLogic();
 		//社員名とパスが入力されているかの判定
-		if((!name.equals("")) && (!pass.equals("")))
+		System.out.println("我が名はめぐみん！データを入力のための照合チェックします");
+		//登録処理の呼び出し
+		boolean isRegister = registerUserLogic.checkRegister(registerUser);
+		if(isRegister)
 		{
-			System.out.println("我が名はめぐみん！データを入力のための照合チェックします");
-			//登録処理の呼び出し
-			boolean isRegister = registerUserLogic.checkRegister(registerUser);
-			if(isRegister)
-			{
-				System.out.println("我が名はめぐみん！データを登録します");
-				ConnDbDao conn= new ConnDbDao();
-				conn.RegisterPersonalDB(registerUser);
-				registerUser.setId(conn.ConnDbRegisterId(registerUser));
-				conn.RegisterEmployeeDB(registerUser);
-				session.setAttribute("registerId" , registerUser.getId());
-				session.setAttribute("registerName" , registerUser.getName());
-				session.setAttribute("registerPass" , registerUser.getPass());
-				//登録後のフォワード先を指定
-				forwardPath = "/WEB-INF/jsp/registerDone.jsp";
-				//設定されたフォワード先にフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-				dispatcher.forward(request, response);
+			System.out.println("我が名はめぐみん！データを登録します");
+			ConnDbDao conn= new ConnDbDao();
+			conn.RegisterPersonalDB(registerUser);
+			registerUser.setId(conn.ConnDbRegisterId(registerUser));
+			conn.RegisterEmployeeDB(registerUser,belongsNo);
+			session.setAttribute("registerId" , registerUser.getId());
+			session.setAttribute("registerName" , registerUser.getName());
+			session.setAttribute("registerPass" , registerUser.getPass());
+			session.setAttribute("registerBelongs", belongs);
+			//登録後のフォワード先を指定
+			forwardPath = "/WEB-INF/jsp/registerDone.jsp";
+			//設定されたフォワード先にフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);
 
-			}
-			else
-			{
-				/*
-				 * 失敗時のエラーログ的なやつ出しといて
-				 */
-				System.out.println("我が名はめぐみん！多重ログイン情報は爆裂魔法で吹き飛ばします！");
-				//登録失敗時のフォワード先を指定
-				forwardPath = "/WEB-INF/jsp/registerForm.jsp";
-				//設定されたフォワード先にフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-				dispatcher.forward(request, response);
-			}
 		}
 		else
 		{
-			System.out.println("ちゃんと入力されてなぁぁぁいぃぃぃぃ・・・");
-			//フォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
+			/*
+			 * 失敗時のエラーログ的なやつ出しといて
+			 */
+			System.out.println("我が名はめぐみん！多重ログイン情報は爆裂魔法で吹き飛ばします！");
+			//登録失敗時のフォワード先を指定
+			forwardPath = "/WEB-INF/jsp/registerForm.jsp";
+			//設定されたフォワード先にフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 			dispatcher.forward(request, response);
 		}
-		//不要となったセッションスコープ内のインスタンスを削除
-//		session.removeAttribute("registerUser");
-
 	}
 }

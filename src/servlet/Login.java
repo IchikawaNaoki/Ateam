@@ -28,6 +28,9 @@ public class Login extends HttpServlet {
 		int id=0;
 		try {
 			System.out.println(str);
+			if(str.equals(" ")) {
+				id=-1;
+			}
 			id = Integer.parseInt(str);
 		}
 		catch(NumberFormatException e) {
@@ -58,10 +61,11 @@ public class Login extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		else {
-			if(isLogin == null || id !=0) {
+			if(isLogin == null && id !=0) {
 				session.setAttribute("status", id);
+				 response.sendRedirect("./");
 			}
-            response.sendRedirect("./");
+
 		}
 	}
 }
