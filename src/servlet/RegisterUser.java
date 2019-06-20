@@ -66,6 +66,17 @@ public class RegisterUser extends HttpServlet {
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		String belongs =request.getParameter("belongs");
+		String test =null;
+		int testid=0;
+		test=request.getParameter("test");
+		try {
+			System.out.println(test);
+			testid = Integer.parseInt(test);
+		}
+		catch(NumberFormatException e) {
+
+		}
+
 		int belongsNo = 0;
 		switch(belongs)
 		{
