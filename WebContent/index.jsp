@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
    pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% Object status = session.getAttribute("status"); %>
+<%  String id = (String)session.getAttribute("id");%>
+<%  String strPass = (String)session.getAttribute("pass");%>
 
 <!DOCTYPE html>
 <html>
@@ -13,13 +16,15 @@
 
 <body>
 	<h1>ログイン</h1>
-
+	<%if (id == null){ %>
+	<%id=""; %>
+        <% } %>
 	<form action="/aTeam/Login" method="post">
 
 <p>社員ID</p>
-<input id="name" type="text" name="id" required="required"><br>
+<input id="name" type="text" name="id"value="<%= id%>"required><br>
 <p> パスワード</p>
-    <input id="pass" type="password" name="pass" required="required"><br>
+    <input id="pass" type="password" name="pass" required><br>
 
 <!-- this.parentElementはinputの親であるフォームタグ  -->
  <input onClick="soundplayAndSubmit(this.parentElement)" id="login" type="submit" value="ログイン" ><br>
