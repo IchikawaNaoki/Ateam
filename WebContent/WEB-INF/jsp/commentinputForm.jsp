@@ -5,6 +5,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page import = "model.GetDB" %>
 <% GetDB getDbList = (GetDB)session.getAttribute("getDbList"); %>
@@ -17,7 +18,7 @@
 </head>
 <body>
 	<h1>コメント入力</h1>
-	<p>現在のコメントは：<c:out value="${getDbList.comment}" />です。</p>
+	<p>現在のコメントは：<c:out value="${getDbList.}"/>です。</p>
 	<p>伝えたいことがある場合、<br>
 	下の入力フォームに記入して下さい。</p>
 	<!-- コメント記述 -->
