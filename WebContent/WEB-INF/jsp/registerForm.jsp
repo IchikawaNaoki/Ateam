@@ -21,6 +21,7 @@
 			<input type="radio" name="belongs" value="東京開発室"required="required">東京開発室
 			<input type="radio" name="belongs" value="宮崎"required="required">宮崎
 			<input type="radio" name="belongs" value="札幌"required="required">札幌
+			入力値てすと:<input type="text" name="" required="required"><br>
 			<br>
 			<button id="register" type="submit">
 				登録
