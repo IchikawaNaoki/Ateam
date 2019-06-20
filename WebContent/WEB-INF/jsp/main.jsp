@@ -56,12 +56,6 @@
 			</c:otherwise>
 		</c:choose>
 
-			<c:otherwise>
-				<p>不在です</p>
-			</c:otherwise>
-
-
-
 		<ul class = "dropmenu" >
 			<li>
 				<a href = "javascript:void(0)">メニュー画面</a>
