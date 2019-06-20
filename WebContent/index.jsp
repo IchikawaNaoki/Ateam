@@ -18,6 +18,7 @@
 	<h1>ログイン</h1>
 	<%if (id == null){ %>
 	<%id=""; %>
+	<%strPass=""; %>
         <% } %>
 	<form action="/aTeam/Login" method="post">
 
