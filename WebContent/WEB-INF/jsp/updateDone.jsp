@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		 <link rel="stylesheet" href="css/logout.css">
+		 <link rel="stylesheet" href="css/updateConfirm.css">
 		 <script type="text/javascript" src=>"WebContent/music.js"</script>
 		<title>ユーザー情報更新完了</title>
 	</head>
