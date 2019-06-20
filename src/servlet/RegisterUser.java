@@ -44,6 +44,7 @@ public class RegisterUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		//フォワード先のパス初期化
+
 		String forwardPath = null;
 		//サーブレットクラスの動作を決定するactionの値をリクエストパラメータから取得
 		String action = request.getParameter("action");
