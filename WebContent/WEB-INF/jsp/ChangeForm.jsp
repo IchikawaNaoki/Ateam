@@ -13,10 +13,14 @@
 <!-- setAttributeで呼べ！！ -->
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/updateConfirm.css">
+		<script type="text/javascript" src=>"WebContent/music.js"</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<title>ユーザー情報更新</title>
 	</head>
 
 	<body>
+	<h1>情報更新</h1>
 	<p><c:out value="${loginUser.name}"></c:out>さんログイン中</p>
 		<p>現在は<c:out value="${getDbList.belong}" />に所属しています。</p>
 		<p>変更先の部署を選択してください。</p>
@@ -26,48 +30,48 @@
 
 		<%-- 東京 --%>
 			<c:when test="${getDbList.belong == \"東京\"}">
-				<input type="radio" name="所属地" value="東京開発室"required="required">東京開発室
-				<input type="radio" name="所属地" value="宮崎"required="required">宮崎
-				<input type="radio" name="所属地" value="札幌"required="required">札幌
-				<input type="submit" value="送信">
+				<input type="radio" name="所属地" value="東京開発室"required>東京開発室
+				<input type="radio" name="所属地" value="宮崎"required>宮崎
+				<input type="radio" name="所属地" value="札幌"required>札幌<br>
+				<button onClick="soundplayAndSubmit(this.parentElement);return false;" id="update" type="submit">送信</button>
 			</c:when>
 
 			<%-- 東京(開発室) --%>
 
 			<c:when test="${getDbList.belong == \"東京開発室\"}">
 
-				<input type="radio" name="所属地" value="東京"required="required">東京
-				<input type="radio" name="所属地" value="宮崎"required="required">宮崎
-				<input type="radio" name="所属地" value="札幌"required="required">札幌
-				<input type="submit" value="送信">
+				<input type="radio" name="所属地" value="東京"required>東京
+				<input type="radio" name="所属地" value="宮崎"required>宮崎
+				<input type="radio" name="所属地" value="札幌"required>札幌<br>
+				<button onClick="soundplayAndSubmit(this.parentElement);return false;" id="update" type="submit">送信</button>
 			</c:when>
 
 			<%-- 宮崎 --%>
 			<c:when test="${getDbList.belong == \"宮崎\"}">
-				<input type="radio" name="所属地" value="東京"required="required">東京
-				<input type="radio" name="所属地" value="東京開発室"required="required">東京開発室
-				<input type="radio" name="所属地" value="札幌"required="required">札幌
-				<input type="submit" value="送信">
+				<input type="radio" name="所属地" value="東京"required>東京
+				<input type="radio" name="所属地" value="東京開発室"required>東京開発室
+				<input type="radio" name="所属地" value="札幌"required>札幌<br>
+				<button onClick="soundplayAndSubmit(this.parentElement);return false;" id="update" type="submit">送信</button>
 			</c:when>
 
 			<%-- 札幌 --%>
 			<c:otherwise >
-				<input type="radio" name="所属地" value="東京"required="required">東京
-				<input type="radio" name="所属地" value="東京開発室"required="required">東京開発室
-				<input type="radio" name="所属地" value="宮崎"required="required">宮崎
-				<input type="submit" value="送信">
+				<input type="radio" name="所属地" value="東京"required>東京
+				<input type="radio" name="所属地" value="東京開発室"required>東京開発室
+				<input type="radio" name="所属地" value="宮崎"required>宮崎<br>
+				<button onClick="soundplayAndSubmit(this.parentElement);return false;" id="update" type="submit">送信</button>
 			</c:otherwise>
 		</c:choose>
 		</form>
 
-		<%-- <%if (status != null){ %>
-        <script>alert("ログインIDまたはパスワードが間違っています");</script>
-        <script>location.reload();</script>
-        <%session.removeAttribute("status"); %>
-        <% } %> --%>
-
 		<%-- メイン画面に戻る --%>
-		<a href = "/aTeam/Main">戻る</a>
+
+		<form action="/aTeam/Main"method="get" >
+		<button onClick="soundplayAndSubmit(this.parentElement);return false;" id="update" type="submit">戻る</button>
+		<audio id="sound-file" preload="auto">
+		<source src="music/click.mp3" type="audio/mp3">
+		</audio>
+	</form>
 	<body>
 
 </html>
