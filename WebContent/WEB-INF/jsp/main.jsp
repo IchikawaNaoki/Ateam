@@ -1,17 +1,13 @@
-<%@page import="model.GetDbListLogic"%>
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<%--
 <%@ page import="model.User" %>
-<%@ page import= "model.GetDB" %>
-<%@ page import = "dao.ConnDbDao" %>
-<%@ page import = "java.util.List" %>
+<%@ page import= "model.GetDB" %>-->
 
-<% User loginUser = (User)session.getAttribute("loginUser"); %>
-<% GetDB employee = (GetDB)session.getAttribute("employee");%>
+<%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
+<%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
 <% Object status = session.getAttribute("status"); %>
-
 
 <!DOCTYPE html>
 <html>
@@ -23,42 +19,47 @@
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
+
+		<%--ログアウトのポップアップ --%>
+		<script type="text/javascript">
+			function logoutStart(){
+				var selectResult = confirm('ログアウトしますか?');
+				if(selectResult){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+		</script>
 	</head>
 
 	<body>
 		<c:out value="${loginUser.name}" />さん
 
 		<%--ログアウトボタン --%>
-		<a href="/aTeam/Logout" id="logout" onClick="sound()">ログアウト</a>
+		<form action="/aTeam/Logout" method="get" onSubmit="return logoutStart()">
+			 <input id="logout" type="submit" value="ログアウト" >
+		</form>
 		<audio id="sound-file" preload="auto">
 			<source src="music/click.mp3" type="audio/mp3">
 		</audio>
-		<%--ログアウトのポップアップ --%>
-		<script type="text/javascript">
-			function logoutStart(){
-				var result = confirm('ログアウトしますか?')
-				if(result){
-					console.log('ログアウトしました');
-				}
-				else{
-					console.log('ログアウトしませんでした');
-				}
-			}
-		</script>
 
 		<%--自分の在席状況の表示 --%>
-	<% %>
-	<c:out value ="${getDbList.status}"/>
+		<c:choose>
+			<c:when test="${employee.status == '在席'}">
+				<p><font size="+2" color="#0000ff"><strong>在席中</strong></font>です</p>
+			</c:when>
 
-	<c:choose>
-		<c:when test="${employee.status == '在席'}">
-			<p><font size="+2" color="#0000ff"><strong>在席中</strong></font>です</p>
-		</c:when>
-	
-		<c:otherwise>
-			<p><font size="+2" color="#ff0000"><strong>不在</strong></font>です</p>
-		</c:otherwise>
-	</c:choose>
+			<c:otherwise>
+				<p><font size="+2" color="#ff0000"><strong>不在</strong></font>です</p>
+			</c:otherwise>
+		</c:choose>
+
+			<c:otherwise>
+				<p>不在です</p>
+			</c:otherwise>
+
 
 
 		<ul class = "dropmenu" >

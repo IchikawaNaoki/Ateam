@@ -18,13 +18,14 @@
 	<h1>ログイン</h1>
 	<%if (id == null){ %>
 	<%id=""; %>
+	<%strPass=""; %>
         <% } %>
 	<form action="/aTeam/Login" method="post">
 
 <p>社員ID</p>
-<input id="name" type="text" name="id"value="<%= id%>"required><br>
+<input id="name" type="text" name="id"value="<%= id%>"required="required"><br>
 <p> パスワード</p>
-    <input id="pass" type="password" name="pass" required><br>
+    <input id="pass" type="password" name="pass" value="<%= strPass%>"required="required"><br>
 
 <!-- this.parentElementはinputの親であるフォームタグ  -->
  <input onClick="soundplayAndSubmit(this.parentElement)" id="login" type="submit" value="ログイン" ><br>
