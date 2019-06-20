@@ -24,7 +24,7 @@
 		<p>大文字から始まる、4～8文字の</p>
 		<p>パスワードを半角英数字で入力。</p>
 		<p>また、部署を選んでください</p>
-		<form action="/aTeam/RegisterUser" method="post" onSubmit="return registerChack()">
+		<form action="/aTeam/RegisterUser" method="get" onSubmit="return registerChack()">
 			    社員名:<input type="text" name="name" required><br>
 			パスワード:<input type="password" name="pass" required><br>
 			<input type="radio" name="belongs" value="未配属"required>未配属
