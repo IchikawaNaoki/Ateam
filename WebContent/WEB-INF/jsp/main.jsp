@@ -47,12 +47,12 @@
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
-			<c:when test="${employee.status == \"在席\"}">
-				<p>在席中です</p>
+			<c:when test="${employee.status == '在席'}">
+				<p><font size="+2" color="#0000ff"><strong>在席中</strong></font>です</p>
 			</c:when>
 
 			<c:otherwise>
-				<p>不在です</p>
+				<p><font size="+2" color="#ff0000"><strong>不在</strong></font>です</p>
 			</c:otherwise>
 		</c:choose>
 

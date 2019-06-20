@@ -1,10 +1,11 @@
 @charset "UTF-8";
 
-/*/＊左右真ん中に表示＊/*/
+/*/＊背景の色を変更する＊/*/
 body{
-    text-align: center;
     background-color:#f5f5f5;
+    text-align: center;
 }
+
 /*文字変更*/
 h1{
     color:#4169e1; 						/* 文字の色を水色にする */
@@ -15,9 +16,9 @@ h1{
 p{
     font-size: 120%
 }
-/*ログインボタンのサイズを変える、デザインを変える*/
-#delete{
-	display: inline-block;			/*ボタンの配置を均等につける
+/*登録・戻るボタンのサイズを変える、デザインを変える*/
+#update{
+	display: inline-block;			/*ボタンの配置を均等につける*/
  	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
   	text-decoration: none;			/*文字の装飾*/
   	font-weight: bold;				/*文字を太文字にする*/
@@ -30,13 +31,4 @@ p{
 
 	margin: 2%;							/*上下左右の間を空ける*/
 	font-size: 130%						/*サイズを大きくする*/
-}
-
-
-#megmin {
-    text-align: center;
-}
-#megmin form {
-    display: inline-block;
-    margin: 0 10px;
 }

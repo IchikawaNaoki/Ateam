@@ -9,6 +9,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/register.css">
+		<script type="text/javascript" src=>"WebContent/music.js"</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<title>ユーザー登録完了</title>
 	</head>
 	<body>
@@ -16,7 +19,7 @@
 	<p>ログインID：<%= id %></p>
 	<p>ログインパスワード：<%= pass %></p>
 	<p>所属：<%= belongs %></p>
-	<a href = "/aTeam/">ログイン画面に戻る</a>
+	<a href = "/aTeam/">ログイン画面に戻る</a><br>
 	<a href = "/aTeam/RegisterUser">ユーザー登録画面に戻る</a>
 	</body>
 </html>
