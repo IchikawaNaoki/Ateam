@@ -38,6 +38,9 @@ public class Login extends HttpServlet {
 		catch(NumberFormatException e) {
 
 		}
+		catch(NullPointerException e) {
+			id = 0;
+		}
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		//アプリケーションスコープの取得
@@ -76,7 +79,7 @@ public class Login extends HttpServlet {
 			//フォワード
 			response.sendRedirect("./");
 		}
-		
+
 	}
 }
 
