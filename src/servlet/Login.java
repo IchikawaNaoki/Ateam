@@ -38,6 +38,9 @@ public class Login extends HttpServlet {
 		catch(NumberFormatException e) {
 
 		}
+		catch(NullPointerException e) {
+			id = 0;
+		}
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 		//アプリケーションスコープの取得
@@ -53,11 +56,18 @@ public class Login extends HttpServlet {
 			//ログイン処理
 			LoginLogic loginLogic = new LoginLogic();
 			List<User> isLogin = loginLogic.execute(user);
-			
+
 			//ログイン成功時の処理
 			if(isLogin != null) {
 				List<GetDB> list = new ConnDbDao().ConnDbUserInfo(isLogin.get(0).getId());
 				application.setAttribute("loginUser" , isLogin.get(0));
+				//フォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
+				dispatcher.forward(request, response);
+			}
+			else {
+				session.setAttribute("id",str);
+				session.setAttribute("pass", pass);
 				//フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 				dispatcher.forward(request, response);
@@ -69,6 +79,7 @@ public class Login extends HttpServlet {
 			//フォワード
 			response.sendRedirect("./");
 		}
+
 	}
 }
 

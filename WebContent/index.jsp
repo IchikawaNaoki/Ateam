@@ -20,19 +20,19 @@
 	<%id=""; %>
 	<%strPass=""; %>
         <% } %>
-	<form action="/aTeam/Login" method="post">
+	<form action="/aTeam/Login" method="post"onsubmit="return false">
 
 <p>社員ID</p>
-<input id="name" type="text" name="id"value="<%= id%>"required="required"><br>
+<input id="name" type="text" name="id"value="<%= id%>"required="required"  pattern="^[0-9]+$"><br>
 <p> パスワード</p>
     <input id="pass" type="password" name="pass" value="<%= strPass%>"required="required"><br>
+
 
 <!-- this.parentElementはinputの親であるフォームタグ  -->
  <input onClick="soundplayAndSubmit(this.parentElement)" id="login" type="submit" value="ログイン" ><br>
  <audio id="sound-file" preload="auto">
 	<source src="music/click.mp3" type="audio/mp3">
 </audio>
-
 <a href="/aTeam/RegisterUser" id="button">新規登録</a>
 <a id="new"  href="/aTeam/DeleteUser">アカウント削除</a>
 	</form>
