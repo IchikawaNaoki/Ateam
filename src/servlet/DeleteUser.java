@@ -25,7 +25,8 @@ import model.User;
 //-------------------------------------------------------------------------------------------------------------
 //DeleteUserクラス
 //-------------------------------------------------------------------------------------------------------------
-public class DeleteUser extends HttpServlet {
+public class DeleteUser extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -71,42 +72,38 @@ public class DeleteUser extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("deleteUser" , deleteUser);
 
-		//IDとpassが入力されてるか判定
-		if((id != 0) && (!pass.equals("")))
-		{//IDとpassが入力されているとき
-			System.out.println("削除情報の照合を行います");
-			//削除処理の呼び出し
-			DeleteUserLogic deleteUserLogic = new DeleteUserLogic();
-			boolean isDelete = deleteUserLogic.execute(deleteUser);
-			if(isDelete)
-			{
-				System.out.println("我が名はめぐみん！データを削除してやりますです！エクスプロージョン！");
-				//ユーザー削除ロジックの起動
-				deleteUserLogic.deleteDone(deleteUser);
-				//フォワード先を指定
-				forwardPath = "/WEB-INF/jsp/deleteDone.jsp";
-				//フォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-				dispatcher.forward(request, response);
-			}
-			else
-			{
-				System.out.println("データが合致しませんでした");
-				//フォワード先を指定
-				forwardPath = "/WEB-INF/jsp/deleteForm.jsp";
-				//フォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
-				dispatcher.forward(request, response);
-			}
+		//IDとpassが入力されてるか判定し、合致時に削除処理を行う
+		//削除処理の呼び出し
+		DeleteUserLogic deleteUserLogic = new DeleteUserLogic();
+		boolean isDelete = deleteUserLogic.deleteCheck(deleteUser);
+		if(isDelete)
+		{
+			System.out.println("我が名はめぐみん！データを削除してやりますです！エクスプロージョン！");
+			//ユーザー削除ロジックの起動
+			deleteUserLogic.deleteDone(deleteUser);
+			//フォワード先を指定
+			forwardPath = "/WEB-INF/jsp/deleteDone.jsp";
+			//フォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+			dispatcher.forward(request, response);
 		}
 		else
-		{//IDもしくはpassが入ってないとき
-			System.out.println("ちゃんと入力されてなぁぁぁいぃぃぃぃ・・・");
+		{
+			System.out.println("データが合致しませんでした");
 			//フォワード先を指定
 			forwardPath = "/WEB-INF/jsp/deleteForm.jsp";
 			//フォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 			dispatcher.forward(request, response);
 		}
+//		else
+//		{//IDもしくはpassが入ってないとき
+//			System.out.println("ちゃんと入力されてなぁぁぁいぃぃぃぃ・・・");
+//			//フォワード先を指定
+//			forwardPath = "/WEB-INF/jsp/deleteForm.jsp";
+//			//フォワード
+//			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+//			dispatcher.forward(request, response);
+//		}
 	}
 }

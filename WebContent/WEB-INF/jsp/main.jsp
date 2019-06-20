@@ -3,7 +3,7 @@
 
 <%--
 <%@ page import="model.User" %>
-<%--<%@page import= "model.GetDB" %>
+<%@ page import= "model.GetDB" %>-->
 
 <%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
 <%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
@@ -20,28 +20,30 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
 
-		<%-- <script type="text/javascript">
-			<% function logoutStart(){
-				var message;
-				confirm(){
-					if(messeage){
-						return true;
-					}
-					else{
-						return false;
-					}
+		<%--ログアウトのポップアップ --%>
+		<script type="text/javascript">
+			function logoutStart(){
+				var selectResult = confirm('ログアウトしますか?');
+				if(selectResult){
+					return true;
 				}
-			}%>
-		</script>--%>
+				else{
+					return false;
+				}
+			}
+		</script>
 	</head>
 
 	<body>
 		<c:out value="${loginUser.name}" />さん
-				<%--ログアウトボタン --%>
-		<form name="logout" method="post" action="/aTeam/Logout" onSubmit="logoutStart()">
-			<input type="hidden" name="logout" value="ログアウト">
-			<a href="javascript:void(0)" onclick="document.Logout.submit();return false;" id="logout">ログアウト</a>
+
+		<%--ログアウトボタン --%>
+		<form action="/aTeam/Logout" method="get" onSubmit="return logoutStart()">
+			 <input id="logout" type="submit" value="ログアウト" >
 		</form>
+		<audio id="sound-file" preload="auto">
+			<source src="music/click.mp3" type="audio/mp3">
+		</audio>
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
@@ -54,10 +56,6 @@
 			</c:otherwise>
 		</c:choose>
 
-		<%--ログアウトボタン --%>
-
-		<a href="/aTeam/Logout">ログアウト</a>
-
 		<ul class = "dropmenu" >
 			<li>
 				<a href = "javascript:void(0)">メニュー画面</a>
@@ -67,13 +65,10 @@
 				<ul class = "menu__single_level" >
 					<li>
 						<form action = "/aTeam/Main"  method = "post"  name = "zaiseki">
-						<bgsound src = ""  volume = "1"  id = "snd0">
-							<input type = "hidden"  name = "Presence" value = "在席">
-							<audio id = "sound-file" preload = "auto">
-							<source src = "WebContent/music/click.mp3"  type = "audio/mp3">
-							</audio>
 
+							<input type = "hidden"  name = "Presence" value = "在席">
 							<a href = "javascript:zaiseki.submit()">在席</a>
+
 						</form>
 					</li>
 					<li>
@@ -137,12 +132,15 @@
 			</c:if>
 
 			<c:forEach var ="getDb" items ="${getDbList}">
-				 <p>
-		    		<c:out value ="${getDb.name}"/>:
-		        	<c:out value ="${getDb.belong}"/>
-		        	<c:out value ="${getDb.status}"/>
-		        	<c:out value ="${getDb.comment}"/>
-		    	</p>
+		    		<c:out value ="${getDb.name}"/>
+					<c:out value ="${getDb.belong}"/>
+					<c:if test="${ getDb.status == '在席'}">
+					<font color="red"><c:out value ="${getDb.status}"/></font>
+		        	</c:if>
+		        	<c:if test="${ getDb.status == '不在'}">
+					<font color="blue"><c:out value ="${getDb.status}"/></font>
+		        	</c:if>
+		        	<c:out value ="${getDb.comment}"/><br>
 			</c:forEach>
 		</div>
 

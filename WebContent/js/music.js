@@ -1,10 +1,10 @@
+function soundplayAndSubmit(form){
 
-function sound(){
-	// [ID:sound-file]の音声ファイルを再生[play()]する
-	document.getElementById( 'sound-file' ).play() ;
+	var	soundEle = document.getElementById( 'sound-file' );
+    	soundEle.play() ;
+
+    	/* サウンドが流れ終わったらsubmitする */
+    	soundEle.addEventListener("ended", function() {
+    		form.submit();
+    		});
 }
-
-
-
-var $form = jQuery('form[name="myForm"]');
-$form.submit();

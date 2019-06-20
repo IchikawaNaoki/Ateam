@@ -5,10 +5,14 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+=======
+>>>>>>> branch 'master' of https://github.com/IchikawaNaoki/Ateam.git
 <%@ page import = "model.GetDB" %>
 <% GetDB getDbList = (GetDB)session.getAttribute("getDbList"); %>
+<% String Comment = (String) session.getAttribute("oldComment"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +22,14 @@
 </head>
 <body>
 	<h1>コメント入力</h1>
+<<<<<<< HEAD
 	<p>現在のコメントは：<c:out value="${getDbList.}"/>です。</p>
+=======
+	<p>今までのコメント：<%= Comment %></p>
+>>>>>>> branch 'master' of https://github.com/IchikawaNaoki/Ateam.git
 	<p>伝えたいことがある場合、<br>
 	下の入力フォームに記入して下さい。</p>
+
 	<!-- コメント記述 -->
 	<form action = "/aTeam/CommentInput" method = "post">
 		コメント:<input type="text" name="Comment">

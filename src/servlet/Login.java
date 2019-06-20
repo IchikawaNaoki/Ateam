@@ -28,6 +28,9 @@ public class Login extends HttpServlet {
 		int id=0;
 		try {
 			System.out.println(str);
+			if(str.equals(" ")) {
+				id=-1;
+			}
 			id = Integer.parseInt(str);
 		}
 		catch(NumberFormatException e) {
@@ -50,7 +53,7 @@ public class Login extends HttpServlet {
 
 		//ログイン成功時の処理
 		if(isLogin != null) {
-			List<GetDB> list= new ConnDbDao().ConnDbUserInfo(isLogin.get(0).getId());
+			List<GetDB> list = new ConnDbDao().ConnDbUserInfo(isLogin.get(0).getId());
 			application.setAttribute("loginUser" , isLogin.get(0));
 
 			//フォワード
@@ -60,8 +63,9 @@ public class Login extends HttpServlet {
 		else {
 			if(isLogin == null && id !=0) {
 				session.setAttribute("status", id);
+				 response.sendRedirect("./");
 			}
-            response.sendRedirect("./");
+
 		}
 	}
 }
