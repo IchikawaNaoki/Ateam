@@ -9,7 +9,6 @@
 <%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
 <% Object status = session.getAttribute("status"); %>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,28 +19,31 @@
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<meta name="google" content="notranslate" />
+
+		<%--ログアウトのポップアップ --%>
+		<script type="text/javascript">
+			function logoutStart(){
+				var selectResult = confirm('ログアウトしますか?');
+				if(selectResult){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+		</script>
 	</head>
 
 	<body>
 		<c:out value="${loginUser.name}" />さん
 
 		<%--ログアウトボタン --%>
-		<a href="/aTeam/Logout" id="logout" onClick="sound()">ログアウト</a>
+		<form action="/aTeam/Logout" method="get" onSubmit="return logoutStart()">
+			 <input id="logout" type="submit" value="ログアウト" >
+		</form>
 		<audio id="sound-file" preload="auto">
 			<source src="music/click.mp3" type="audio/mp3">
 		</audio>
-		<%--ログアウトのポップアップ --%>
-		<script type="text/javascript">
-			function logoutStart(){
-				var result = confirm('ログアウトしますか?')
-				if(result){
-					console.log('ログアウトしました');
-				}
-				else{
-					console.log('ログアウトしませんでした');
-				}
-			}
-		</script>
 
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
