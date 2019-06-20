@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%--
-<%@ page import="model.User" %>
-<%@ page import= "model.GetDB" %>-->
 
-<%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
-<%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
+<%@ page import="model.User" %>
+<%@ page import= "model.GetDB" %>
+<%@ page import = "dao.ConnDbDao" %>
+<%@ page import = "java.util.List" %>
+
+<% User loginUser = (User)session.getAttribute("loginUser"); %>
+<% GetDB employee = (GetDB)session.getAttribute("employee");%>
 <% Object status = session.getAttribute("status"); %>
 
 
@@ -44,15 +46,20 @@
 		</script>
 
 		<%--自分の在席状況の表示 --%>
-		<c:choose>
-			<c:when test="${employee.status == \"在席\"}">
-				<p>在席中です</p>
-			</c:when>
 
-			<c:otherwise>
-				<p>不在です</p>
-			</c:otherwise>
-		</c:choose>
+<c:out value ="${getDbList.status}"/>
+
+		<c:out value = "${empty aaaaawaw}"/>
+				<c:choose>
+					<c:when test="${employee.status == '在席'}">
+						<p><font size="+2" color="#0000ff"><strong>在席中</strong></font>です</p>
+					</c:when>
+
+					<c:otherwise>
+						<p><font size="+2" color="#ff0000"><strong>不在</strong></font>です</p>
+					</c:otherwise>
+				</c:choose>
+
 
 		<ul class = "dropmenu" >
 			<li>
