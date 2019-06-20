@@ -29,7 +29,7 @@ body{
   padding: 16px 0;
   background: #fadbe0;
   color: #554562;
-  font-size: 14px;
+  font-size: 1.5vw;
   font-weight: bold;
   line-height: 1;
   text-decoration: none;
@@ -57,7 +57,7 @@ body{
   padding: 13px 15px;
   background: #fadbe0;
   text-align: left;
-  font-size: 12px;
+  font-size: 1vw;
   font-weight: normal;
 }
 
@@ -68,7 +68,7 @@ body{
 /*		親メニューにマウスがのっかったとき子メニューが表示		*/
 .dropmenu li:hover > ul > li {
   overflow: visible;
-  height: 38px;
+  height: 12%;
 }
 
 
