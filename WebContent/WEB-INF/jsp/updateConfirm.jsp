@@ -18,14 +18,14 @@
 
 
 	<form action="/aTeam/UpdateDone?action=done"method="get">
-	<button onClick="soundplayAndSubmit(this.parentElement);return false;" id="update" type="submit">登録</button>
+	<button onClick="soundplayAndSubmit(this.parentElement)" id="update" type="submit">登録</button>
 	<audio id="sound-file" preload="auto">
 	<source src="music/click.mp3" type="audio/mp3">
 	</audio>
 	</form>
 
 	<form action="/aTeam/UpdateUser"method="get" >
-	<button onClick="soundplayAndSubmit(this.parentElement);return false;" id="update" type="submit">戻る</button>
+	<button onClick="soundplayAndSubmit(this.parentElement)" id="update" type="submit">戻る</button>
 	<audio id="sound-file" preload="auto">
 	<source src="music/click.mp3" type="audio/mp3">
 	</audio>
