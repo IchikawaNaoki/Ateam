@@ -34,6 +34,7 @@ public class Logout  extends HttpServlet
 				conn.ConnDbLoginLogout(0 ,listUser.get(0).getPass());
 				System.out.println(listUser.get(0).getName()+"のログインフラグ下すっぺよ");
 			}else {
+
 				System.out.println(listUser.get(0).getName()+"はログインしてないっぺよ"+ listUser.get(0).getNowLogin());
 				//return null;
 			}

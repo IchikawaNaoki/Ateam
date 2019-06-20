@@ -73,6 +73,7 @@ public class Main extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String presence = request.getParameter("Presence");
 		String leaveseat = request.getParameter("leave seat");
+		String result = request.getParameter("result");
 		//所属地ボタンを押したのを保存する
 		List<String> button = new ArrayList<String>();
 		button.add(request.getParameter("all"));
@@ -103,6 +104,7 @@ public class Main extends HttpServlet {
 				request.setAttribute("getDbList", list);
 			}
 		}
+
 		//　メイン画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);

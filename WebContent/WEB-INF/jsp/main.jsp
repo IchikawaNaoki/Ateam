@@ -1,3 +1,4 @@
+<%@page import="model.GetDbListLogic"%>
 <%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -46,8 +47,8 @@
 		</script>
 
 		<%--自分の在席状況の表示 --%>
-
-<c:out value ="${getDbList.status}"/>
+	<% %>
+	<c:out value ="${getDbList.status}"/>
 
 		<c:out value = "${empty aaaaawaw}"/>
 				<c:choose>
