@@ -8,7 +8,6 @@
 <%--<% User loginUser = (User)session.getAttribute("loginUser"); %>
 <%--<% GetDB employee = (GetDB)session.getAttribute("employee") ;--%>
 <% Object status = session.getAttribute("status"); %>
-<% Boolean result = (Boolean) request.getAttribute("result");%>
 
 <!DOCTYPE html>
 <html>
@@ -39,7 +38,7 @@
 		<c:out value="${loginUser.name}" />さん
 
 		<%--ログアウトボタン --%>
-		<form action="/aTeam/Logout" method="get" onSubmit="logoutStart()">
+		<form action="/aTeam/Logout" method="get" onSubmit="return logoutStart()">
 			 <input id="logout" type="submit" value="ログアウト" >
 		</form>
 		<audio id="sound-file" preload="auto">
