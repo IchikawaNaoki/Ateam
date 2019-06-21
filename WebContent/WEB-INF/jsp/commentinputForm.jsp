@@ -31,8 +31,7 @@
 	</form>
 
 	<form action="/aTeam/Main"method="post">
-		<button type="submit"  id="comment2" >
-			戻る
+		<button  id="comment2" type="submit">戻る
 			</button>
 		</form>
 	</body>

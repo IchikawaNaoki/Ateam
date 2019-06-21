@@ -17,41 +17,44 @@ p{
 }
 
 /*ボタンのデザイン*/
+
+form{display: inline-block;}
+
+/*送信ボタン*/
 #comment1{
 
-	display: inline-block;			/*ボタンの配置を均等につける
- 	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
-  	text-decoration: none;			/*文字の装飾*/
-  	font-weight: bold;				/*文字を太文字にする*/
-  	border-radius: 4px;				/*ボタンの色を濃い灰色にして影をつける*/
- 	color: white;														/*文字の色を白にする*/
-  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*文字に影をつける*/
- 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*ボタンの背景色を青色にする*/
-  	box-shadow: 0px 2px 2px rgba(#050505);						/*濃い影をつける*/
- 	border-bottom: solid 3px #5e7fca;				/*ボタンの下の部分を青色にする*/
+	display: inline-block;			/*送信ボタンの配置を均等につける
+ 	padding: 0.5em 1em;				/*送信ボタンの大きさを大きくする*/
+  	text-decoration: none;			/*送信ボタンの文字の装飾*/
+  	font-weight: bold;				/*送信ボタンの文字を太文字にする*/
+  	border-radius: 4px;				/*送信ボタンの色を濃い灰色にして影をつける*/
+ 	color: white;														/*送信ボタンの文字の色を白にする*/
+  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*送信ボタンの文字に影をつける*/
+ 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*送信ボタンの背景色を青色にする*/
+  	box-shadow: 0px 2px 2px rgba(#050505);						/*送信ボタンに濃い影をつける*/
+ 	border-bottom: solid 3px #5e7fca;				/*送信ボタンの下の部分を青色にする*/
 
 	margin: 2%;							/*上下左右の間を空ける*/
-	position:fixed;  bottom:40.7%; right:40%;	/*ボタンの位置の変更*/
-	font-size: 130%						/*サイズを大きくする*/
+	position:relative;  bottom:40.5%; right:10%;	/*送信ボタンの位置を微調整*/
+	font-size: 130%						/*送信ボタンのサイズを大きくする*/
 }
 
-
+/*戻るボタン*/
 #comment2{
 
-	display: inline-block;			/*ボタンの配置を均等につける
- 	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
-  	text-decoration: none;			/*文字の装飾*/
-  	font-weight: bold;				/*文字を太文字にする*/
-  	border-radius: 4px;				/*ボタンの色を濃い灰色にして影をつける*/
- 	color: white;														/*文字の色を白にする*/
-  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*文字に影をつける*/
- 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*ボタンの背景色を青色にする*/
-  	box-shadow: 0px 2px 2px rgba(#050505);						/*濃い影をつける*/
- 	border-bottom: solid 3px #5e7fca;				/*ボタンの下の部分を青色にする*/
+	display: inline-block;			/*戻るボタンの配置を均等につける
+ 	padding: 0.5em 1em;				/*戻るボタンの戻るボタンの大きさを大きくする*/
+  	text-decoration: none;			/*戻るボタンの文字の装飾*/
+  	font-weight: bold;				/*戻るボタンの文字を太文字にする*/
+  	border-radius: 4px;				/*戻るボタンの色を濃い灰色にして影をつける*/
+ 	color: white;														/*戻るボタンの文字の色を白にする*/
+  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*戻るボタンの文字に影をつける*/
+ 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*戻るボタンの背景色を青色にする*/
+  	box-shadow: 0px 2px 2px rgba(#050505);						/*戻るボタンに濃い影をつける*/
+ 	border-bottom: solid 3px #5e7fca;				/*戻るボタンのの下の部分を青色にする*/
 
-	margin: 2%;							/*上下左右の間を空ける*/
-	position:fixed;  bottom:40.7%; left:40%;	/*ボタンの位置の変更*/
-	padding: 1% 1% 1% 1%;
-	font-size: 130%						/*サイズを大きくする*/
+	position:relative;  bottom:40.5%; right:120%;	/*戻るボタンの位置を微調整*/
+	font-size: 130%						/*戻るボタンのサイズを大きくする*/
+
 }
 
