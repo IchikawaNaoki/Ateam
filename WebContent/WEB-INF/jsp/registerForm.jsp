@@ -40,12 +40,12 @@
 			<input type="radio" name="belongs" value="宮崎"required>宮崎
 			<input type="radio" name="belongs" value="札幌"required>札幌
 			<br>
-			<button id="register" type="submit">
+			<button id="register1" type="submit">
 				登録
 			</button>
 		</form>
 		<form action="/aTeam/Login"method="post">
-			<button type="submit"  id="register" >
+			<button type="submit"  id="register2" >
 				戻る
 			</button>
 		</form>
