@@ -24,8 +24,13 @@
 	<!-- コメント記述 -->
 	<form action = "/aTeam/CommentInput" method = "post">
 		コメント:<input type="text" name="Comment">
-		<input id=boteen type="submit"  value="送信" >
+		<input id=comment type="submit"  value="送信" >
 	</form>
-	<a href = "/aTeam/Main">戻る</a>
-</body>
+
+	<form action="/aTeam/Main"method="post">
+		<button type="submit"  id="comment" >
+			戻る
+			</button>
+		</form>
+	</body>
 </html>
