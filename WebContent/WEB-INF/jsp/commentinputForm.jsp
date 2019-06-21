@@ -24,6 +24,7 @@
 	<!-- コメント記述 -->
 	<form action = "/aTeam/CommentInput" method = "post">
 		コメント:<input type="text" name="Comment">
+		<br>
 		<input id=comment type="submit"  value="送信" >
 	</form>
 
