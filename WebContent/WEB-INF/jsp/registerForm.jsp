@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% Boolean registerResult = (Boolean)session.getAttribute("isRegister");%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,7 +9,13 @@
 		<script type="text/javascript">
 			var cheak = function(){
 				if(window.confirm('下記のユーザーで登録しますか？')){
-					return true;
+					if(registerResult){
+						return true;
+					}
+					else{
+						alert("すでに登録されています。");
+						return false;
+					}
 				}
 				else{
 					return false;
