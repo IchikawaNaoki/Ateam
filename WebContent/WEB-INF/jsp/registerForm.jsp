@@ -6,9 +6,8 @@
 		<link rel="stylesheet" href="css/register.css">
 		<title>ユーザー登録</title>
 		<script type="text/javascript">
-			function registerChack(){
-				var rChack = confirm('下記のユーザーで登録しますか？');
-				if(rCheak){
+			var cheak = function(){
+				if(window.confirm('下記のユーザーで登録しますか？')){
 					return true;
 				}
 				else{
@@ -24,7 +23,7 @@
 		<p>大文字から始まる、4～8文字の</p>
 		<p>パスワードを半角英数字で入力。</p>
 		<p>また、部署を選んでください</p>
-		<form action="/aTeam/RegisterUser" method="post" onSubmit="return registerChack()">
+		<form action="/aTeam/RegisterUser" method="post" onSubmit="return cheak()">
 			    社員名:<input type="text" name="name" required><br>
 			パスワード:<input type="password" name="pass" required><br>
 			<input type="radio" name="belongs" value="未配属"required>未配属
