@@ -15,23 +15,40 @@ h1{
 p{
     font-size: 120%
 }
-/*ログインボタンのサイズを変える、デザインを変える*/
-#delete{
-	display: inline-block;			/*ボタンの配置を均等につける
- 	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
-  	text-decoration: none;			/*文字の装飾*/
-  	font-weight: bold;				/*文字を太文字にする*/
-  	border-radius: 4px;				/*ボタンの色を濃い灰色にして影をつける*/
- 	color: white;														/*文字の色を白にする*/
-  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*文字に影をつける*/
- 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*ボタンの背景色を青色にする*/
-  	box-shadow: 0px 2px 2px rgba(#050505);						/*濃い影をつける*/
- 	border-bottom: solid 3px #5e7fca;				/*ボタンの下の部分を青色にする*/
 
+form{display: inline-block;}
+/*ログインボタンのサイズを変える、デザインを変える*/
+#delete1{
+	display: inline-block;			/*削除ボタンの配置を均等につける
+ 	padding: 0.5em 1em;				/*削除ボタンの大きさを大きくする*/
+  	text-decoration: none;			/*削除ボタンの文字の装飾*/
+  	font-weight: bold;				/*削除ボタンの文字を太文字にする*/
+  	border-radius: 4px;				/*削除ボタンの色を濃い灰色にして影をつける*/
+ 	color: white;														/*削除ボタンの文字の色を白にする*/
+  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*削除ボタンの文字に影をつける*/
+ 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*削除ボタンの背景色を青色にする*/
+  	box-shadow: 0px 2px 2px rgba(#050505);						/*削除ボタンに濃い影をつける*/
+ 	border-bottom: solid 3px #5e7fca;				/*削除ボタンの下の部分を青色にする*/
 	margin: 2%;							/*上下左右の間を空ける*/
 	font-size: 130%						/*サイズを大きくする*/
 }
 
+#delete2{
+	display: inline-block;			/*戻るボタンの配置を均等につける
+ 	padding: 0.5em 1em;				/*戻るボタンの大きさを大きくする*/
+  	text-decoration: none;			/*戻るボタンの文字の装飾*/
+  	font-weight: bold;				/*戻るボタンの文字を太文字にする*/
+  	border-radius: 4px;				/*戻るボタンの色を濃い灰色にして影をつける*/
+ 	color: white;														/*戻るボタンの文字の色を白にする*/
+  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*戻るボタンの文字に影をつける*/
+ 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*戻るボタンのの背景色を青色にする*/
+  	box-shadow: 0px 2px 2px rgba(#050505);						/*戻るボタンに濃い影をつける*/
+ 	border-bottom: solid 3px #5e7fca;				/*戻るボタンの下の部分を青色にする*/
+
+	position:relative; right:120%;
+	font-size: 130%						/*サイズを大きくする*/
+
+}
 a{
 	color: blue;
 }
