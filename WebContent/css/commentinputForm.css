@@ -17,7 +17,7 @@ p{
 }
 
 /*ボタンのデザイン*/
-#comment{
+#comment1{
 
 	display: inline-block;			/*ボタンの配置を均等につける
  	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
@@ -31,6 +31,27 @@ p{
  	border-bottom: solid 3px #5e7fca;				/*ボタンの下の部分を青色にする*/
 
 	margin: 2%;							/*上下左右の間を空ける*/
+	position:fixed;  bottom:40.7%; right:40%;	/*ボタンの位置の変更*/
+	font-size: 130%						/*サイズを大きくする*/
+}
+
+
+#comment2{
+
+	display: inline-block;			/*ボタンの配置を均等につける
+ 	padding: 0.5em 1em;				/*ログインボタンの大きさを大きくする*/
+  	text-decoration: none;			/*文字の装飾*/
+  	font-weight: bold;				/*文字を太文字にする*/
+  	border-radius: 4px;				/*ボタンの色を濃い灰色にして影をつける*/
+ 	color: white;														/*文字の色を白にする*/
+  	text-shadow: 1px 1px 1px rgba(#FFFFFF);				/*文字に影をつける*/
+ 	background-image: linear-gradient(#6795fd 0%, #67ceff 100%);		/*ボタンの背景色を青色にする*/
+  	box-shadow: 0px 2px 2px rgba(#050505);						/*濃い影をつける*/
+ 	border-bottom: solid 3px #5e7fca;				/*ボタンの下の部分を青色にする*/
+
+	margin: 2%;							/*上下左右の間を空ける*/
+	position:fixed;  bottom:40.7%; left:40%;	/*ボタンの位置の変更*/
+	padding: 1% 1% 1% 1%;
 	font-size: 130%						/*サイズを大きくする*/
 }
 

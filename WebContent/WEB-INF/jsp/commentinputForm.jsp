@@ -25,11 +25,11 @@
 	<form action = "/aTeam/CommentInput" method = "post">
 		コメント:<input type="text" name="Comment">
 		<br>
-		<input id=comment type="submit"  value="送信" >
+		<input id=comment1 type="submit"  value="送信" >
 	</form>
 
 	<form action="/aTeam/Main"method="post">
-		<button type="submit"  id="comment" >
+		<button type="submit"  id="comment2" >
 			戻る
 			</button>
 		</form>
