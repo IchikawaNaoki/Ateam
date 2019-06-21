@@ -27,7 +27,7 @@ public class RegisterUserLogic
 					(!user.getPass().isEmpty()) && (!Character.isLowerCase(user.getPass().charAt(0))))
 			{
 				ConnDbDao conn = new ConnDbDao();
-				if(!conn.ConnDbCollation(user))
+				if(conn.ConnDbRegisterId(user) == 0)
 				{
 					return true;
 				}

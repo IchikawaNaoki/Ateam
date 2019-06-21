@@ -119,6 +119,7 @@ public class RegisterUser extends HttpServlet {
 			/*
 			 * 失敗時のエラーログ的なやつ出しといて
 			 */
+			session.setAttribute("isRegister", isRegister);
 			System.out.println("我が名はめぐみん！多重ログイン情報は爆裂魔法で吹き飛ばします！");
 			//登録失敗時のフォワード先を指定
 			forwardPath = "/WEB-INF/jsp/registerForm.jsp";
