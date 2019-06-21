@@ -147,5 +147,7 @@
 			<a href = "#">↑</a>
 		</p>
 
+		<img class="miho" src="./png/みぽりん.png" width="240" height="303">
+
 	</body>
 </html>
