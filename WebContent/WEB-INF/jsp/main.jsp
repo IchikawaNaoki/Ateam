@@ -39,12 +39,11 @@
 
 		<%--ログアウトボタン --%>
 		<form action="/aTeam/Logout" method="get" onSubmit="return logoutStart()">
-			 <input id="logout" type="submit" value="ログアウト" >
+			 <button onClick="soundplayAndSubmit(this.parentElement)" id="logout" type="submit">ログアウト</button>
+			<audio id="sound-file" preload="auto">
+				<source src="music/click.mp3" type="audio/mp3">
+			</audio>
 		</form>
-		<audio id="sound-file" preload="auto">
-			<source src="music/click.mp3" type="audio/mp3">
-		</audio>
-
 		<%--自分の在席状況の表示 --%>
 		<c:choose>
 			<c:when test="${employee.status == '在席'}">
