@@ -61,6 +61,7 @@ public class Login extends HttpServlet {
 			if(isLogin != null) {
 				List<GetDB> list = new ConnDbDao().ConnDbUserInfo(isLogin.get(0).getId());
 				application.setAttribute("loginUser" , isLogin.get(0));
+				System.out.println(list.get(0).getBelong());
 				//フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 				dispatcher.forward(request, response);

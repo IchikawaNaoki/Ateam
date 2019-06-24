@@ -146,8 +146,8 @@
 		<p id = "pageTop">
 			<a href = "#">↑</a>
 		</p>
-
-		<img class="miho" src="./png/みぽりん.png" width="240" height="303">
-
+		<div class="animation-bounce">
+		<img class="miho" src="./png/みぽりん.png" width="240" height="303"/>
+		</div>
 	</body>
 </html>
