@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.ConnDbDao;
 import model.GetDB;
+import model.GetDbListLogic;
 import model.LoginLogic;
 import model.User;
 
@@ -22,7 +23,11 @@ public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//リクエストパラメータの取得
+
+		//DBを取得して、リストスコープに保存
+		GetDbListLogic getDbListLogic = new GetDbListLogic();
+		List<GetDB> getDbList = getDbListLogic.execute();
+		request.setAttribute("getDbList", getDbList);
 
 		String str=request.getParameter("id");
 		int id=0;
@@ -83,4 +88,3 @@ public class Login extends HttpServlet {
 
 	}
 }
-

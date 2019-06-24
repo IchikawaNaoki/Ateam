@@ -76,6 +76,7 @@ public class DeleteUser extends HttpServlet
 		//削除処理の呼び出し
 		DeleteUserLogic deleteUserLogic = new DeleteUserLogic();
 		boolean isDelete = deleteUserLogic.deleteCheck(deleteUser);
+		session.setAttribute("isDelete", isDelete);
 		if(isDelete)
 		{
 			System.out.println("我が名はめぐみん！データを削除してやりますです！エクスプロージョン！");

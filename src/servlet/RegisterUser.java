@@ -96,6 +96,7 @@ public class RegisterUser extends HttpServlet {
 		System.out.println("我が名はめぐみん！データを入力のための照合チェックします");
 		//登録処理の呼び出し
 		boolean isRegister = registerUserLogic.checkRegister(registerUser);
+		session.setAttribute("isRegister", isRegister);
 		if(isRegister)
 		{
 			System.out.println("我が名はめぐみん！データを登録します");
@@ -119,6 +120,7 @@ public class RegisterUser extends HttpServlet {
 			/*
 			 * 失敗時のエラーログ的なやつ出しといて
 			 */
+
 			System.out.println("我が名はめぐみん！多重ログイン情報は爆裂魔法で吹き飛ばします！");
 			//登録失敗時のフォワード先を指定
 			forwardPath = "/WEB-INF/jsp/registerForm.jsp";

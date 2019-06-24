@@ -5,6 +5,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ page import = "model.GetDB" %>
 <% GetDB getDbList = (GetDB)session.getAttribute("getDbList"); %>
 <% String Comment = (String) session.getAttribute("oldComment"); %>
@@ -12,7 +14,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-
+<link rel="stylesheet" href="css/commentinputForm.css">
 	<title>コメント入力</title>
 </head>
 <body>
@@ -24,8 +26,13 @@
 	<!-- コメント記述 -->
 	<form action = "/aTeam/CommentInput" method = "post">
 		コメント:<input type="text" name="Comment">
-		<input type="submit"  value="送信" >
+		<br>
+		<input id=comment1 type="submit"  value="送信" >
 	</form>
-	<a href = "/aTeam/Main">戻る</a>
-</body>
+
+	<form action="/aTeam/Main"method="post">
+		<button  id="comment2" type="submit">戻る
+			</button>
+		</form>
+	</body>
 </html>

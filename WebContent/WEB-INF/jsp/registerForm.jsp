@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,7 +9,14 @@
 		<script type="text/javascript">
 			var cheak = function(){
 				if(window.confirm('下記のユーザーで登録しますか？')){
-					return true;
+					<% Boolean registerResult = (Boolean)session.getAttribute("isRegister");%>
+					if(<%=registerResult%>){
+						return true;
+					}
+					else{
+						alert("すでに登録されています。");
+						return false;
+					}
 				}
 				else{
 					return false;
@@ -32,12 +40,12 @@
 			<input type="radio" name="belongs" value="宮崎"required>宮崎
 			<input type="radio" name="belongs" value="札幌"required>札幌
 			<br>
-			<button id="register" type="submit">
+			<button id="register1" type="submit">
 				登録
 			</button>
 		</form>
 		<form action="/aTeam/Login"method="post">
-			<button type="submit"  id="register" >
+			<button type="submit"  id="register2" >
 				戻る
 			</button>
 		</form>
